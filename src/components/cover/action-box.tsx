@@ -55,7 +55,7 @@ const ActionBox = () => {
           </div>
           <div className="flex items-start gap-2 self-stretch">
             <button
-              className={`flex justify-center items-center gap-3 flex-[1_0_0] p-2 rounded-xl border border-[#FFCC29] transition-all ease-in-out ${active === 'ETH' ? ' bg-[#ffcc29]' : 'bg-[#FFF7DF] hover:bg-[#FFEFBD]'}`}
+              className={`flex justify-center items-center gap-3 flex-[1_0_0] p-2 rounded-xl border border-[#FFCC29] transition-all ease-in-out cursor-meerkat ${active === 'ETH' ? ' bg-[#ffcc29]' : 'bg-[#FFF7DF] hover:bg-[#FFEFBD]'}`}
               disabled={active === 'ETH'}
               onClick={() => setActive('ETH')}
             >
@@ -63,7 +63,7 @@ const ActionBox = () => {
               <span className="font-neueMontreal text-[#3E0E0C] text-center text-xs font-bold leading-3">ETH</span>
             </button>
             <button
-              className={`flex justify-center items-center gap-3 flex-[1_0_0] p-2 rounded-xl border border-[#FFCC29] transition-all ease-in-out ${active === 'USDT' ? ' bg-[#ffcc29]' : 'bg-[#FFF7DF] hover:bg-[#FFEFBD]'}`}
+              className={`flex justify-center items-center gap-3 flex-[1_0_0] p-2 rounded-xl border border-[#FFCC29] transition-all ease-in-out cursor-meerkat ${active === 'USDT' ? ' bg-[#ffcc29]' : 'bg-[#FFF7DF] hover:bg-[#FFEFBD]'}`}
               disabled={active === 'USDT'}
               onClick={() => setActive('USDT')}
             >
@@ -71,7 +71,7 @@ const ActionBox = () => {
               <span className="font-neueMontreal text-[#3E0E0C] text-center text-xs font-bold leading-3">USDT</span>
             </button>
             <button
-              className={`flex justify-center items-center gap-3 flex-[1_0_0] p-2 rounded-xl border border-[#FFCC29] transition-all ease-in-out ${active === 'CARD' ? ' bg-[#ffcc29]' : 'bg-[#FFF7DF] hover:bg-[#FFEFBD]'}`}
+              className={`flex justify-center items-center gap-3 flex-[1_0_0] p-2 rounded-xl border border-[#FFCC29] transition-all ease-in-out cursor-meerkat ${active === 'CARD' ? ' bg-[#ffcc29]' : 'bg-[#FFF7DF] hover:bg-[#FFEFBD]'}`}
               disabled={active === 'CARD'}
               onClick={() => setActive('CARD')}
             >
@@ -90,7 +90,7 @@ const ActionBox = () => {
                   <input
                     type="text"
                     placeholder="0.00"
-                    className="w-[100px] h-full text-[#998F7F] font-neueMontreal text-xl font-bold leading-3 outline-none"
+                    className="w-[100px] h-full text-[#998F7F] font-neueMontreal text-xl font-bold leading-3 outline-none cursor-meerkat"
                     value={form}
                     onChange={(e) => setForm(e.target.value)}
                   />
@@ -116,10 +116,10 @@ const ActionBox = () => {
             </div>
           </div>
           <div className="flex flex-col items-center gap-2 self-stretch">
-            <button className="flex h-12 justify-center items-center self-stretch px-6 py-2.5 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out">
+            <button className="flex h-12 justify-center items-center self-stretch px-6 py-2.5 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
               <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px]">CONNECT WALLET</span>
             </button>
-            <button className="flex h-12 justify-center items-center gap-2 self-stretch px-6 py-2.5 border border-[#FFCC29] rounded-xl bg-[#fff7df] hover:bg-[#FFEFBD] transition-all ease-in-out">
+            <button className="flex h-12 justify-center items-center gap-2 self-stretch px-6 py-2.5 border border-[#FFCC29] rounded-xl bg-[#fff7df] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
               <img src={BnbLogo} alt="logo" className="w-6 h-6" />
               <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px] ">SWITCH TO BNB CHAIN</span>
             </button>

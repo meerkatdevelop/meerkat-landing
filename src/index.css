@@ -2,6 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+.custom-cursor {
+  cursor: none;
+}
+
+.custom-button {
+  transition: all 0.25s ease-in-out;
+  &:hover {
+    &:after {
+      opacity: 1;
+      transform: translateY(0) rotateX(0);
+    }
+    &:before {
+      opacity: 0;
+      transform: translateY(50%) rotateX(90deg);
+    }
+  }
+  &:after {
+    padding: 8px 0px;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    display: block;
+    transition: 0.25s;
+    position: absolute;
+    content: attr(data-tag);
+    transform: translateY(-50%) rotateX(90deg);
+  }
+  &:before {
+    top: 0;
+    left: 0;
+    opacity: 1;
+    width: 100%;
+    display: block;
+    transition: 0.25s;
+    position: relative;
+    content: attr(data-tag);
+    transform: translateY(0) rotateX(0);
+  }
+}
 @font-face {
   font-family: 'neue';
   font-style: normal;
