@@ -104,8 +104,8 @@ const ActionBox = () => {
               <div className="flex w-[172px] flex-col items-end gap-2">
                 <span className="text-right font-neueMontreal text-[#C9B6B5] text-[8px] font-medium leading-3 tracking-[0.08px]">YOU RECEIVE $MERK</span>
 
-                <div className="flex h-[52px] items-center gap-4 self-stretch p-2 border border-[#998F7F] rounded-xl">
-                  <span className="w-[100px] text-[#998F7F] font-neueMontreal text-xl font-bold leading-3 outline-none">
+                <div className="flex h-[52px] items-center gap-4 self-stretch p-2 border border-[#998F7F] rounded-xl ">
+                  <span className="w-[100px]  text-[#998F7F] font-neueMontreal py-2 text-xl font-bold leading-3 overflow-y-hidden no-bar-scroll outline-none">
                     {(Number(form) * merkPrice).toLocaleString('en-US', { maximumFractionDigits: 2 })}
                   </span>
                   <div className="flex items-center gap-3 p-2 rounded-lg bg-[#FFF7DF]">

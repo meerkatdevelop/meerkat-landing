@@ -6,6 +6,11 @@
   cursor: none;
 }
 
+.no-bar-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .custom-button {
   transition: all 0.25s ease-in-out;
   &:hover {
