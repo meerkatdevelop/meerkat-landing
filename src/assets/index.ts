@@ -1,6 +1,9 @@
 //Icons
 import ListIcon from './icons/list'
 import CaretDownIcon from './icons/caret-down'
+import CaretUpIcon from './icons/caret-up'
+import CaretLeftIcon from './icons/caret-left'
+import CaretRightIcon from './icons/caret-right'
 import CreditCardIcon from './icons/credit-card'
 import CheckIcon from './icons/check'
 import PlayIcon from './icons/play'
@@ -20,17 +23,24 @@ import CapaFeatureBottom from './images/Capa_Feature_Bottom.svg'
 import TreeMoney from './images/ILUSTRACIÓN_DINERO.svg'
 import MiniApp from './images/ILUSTRACIÓN_MINIAPP.svg'
 import MemeCreator from './images/ILUSTRACIÓN_avatar.svg'
+import FooterTopDecoration from './images/Group 37.svg'
 
 //Flags
 import CountryEN1 from './flags/COUNTRY_EN 1.svg'
 //Coins
-import ETH from './coins/ethereum-eth.svg'
 import USDT from './coins/tether-usdt.svg'
+import SOLANA from './coins/solana-sol.svg'
+import BNB from './coins/binance-bnb.svg'
+import ETH from './coins/ethereum-eth.svg'
+import BASE from './coins/coinbase-base.svg'
 
 export {
   //Icons
   ListIcon,
   CaretDownIcon,
+  CaretUpIcon,
+  CaretLeftIcon,
+  CaretRightIcon,
   CheckIcon,
   CreditCardIcon,
   PlayIcon,
@@ -49,9 +59,13 @@ export {
   TreeMoney,
   MiniApp,
   MemeCreator,
+  FooterTopDecoration,
   //Flags
   CountryEN1,
   //Coins
-  ETH,
   USDT,
+  SOLANA,
+  BNB,
+  ETH,
+  BASE,
 }

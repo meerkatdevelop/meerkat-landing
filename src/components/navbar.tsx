@@ -30,7 +30,7 @@ const Navbar = () => {
         </button>
         <button className="flex justify-center items-center gap-2 p-2 rounded-lg cursor-meerkat">
           <img src={CountryEN1} alt="flag" className="w-6 h-6" />
-          <CaretDownIcon color={isMenuOpen ? '#FFCC29' : '#521210'} className="w-6 h-6" />
+          <CaretDownIcon width="24" height="24" color={isMenuOpen ? '#FFCC29' : '#521210'} className="w-6 h-6 object-contain" />
         </button>
       </div>
     </nav>

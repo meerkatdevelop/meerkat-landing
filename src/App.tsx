@@ -7,6 +7,8 @@ import Features from './components/features'
 import Presale from './components/pre-sale'
 import Roadmap from './components/roadmap'
 import Tokenomics from './components/tokenomics'
+import FAQ from './components/faq'
+import Footer from './components/footer'
 
 function App() {
   return (
@@ -45,8 +47,12 @@ function App() {
       <Roadmap />
       {/* TOKENOMICS */}
       <Tokenomics />
+      {/* FAQ */}
+      <FAQ />
       {/* PRESALE */}
       <Presale />
+      {/* FOOTER */}
+      <Footer />
     </main>
   )
 }

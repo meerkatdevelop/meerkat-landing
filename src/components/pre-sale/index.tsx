@@ -1,5 +1,3 @@
-import { Capa_1 } from '../../assets'
-
 const Presale = () => {
   return (
     <section className="cursor-meerkat flex flex-col justify-start items-center w-[1440px] h-[704px] bg-no-repeat bg-[url('./assets/images/HERO_V8_1.svg')] mix-blend-exclusion">
@@ -34,7 +32,6 @@ const Presale = () => {
           </div>
         </div>
       </div>
-      <img src={Capa_1} alt="banner" className="absolute bottom-0 left-0" />
     </section>
   )
 }
