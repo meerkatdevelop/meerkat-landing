@@ -15,7 +15,7 @@ const Menu = () => {
     <>
       {/* Menu */}
       <div
-        className={`absolute top-0 left-0 flex w-[1440px] h-[639px] flex-col justify-between items-start shrink-0 px-20 py-10 rounded-[0px_0px_32px_32px] bg-[#250807] ${isMenuOpen ? 'translate-y-0 ' : '-translate-y-[700px]'} transition-all ease-in-out duration-500 `}
+        className={`absolute top-0 left-0 flex w-[1440px] h-[639px] flex-col justify-between items-start shrink-0 px-20 py-10 rounded-[0px_0px_32px_32px] bg-[#250807] ${isMenuOpen ? 'translate-y-0 ' : '-translate-y-[700px]'} z-10 transition-all ease-in-out duration-500 `}
       >
         <Navbar />
         <div className="flex justify-between items-center self-stretch">

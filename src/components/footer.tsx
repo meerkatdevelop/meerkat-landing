@@ -15,7 +15,7 @@ const Footer = () => {
       <div className="inline-flex w-[463px] h-[330px] pl-20 pt-[275px] shrink-0 flex-col items-start gap-[104px]">
         <div className="flex w-[222px] flex-col items-end gap-4">
           <img src={LogoLight} alt="logo" className="w-[216px] h-[64px] object-cover" />
-          <span className="flex h-[39px] flex-col justify-center self-stretch font-neueMontreal text-white text-2xl font-medium leading-8 tracking-[0.24px]">
+          <span className="self-stretch font-neueMontreal text-white text-2xl font-medium leading-8 tracking-[0.24px]">
             © {new Date().getFullYear()} Meerkat
           </span>
         </div>

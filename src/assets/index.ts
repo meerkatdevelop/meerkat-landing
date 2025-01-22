@@ -21,9 +21,18 @@ import LogoLight from './images/MEERKAT_LOGO LIGHT 1.svg'
 import CapaFeatureTop from './images/Capa_Feature_Top.svg'
 import CapaFeatureBottom from './images/Capa_Feature_Bottom.svg'
 import TreeMoney from './images/ILUSTRACIÓN_DINERO.svg'
-import MiniApp from './images/ILUSTRACIÓN_MINIAPP.svg'
+import MiniApp from './images/MEERKAT_MOVIL_PERSONAJE.svg'
 import MemeCreator from './images/ILUSTRACIÓN_avatar.svg'
 import FooterTopDecoration from './images/Group 37.svg'
+import CoinTelegraph from './images/coin-telegraph.svg'
+import BitcoinATM from './images/Bitcoin-ATM.svg'
+import Beincrypto from './images/beincrypto.svg'
+import Decrypt from './images/decrypt.svg'
+import BussinessInsider from './images/business-insider.svg'
+import YahooFinance from './images/Yahoo!_Finance.svg'
+import Coin1 from './images/Coin1.svg'
+import Coin2 from './images/Coin2.svg'
+import MWallet from './images/Meerkat_Wallet.svg'
 
 //Flags
 import CountryEN1 from './flags/COUNTRY_EN 1.svg'
@@ -60,6 +69,15 @@ export {
   MiniApp,
   MemeCreator,
   FooterTopDecoration,
+  CoinTelegraph,
+  BitcoinATM,
+  Beincrypto,
+  Decrypt,
+  BussinessInsider,
+  YahooFinance,
+  Coin1,
+  Coin2,
+  MWallet,
   //Flags
   CountryEN1,
   //Coins

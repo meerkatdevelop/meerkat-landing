@@ -27,9 +27,7 @@ const Tokenomics = () => {
   return (
     <section className="cursor-meerkat flex w-[1440px] flex-col items-start gap-[88px] px-20 py-28 bg-[#250807]">
       <div className="flex flex-col items-center gap-16 self-stretch">
-        <h2 className="flex h-[95px] flex-col justify-center self-stretch font-newTitle text-[#FFEFD4] text-center text-[104px] font-bold leading-[98px] tracking-[1.04px] uppercase">
-          tokenomics
-        </h2>
+        <h2 className="self-stretch font-newTitle text-[#FFEFD4] text-center text-[104px] font-bold leading-[98px] tracking-[1.04px] uppercase">tokenomics</h2>
         <div className="flex flex-col items-start gap-10 self-stretch p-6 border border-[#4A100E] rounded-3xl">
           <div className="flex h-[60px] justify-between items-center self-stretch">
             <div className="flex flex-col justify-center items-start flex-[1_0_0] self-stretch">

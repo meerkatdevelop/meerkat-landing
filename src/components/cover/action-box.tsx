@@ -9,7 +9,6 @@ const ActionBox = () => {
   const merkPrice = 0.0151424545
   const isConnected = true
 
-  console.log(isCoinMenuOpen)
   return (
     <div className="pt-8">
       <div className="relative flex w-[378px] flex-col items-center gap-4 p-6 rounded-3xl bg-white overflow-y-hidden">

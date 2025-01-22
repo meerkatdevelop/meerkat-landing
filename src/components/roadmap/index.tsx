@@ -1,44 +1,118 @@
-import { CheckIcon } from '../../assets'
+import { useEffect, useRef, useState } from 'react'
+import Card from './card'
 
 const Roadmap = () => {
+  const sectionRef = useRef<HTMLDivElement | null>(null)
+  // const [isScrollingHorizontally, setIsScrollingHorizontally] = useState(false)
+  const [amount, setAmount] = useState(0)
+
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return
+    // const observer = new IntersectionObserver(
+    //   ([entry]) => {
+    //     if (entry.isIntersecting) {
+    //       // console.log(entry)
+    //       // console.log('here')
+    //       setIsScrollingHorizontally(true)
+    //       // document.body.style.overflowY = 'hidden'
+    //     } else {
+    //       setIsScrollingHorizontally(false)
+    //       // document.body.style.overflowY = 'auto'
+    //     }
+    //   },
+    //   { threshold: 0.73 }
+    // )
+    // observer.observe(section)
+    // return () => observer.disconnect()
+
+    const { top, bottom } = section.getBoundingClientRect()
+    console.log('top:', top, 'bottom:', bottom, 'media:', bottom + top / 2)
+  }, [])
+
+  useEffect(() => {
+    const container = sectionRef.current
+    // console.log(container)
+    if (!container) return
+
+    let scrollAmount = 0
+    // const scrollStep = 10;
+    const maxScroll = container.scrollWidth - container.clientWidth
+    // console.log(maxScroll)
+
+    const handleScroll = (event: WheelEvent) => {
+      const { top, bottom } = container.getBoundingClientRect()
+      // console.log('top:', top, 'bottom:', bottom, 'media:', bottom + top / 2)
+      // console.log(event.clientY)
+
+      const isActive = event.clientY >= top && event.clientY <= bottom
+      console.log(isActive)
+      if (isActive) {
+        event.preventDefault() // Stop vertical scrolling
+        scrollAmount = Math.min(Math.max(scrollAmount + event.deltaY, 0), maxScroll) // Boundaries for horizontal scrolling
+        setAmount(scrollAmount)
+      }
+      // console.log(event.deltaY)
+      // event.preventDefault() // Stop vertical scrolling
+      // scrollAmount = Math.min(Math.max(scrollAmount + event.deltaY, 0), maxScroll) // Boundaries for horizontal scrolling
+      // setAmount(scrollAmount)
+      // container.scrollTo({ left: scrollAmount, behavior: 'smooth' })
+      // container.style.transform = `translateX(-${scrollAmount}px)`
+      // console.log(scrollAmount)
+      // Check if horizontal scrolling is done
+      // if (scrollAmount >= maxScroll) {
+      //   setIsScrollingHorizontally(false)
+      //   document.body.style.overflowY = 'auto' // Re-enable vertical scrolling
+      // }
+    }
+
+    window.addEventListener('wheel', handleScroll, { passive: false })
+
+    return () => window.removeEventListener('wheel', handleScroll)
+  }, [])
+
+  console.log(amount)
+
   return (
-    <section className="cursor-meerkat flex flex-col items-start gap-2.5 self-stretch px-20 py-28 bg-[#250807] overflow-x-hidden">
+    <section className="cursor-meerkat flex flex-col h-screen items-start gap-2.5 self-stretch px-20 py-28 bg-[#250807] overflow-x-hidden">
       <div className="flex flex-col items-start gap-16 self-stretch">
-        <h2 className="flex h-24 flex-col justify-center self-stretch font-newTitle text-[#FFEFD4] text-center text-[104px] font-bold leading-[104px] tracking-[1.04px] uppercase">
-          Roadmap
-        </h2>
+        <h2 className="self-stretch font-newTitle text-[#FFEFD4] text-center text-[104px] font-bold leading-[104px] tracking-[1.04px] uppercase">Roadmap</h2>
       </div>
-      <div className="flex items-start gap-6 ">
-        {/* RoadMapCard */}
-        <div className="flex w-96 flex-col items-start gap-2.5 pt-16">
-          <div className="flex flex-col justify-center items-start gap-10 self-stretch p-4 border border-[#521210] rounded-3xl bg-[#310B0A]">
-            <div className="flex flex-col items-start gap-4 self-stretch">
-              {/* TAG */}
-              <div className="flex justify-between items-start self-stretch p-2 rounded-2xl bg-white">
-                <div className="flex w-[120px] justify-center items-center gap-1.5 px-3 py-1.5 border rounded-[100px] border-[#31DF46] bg-[#073209]">
-                  <CheckIcon color="#31DF46" />
-                  <span className="font-neueMontreal text-[#31DF46] text-xs leading-[normal] tracking-[0.12px] uppercase">Completed</span>
-                </div>
-                <div className="flex h-7 justify-center items-center gap-1.5 px-3 py-1.5 border rounded-[100px] border-[#FF6B00] bg-[#5B2600]">
-                  <span className="font-neueMontreal text-[#FF6B00] text-xs leading-[normal] tracking-[0.12px] uppercase">30 DE ABRIL DE 2024</span>
-                </div>
-              </div>
-              {/* Content */}
-              <div className="flex flex-col items-start gap-2 self-stretch">
-                <h5 className="flex h-[29px] flex-col justify-end self-stretch text-[#FFEFD4] text-2xl font-bold leading-6 tracking-[0.24px] uppercase">
-                  Meerkat ha nacido
-                </h5>
-                <span className="flex h-10 flex-col justify-center self-stretch text-[#FFEFD4] text-sm leading-5">
-                  Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha
-                </span>
-              </div>
-            </div>
-            <button className="flex h-10 justify-center items-center px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
-              <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px]">LOREMP</span>
-            </button>
-          </div>
+      <div className="flex items-start gap-28 w-screen  px-12" ref={sectionRef}>
+        <div
+          className="flex items-start gap-28 w-fit"
+          style={{
+            willChange: 'transform',
+            opacity: 1,
+            transform: `translateX(-${amount}px)`,
+          }}
+        >
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
         </div>
       </div>
+      {/* <div
+        className="content-start items-start flex flex-none flex-col flex-nowrap gap-[70px] h-screen justify-center max-w-[1440px] overflow-hidden sticky w-full will-change-transform z-[1] p-0 top-0"
+        ref={sectionRef}
+      >
+        <div
+          className="content-center items-center flex flex-none flex-row flex-nowrap gap-[180px] h-min justify-start overflow-visible relative w-min pl-[200px] pr-0 py-0"
+          style={{
+            willChange: 'transform',
+            opacity: 1,
+            transform: `translateX(-${amount}px)`,
+          }}
+        >
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
+      </div> */}
     </section>
   )
 }
