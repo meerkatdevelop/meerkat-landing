@@ -86,7 +86,7 @@ const ActionBox = () => {
             className={`flex flex-col items-center gap-2 self-stretch ${isConnected ? 'translate-y-0' : '-translate-y-4'} transition-all ease-in-out duration-1000 `}
           >
             <button className="flex h-10 justify-center items-center gap-3 self-stretch px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat overflow-hidden">
-              <div className={`flex relative h-6 ${isConnected ? 'w-16' : 'w-0'} transition-all ease-in-out duration-500`}>
+              <div className={`flex relative h-6 ${isConnected ? 'w-0' : 'w-16'} transition-all ease-in-out duration-500`}>
                 <img src={USDT} alt="coin" className="w-6 h-6 absolute left-0" />
                 <img src={SOLANA} alt="coin" className="w-6 h-6 absolute left-3" />
                 <img src={BNB} alt="coin" className="w-6 h-6 absolute left-6" />

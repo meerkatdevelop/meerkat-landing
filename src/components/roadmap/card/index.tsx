@@ -1,8 +1,15 @@
+import { motion } from 'motion/react'
 import { CheckIcon } from '../../../assets'
 
-const Card = () => {
+const Card = ({ i }: { i: number }) => {
   return (
-    <div className="flex w-96 flex-col items-start gap-2.5 pt-16 ">
+    <motion.div
+      whileInView={{ y: [6.0, -6, 6] }}
+      transition={{
+        y: { duration: 3, repeat: Infinity },
+      }}
+      className={`flex w-96 flex-col items-start gap-2.5 pt-16 ${i % 2 === 0 ? 'mt-[150px]' : 'mb-[150px]'}`}
+    >
       <div className="flex flex-col justify-center items-start gap-10 self-stretch p-4 border border-[#521210] rounded-3xl bg-[#310B0A]">
         <div className="flex flex-col items-start gap-4 self-stretch">
           {/* TAG */}
@@ -31,7 +38,7 @@ const Card = () => {
           <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px]">LOREMP</span>
         </button>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

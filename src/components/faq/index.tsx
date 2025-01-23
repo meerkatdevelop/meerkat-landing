@@ -32,7 +32,7 @@ const FAQ = () => {
               </button>
             </div>
             <div
-              className={`flex flex-col items-start gap-6 self-stretch overflow-hidden transition-all ease-in-out duration-1000 ${isBoxActive.box1 ? 'h-[110px]' : 'h-0'}`}
+              className={`flex flex-col items-start gap-6 self-stretch overflow-hidden transition-all ease-in-out duration-500 ${isBoxActive.box1 ? 'h-[110px]' : 'h-0'}`}
             >
               <p className="font-neueMontreal text-[#521210] text-lg leading-6">
                 Lorem ipsum dolor sit amet consectetur adipiscing elit mollis pharetra, porttitor vestibulum bibendum neque ligula massa euismod proin, mauris
@@ -56,7 +56,7 @@ const FAQ = () => {
               </button>
             </div>
             <div
-              className={`flex flex-col items-start gap-6 self-stretch overflow-hidden transition-all ease-in-out duration-1000 ${isBoxActive.box2 ? 'h-[110px]' : 'h-0'}`}
+              className={`flex flex-col items-start gap-6 self-stretch overflow-hidden transition-all ease-in-out duration-500 ${isBoxActive.box2 ? 'h-[110px]' : 'h-0'}`}
             >
               <p className="font-neueMontreal text-[#521210] text-lg leading-6">
                 Lorem ipsum dolor sit amet consectetur adipiscing elit mollis pharetra, porttitor vestibulum bibendum neque ligula massa euismod proin, mauris
@@ -80,7 +80,7 @@ const FAQ = () => {
               </button>
             </div>
             <div
-              className={`flex flex-col items-start gap-6 self-stretch overflow-hidden transition-all ease-in-out duration-1000 ${isBoxActive.box3 ? 'h-[110px]' : 'h-0'}`}
+              className={`flex flex-col items-start gap-6 self-stretch overflow-hidden transition-all ease-in-out duration-500 ${isBoxActive.box3 ? 'h-[110px]' : 'h-0'}`}
             >
               <p className="font-neueMontreal text-[#521210] text-lg leading-6">
                 Lorem ipsum dolor sit amet consectetur adipiscing elit mollis pharetra, porttitor vestibulum bibendum neque ligula massa euismod proin, mauris
@@ -104,7 +104,7 @@ const FAQ = () => {
               </button>
             </div>
             <div
-              className={`flex flex-col items-start gap-6 self-stretch overflow-hidden transition-all ease-in-out duration-1000 ${isBoxActive.box4 ? 'h-[110px]' : 'h-0'}`}
+              className={`flex flex-col items-start gap-6 self-stretch overflow-hidden transition-all ease-in-out duration-500 ${isBoxActive.box4 ? 'h-[110px]' : 'h-0'}`}
             >
               <p className="font-neueMontreal text-[#521210] text-lg leading-6">
                 Lorem ipsum dolor sit amet consectetur adipiscing elit mollis pharetra, porttitor vestibulum bibendum neque ligula massa euismod proin, mauris

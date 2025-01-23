@@ -8,7 +8,7 @@ const About = () => {
         <h4 className="self-stretch font-neueMontreal text-[#BFB39F] text-center font-medium leading-[normal] tracking-[0.16px] uppercase">
           Meerkat featured on
         </h4>
-        <div className="flex w-screen opacity-[0.52] custom-mask overflow-x-hidden">
+        <div className="flex w-[1440px] opacity-[0.52] custom-mask overflow-x-hidden">
           <div className="flex w-fit items-center gap-28 py-6 nowrap animate-marquee ">
             <MarqueeImgs />
             <MarqueeImgs />

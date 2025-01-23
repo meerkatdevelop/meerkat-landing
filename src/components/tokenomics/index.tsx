@@ -67,7 +67,7 @@ const Tokenomics = () => {
         </div>
       </div>
       <div ref={sectionRef} className="relative flex w-[1281px] h-[469px] shrink-0 justify-center items-center pb-[5px]">
-        <h4 className="flex w-[820px] h-[281px] flex-col justify-center shrink-0 font-newTitle text-[#521210] text-center text-[160px] font-bold leading-[139px] uppercase">
+        <h4 className="flex w-[820px] h-[281px] flex-col justify-center shrink-0 font-newTitle text-[#FFEFBD] text-center text-[160px] font-bold leading-[139px] uppercase">
           The engine that makes the $MERK machine run
         </h4>
         {/* TokenomicsCard */}
