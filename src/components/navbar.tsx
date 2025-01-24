@@ -7,7 +7,7 @@ const Navbar = () => {
   const { isMenuOpen, setIsMenuOpen } = useAppContext()
   const isConnected = false
   return (
-    <nav className={`sticky top-0 flex-col w-[1280px]  ${isMenuOpen ? 'z-20' : 'z-10'}`}>
+    <nav className={`sticky top-0 flex-col w-screen  ${isMenuOpen ? 'z-20' : 'z-10'}`}>
       <div className="relative w-screen">
         <Menu />
       </div>

@@ -1,6 +1,3 @@
-import { Capa_1 } from './assets'
-import ActionBox from './components/cover/action-box'
-import Banner from './components/cover/banner'
 import Navbar from './components/navbar'
 import Features from './components/features'
 import Presale from './components/pre-sale'
@@ -12,41 +9,40 @@ import About from './components/about'
 import MeerkatWallet from './components/meerkat-wallet'
 import MediaMarketing from './components/media-marketing'
 import ReactLenis from 'lenis/react'
+import { useScroll } from 'motion/react'
+import { useRef } from 'react'
+
+import Hero from './assets/hero'
+import Cover from './components/cover'
 
 function App() {
+  const targetRef = useRef<HTMLDivElement | null>(null)
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ['start start', 'end end'],
+  })
+
+  //MAX WIDTH --- Centrar Contenidop
+
   return (
     <ReactLenis root>
-      <main className="relative bg-no-repeat bg-[url('./assets/images/HERO_V8.svg')]">
-        <Navbar />
-
-        <section className="cursor-meerkat relative flex flex-col justify-start items-center w-[1440px] h-[610px]">
-          <div className="flex w-[1280px] justify-between items-start px-20">
-            {/* Banner */}
-            <Banner />
-            {/* Action-BOX */}
-            <ActionBox />
+      <main className="cursor-meerkat w-screen justify-center">
+        <div ref={targetRef} className="relative w-full">
+          <Navbar />
+          <Hero move={scrollYProgress} />
+          <Cover />
+          <div className="w-screen -mt-[98px]">
+            <About />
+            <Features />
+            <Roadmap />
+            <Tokenomics />
+            <MeerkatWallet />
+            <MediaMarketing />
+            <FAQ />
+            <Presale />
+            <Footer />
           </div>
-          <img src={Capa_1} alt="banner" className="absolute bottom-0 left-0" />
-        </section>
-
-        {/* ABOUT */}
-        <About />
-        {/* FEATURES */}
-        <Features />
-        {/* ROADMAP */}
-        <Roadmap />
-        {/* TOKENOMICS */}
-        <Tokenomics />
-        {/* MEERKAT_WALLET */}
-        <MeerkatWallet />
-        {/*MEDIA_MARKETING*/}
-        <MediaMarketing />
-        {/* FAQ */}
-        <FAQ />
-        {/* PRESALE */}
-        <Presale />
-        {/* FOOTER */}
-        <Footer />
+        </div>
       </main>
     </ReactLenis>
   )

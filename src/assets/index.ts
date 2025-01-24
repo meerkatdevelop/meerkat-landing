@@ -16,7 +16,11 @@ import InstagramIcon from './icons/instagram'
 import Logo from './images/MEERKAT_LOGO 1.svg'
 import MeerkatCoin from './images/MEERKAT_COIN II.svg'
 import BnbLogo from './images/bnb-logo.svg'
-import Capa_1 from './images/CAPA_1.svg'
+import Divider from './images/divider.svg'
+import Character from './images/MEERKAT_PERSONAJE.svg'
+import Clouds from './images/NUBES.svg'
+import Mountain from './images/MEERKAT_MONTAÑAS_ESCENARIO.svg'
+import Ground from './images/MEERKAT_SUELO_ESCENARIO.svg'
 import LogoLight from './images/MEERKAT_LOGO LIGHT 1.svg'
 import CapaFeatureTop from './images/Capa_Feature_Top.svg'
 import CapaFeatureBottom from './images/Capa_Feature_Bottom.svg'
@@ -62,7 +66,11 @@ export {
   LogoLight,
   MeerkatCoin,
   BnbLogo,
-  Capa_1,
+  Divider,
+  Character,
+  Clouds,
+  Mountain,
+  Ground,
   CapaFeatureTop,
   CapaFeatureBottom,
   TreeMoney,

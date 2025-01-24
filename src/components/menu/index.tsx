@@ -43,7 +43,7 @@ const Menu = () => {
           initial="hidden"
           animate="visible"
           exit="exit"
-          className={`absolute top-0 left-0 flex w-[1440px] h-[629px] flex-col justify-between items-start shrink-0 px-20 py-10 rounded-[0px_0px_32px_32px] bg-[#250807] -z-10 cursor-meerkat`}
+          className={`absolute top-0 left-0 flex w-full h-[629px] flex-col justify-between items-start shrink-0 px-20 py-10 rounded-[0px_0px_32px_32px] bg-[#250807] -z-10 cursor-meerkat`}
         >
           {/* <Navbar /> */}
           <div className="h-12" />
