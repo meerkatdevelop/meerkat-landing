@@ -3,7 +3,7 @@ import { MWallet } from '../../assets'
 const MeerkatWallet = () => {
   return (
     <section className="cursor-meerkat flex flex-col w-screen items-center px-20 py-28 bg-[#250807] ">
-      <div className="flex flex-col w-[1440px] items-center justify-center">
+      <div className="flex flex-col w-full od:w-[1440px] items-center justify-center od:px-20">
         <div className="flex justify-center items-start gap-16 self-stretch">
           <div className="flex flex-col items-start gap-2.5 flex-[1_0_0]">
             <h2 className="self-stretch font-newTitle text-[#FFEFD4] text-[104px] font-bold leading-[104px] tracking-[1.04px] uppercase">MEERKAT WALLET</h2>

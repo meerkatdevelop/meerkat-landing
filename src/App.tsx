@@ -11,27 +11,29 @@ import MediaMarketing from './components/media-marketing'
 import ReactLenis from 'lenis/react'
 import { useScroll } from 'motion/react'
 import { useRef } from 'react'
-
 import Hero from './assets/hero'
 import Cover from './components/cover'
 
 function App() {
-  const targetRef = useRef<HTMLDivElement | null>(null)
+  const parallaxRef = useRef<HTMLDivElement | null>(null)
+  const transitionRef = useRef<HTMLDivElement | null>(null)
   const { scrollYProgress } = useScroll({
-    target: targetRef,
+    target: parallaxRef,
     offset: ['start start', 'end end'],
   })
-
-  //MAX WIDTH --- Centrar Contenidop
+  const { scrollYProgress: transitionProgress } = useScroll({
+    target: transitionRef,
+    offset: ['start start', 'start start'],
+  })
 
   return (
     <ReactLenis root>
       <main className="cursor-meerkat w-screen justify-center">
-        <div ref={targetRef} className="relative w-full">
-          <Navbar />
+        <div ref={parallaxRef} className="relative w-full">
+          <Navbar move={transitionProgress} />
           <Hero move={scrollYProgress} />
           <Cover />
-          <div className="w-screen -mt-[98px]">
+          <div ref={transitionRef} className="-mt-[98px]">
             <About />
             <Features />
             <Roadmap />

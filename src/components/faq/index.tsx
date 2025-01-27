@@ -10,11 +10,11 @@ const FAQ = () => {
   })
   return (
     <section className="cursor-meerkat relative flex flex-col w-screen  h-fit items-center py-[100px] bg-[#310B0A]">
-      <div className="flex flex-col w-[1440px]">
+      <div className="flex flex-col w-full od:w-[1440px]">
         {/* TOP ILUSTRATION */}
         <img src={CapaFeatureTop} alt="decoration" className="absolute top-0 left-0 w-full object-contain" />
 
-        <div className="flex w-[1440px] flex-col items-start gap-10 px-20 py-28">
+        <div className="flex w-full flex-col items-start gap-10 px-20 py-28">
           <h2 className="self-stretch font-newTitle text-[#FFEFD4] text-center text-[104px] font-bold leading-[98px] tracking-[1.04px] uppercase">
             any question left?
           </h2>

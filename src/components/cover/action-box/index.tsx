@@ -1,37 +1,40 @@
 import { useState } from 'react'
 import { BASE, BNB, CaretDownIcon, CaretLeftIcon, CaretRightIcon, CreditCardIcon, ETH, SOLANA, USDT } from '../../../assets'
+import { languageHandler } from '../../../helpers'
+import { useAppContext } from '../../../context'
 
 const ActionBox = () => {
   // const [active, setActive] = useState('ETH')
   const [isCoinMenuOpen, setIsCoinMenuOpen] = useState(false)
+  const { language } = useAppContext()
   const [form, setForm] = useState('')
   const [coinSort, setCoinSort] = useState('ALL')
   const merkPrice = 0.0151424545
-  const isConnected = true
+  const isConnected = false
 
   return (
     <div className="pt-8">
       <div className="relative flex w-[378px] flex-col items-center gap-4 p-6 rounded-3xl bg-white overflow-y-hidden">
         <div className="flex flex-col items-start self-stretch border border-[#521210] rounded-xl">
           <div className="flex flex-col justify-center items-center gap-1 self-stretch px-0 py-2 rounded-[12px_12px_0px_0px] bg-[#521210]">
-            <span className="font-neueMontreal text-[#EEE7E7] text-center font-medium leading-5 uppercase">¡compra $merk en preventa!</span>
+            <span className="font-neueMontreal text-[#EEE7E7] text-center font-medium leading-5 uppercase">{languageHandler('action-box-a', language)}</span>
           </div>
           <div className="flex h-16 justify-center items-center gap-2 self-stretch px-0 py-4 rounded-[0px_0px_12px_12px]">
             <div className="flex flex-col  px-2 py-0 rounded-[8px_0px_0px_8px]">
               <span className=" w-14 font-neueMontreal text-center text-2xl font-bold ">120</span>
-              <span className="font-neueMontreal text-center text-[10px] font-bold ">Days</span>
+              <span className="font-neueMontreal text-center text-[10px] font-bold ">{languageHandler('action-box-b', language)}</span>
             </div>
             <div className="flex flex-col  px-2 py-0 rounded-[8px_0px_0px_8px]">
               <span className=" w-14 font-neueMontreal text-center text-2xl font-bold ">23</span>
-              <span className="font-neueMontreal text-center text-[10px] font-bold ">Hours</span>
+              <span className="font-neueMontreal text-center text-[10px] font-bold ">{languageHandler('action-box-c', language)}</span>
             </div>
             <div className="flex flex-col  px-2 py-0 rounded-[8px_0px_0px_8px]">
               <span className=" w-14 font-neueMontreal text-center text-2xl font-bold ">60</span>
-              <span className="font-neueMontreal text-center text-[10px] font-bold ">Minutes</span>
+              <span className="font-neueMontreal text-center text-[10px] font-bold ">{languageHandler('action-box-d', language)}</span>
             </div>
             <div className="flex flex-col  px-2 py-0 rounded-[8px_0px_0px_8px]">
               <span className=" w-14 font-neueMontreal text-center text-2xl font-bold ">06</span>
-              <span className="font-neueMontreal text-center text-[10px] font-bold ">Seconds</span>
+              <span className="font-neueMontreal text-center text-[10px] font-bold ">{languageHandler('action-box-e', language)}</span>
             </div>
           </div>
         </div>
@@ -39,7 +42,9 @@ const ActionBox = () => {
           <div className="flex flex-col items-start gap-2 self-stretch px-0 py-2 rounded-xl bg-[#fffdfb]">
             <div className="flex flex-col items-start gap-2 self-stretch rounded-lg">
               <div className="flex flex-col justify-center items-start gap-1 self-stretch">
-                <span className="self-stretch font-neueMontreal text-[#C9B6B5] text-[10px] font-medium leading-3 tracking-[0.1px]">USDT RECAUDADO</span>
+                <span className="self-stretch font-neueMontreal text-[#C9B6B5] text-[10px] font-medium leading-3 tracking-[0.1px] uppercase">
+                  {languageHandler('action-box-f', language)}
+                </span>
                 <div className="flex items-center gap-2.5 self-stretch">
                   <span className="font-neueMontreal text-[#3E0E0C] font-bold leading-[18px] tracking-[0.64px]">$7,434,158.62</span>
                   <span className="font-neueMontreal text-[#3E0E0C] leading-[18px] tracking-[0.64px]">/ $7,568,455</span>
@@ -59,8 +64,12 @@ const ActionBox = () => {
           >
             <div className="flex flex-col justify-center items-start gap-2 flex-[1_0_0]">
               <div className="flex justify-center items-center self-stretch px-1 py-0">
-                <span className="flex-[1_0_0] font-neueMontreal text-[#C9B6B5] text-[10px] font-medium leading-3 tracking-[0.1px]">PAY WITH {'ETH'}</span>
-                <span className="flex-[1_0_0] text-[#FFCC29] text-right font-neueMontreal text-[10px] font-bold leading-3 tracking-[0.1px]">MAX.</span>
+                <span className="flex-[1_0_0] font-neueMontreal text-[#C9B6B5] text-[10px] font-medium leading-3 tracking-[0.1px] uppercase">
+                  {languageHandler('action-box-g', language)} {'ETH'}
+                </span>
+                <span className="flex-[1_0_0] text-[#FFCC29] text-right font-neueMontreal text-[10px] font-bold leading-3 tracking-[0.1px] uppercase">
+                  {languageHandler('action-box-h', language)}.
+                </span>
               </div>
               <div className="flex items-start gap-2 self-stretch">
                 <input
@@ -94,13 +103,17 @@ const ActionBox = () => {
                 <img src={BASE} alt="coin" className="w-6 h-6 absolute left-12" />
               </div>
 
-              <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px]">
-                {isConnected ? `BUY ${form ? (Number(form) * merkPrice).toLocaleString('en-US', { maximumFractionDigits: 2 }) : ''} MEERK` : 'BUY WITH CRYPTO'}
+              <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px] uppercase">
+                {isConnected
+                  ? `${languageHandler('action-box-j', language)} ${form ? (Number(form) * merkPrice).toLocaleString('en-US', { maximumFractionDigits: 2 }) : ''} MEERK`
+                  : languageHandler('action-box-i', language)}
               </span>
             </button>
             <button className="flex h-10 justify-center items-center gap-3 self-stretch px-6 py-3 border border-[#EEE7E7] rounded-xl  hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
               <CreditCardIcon color={'#521210'} className="w-6 h-6" />
-              <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px] ">BUY WITH CARD</span>
+              <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px] uppercase">
+                {languageHandler('action-box-k', language)}
+              </span>
             </button>
           </div>
         </div>

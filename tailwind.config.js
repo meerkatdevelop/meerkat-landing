@@ -11,6 +11,10 @@ export default {
     cursor: {
       meerkat: "url('/src/assets/cursor/Vector 1.svg'), default",
     },
+    //Screen Over the design 1440px - shorthand od
+    screens: {
+      od: '1440px',
+    },
   },
   plugins: [],
 }

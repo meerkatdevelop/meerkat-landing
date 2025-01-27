@@ -2,8 +2,8 @@ import { PlayIcon } from '../../assets'
 
 const MediaMarketing = () => {
   return (
-    <section className="cursor-meerkat flex flex-col w-screen items-center bg-[#250807] px-20 py-28">
-      <div className="flex flex-col w-[1440px] justify-center items-center">
+    <section className="cursor-meerkat flex flex-col w-screen items-center bg-[#250807] ">
+      <div className="flex flex-col w-full od:w-[1440px] justify-center items-center px-12 py-28">
         <div className="flex flex-col items-center gap-16 self-stretch">
           <h2 className="self-stretch font-newTitle text-[#FFEFD4] text-center text-[104px] font-bold leading-[104px] tracking-[1.04px] uppercase">
             TALKING ABOUT MEERKAT

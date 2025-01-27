@@ -1,7 +1,7 @@
 const Presale = () => {
   return (
     <section className="cursor-meerkat flex flex-col justify-start items-center w-screen h-[704px] bg-no-repeat bg-cover bg-[url('./assets/images/HERO_V8_1.svg')]">
-      <div className="flex flex-col w-[1440px] justify-center items-center">
+      <div className="flex flex-col w-full od:w-[1440px] justify-center items-center">
         <div className="flex w-[954px] flex-col items-center gap-4 pt-[120px]">
           <h3 className="font-newTitle text-[#521210] text-center text-[88px] font-bold leading-[88px] uppercase">
             We're chilling... but the pre-sale is on its way!

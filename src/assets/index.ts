@@ -39,7 +39,7 @@ import Coin2 from './images/Coin2.svg'
 import MWallet from './images/Meerkat_Wallet.svg'
 
 //Flags
-import CountryEN1 from './flags/COUNTRY_EN 1.svg'
+import CountryEN from './flags/COUNTRY_EN.svg'
 //Coins
 import USDT from './coins/tether-usdt.svg'
 import SOLANA from './coins/solana-sol.svg'
@@ -87,7 +87,7 @@ export {
   Coin2,
   MWallet,
   //Flags
-  CountryEN1,
+  CountryEN,
   //Coins
   USDT,
   SOLANA,

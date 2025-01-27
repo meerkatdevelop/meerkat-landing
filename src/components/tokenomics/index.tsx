@@ -4,6 +4,11 @@ const Tokenomics = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null)
   const [isBlendAreaActive, setIsBlendAreaActive] = useState(false)
   const [coordinates, setCoordinates] = useState<{ x: number; y: number } | null>(null)
+
+  // const isInView = useInView(sectionRef)
+
+  // console.log(isInView)
+
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
       const sectionElement = sectionRef.current
@@ -26,12 +31,12 @@ const Tokenomics = () => {
 
   return (
     <section className="cursor-meerkat flex w-screen flex-col items-center  px-20 py-28 bg-[#250807]">
-      <div className="flex flex-col w-[1440px] gap-[88px]">
+      <div className="flex flex-col w-full od:w-[1440px] gap-[88px] od:px-20">
         <div className="flex flex-col items-center gap-16 self-stretch">
           <h2 className="self-stretch font-newTitle text-[#FFEFD4] text-center text-[104px] font-bold leading-[98px] tracking-[1.04px] uppercase">
             tokenomics
           </h2>
-          <div className="flex flex-col items-start gap-10 self-stretch p-6 border border-[#4A100E] rounded-3xl">
+          <div className="flex  flex-col items-start gap-10 self-stretch p-6 border border-[#4A100E] rounded-3xl">
             <div className="flex h-[60px] justify-between items-center self-stretch">
               <div className="flex flex-col justify-center items-start flex-[1_0_0] self-stretch">
                 <div className="flex flex-col items-start gap-2 self-stretch">
@@ -69,8 +74,8 @@ const Tokenomics = () => {
             </div>
           </div>
         </div>
-        <div ref={sectionRef} className="relative flex w-[1281px] h-[469px] shrink-0 justify-center items-center pb-[5px]">
-          <h4 className="flex w-[820px] h-[281px] flex-col justify-center shrink-0 font-newTitle text-[#FFEFBD] text-center text-[160px] font-bold leading-[139px] uppercase">
+        <div ref={sectionRef} className="relative flex h-[469px] shrink-0 justify-center items-center pb-[5px]">
+          <h4 className="flex w-[820px] h-[281px] flex-col justify-center shrink-0 font-newTitle text-[#FFEFBD] text-center text-[160px] font-bold leading-[139px] tracking-tight uppercase">
             The engine that makes the $MERK machine run
           </h4>
           {/* TokenomicsCard */}

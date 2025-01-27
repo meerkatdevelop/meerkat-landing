@@ -2,11 +2,11 @@ import { CapaFeatureBottom, CapaFeatureTop, MemeCreator, MiniApp, TreeMoney } fr
 
 const Features = () => {
   return (
-    <section className="cursor-meerkat relative flex flex-col w-screen h-[1451px]  bg-[#310B0A]">
+    <section className="cursor-meerkat relative flex flex-col w-screen justify-center items-center h-[1451px]  bg-[#310B0A]">
       {/* TOP ILUSTRATION */}
       <img src={CapaFeatureTop} alt="decoration" className="absolute top-0 left-0 w-full object-contain" />
 
-      <div className="flex w-screen justify-center">
+      <div className="flex w-full od:w-[1440px] justify-center">
         <div className="flex w-[1280px] flex-col items-center pt-[226px] gap-16">
           <div className="flex flex-col items-start gap-6 self-stretch">
             <div className="flex items-center gap-6 self-stretch">
