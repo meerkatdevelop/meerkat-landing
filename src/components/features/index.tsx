@@ -1,6 +1,9 @@
 import { CapaFeatureBottom, CapaFeatureTop, MemeCreator, MiniApp, TreeMoney } from '../../assets'
+import { useAppContext } from '../../context'
+import { languageHandler } from '../../helpers'
 
 const Features = () => {
+  const { language } = useAppContext()
   return (
     <section className="cursor-meerkat relative flex flex-col w-screen justify-center items-center h-[1451px]  bg-[#310B0A]">
       {/* TOP ILUSTRATION */}
@@ -14,13 +17,15 @@ const Features = () => {
                 <div className="flex flex-col items-start self-stretch">
                   <div className="flex flex-col justify-end items-start gap-6 flex-[1_0_0]">
                     <div className="flex flex-col justify-end items-start gap-6">
-                      <span className="font-newTitle text-[88px] text-[#3E0E0C] font-bold leading-[88px] tracking-[0.88px] uppercase">120% APY STAKING</span>
-                      <p className="w-[269px] text-[#3E0E0C] font-neueMontreal font-medium leading-[21px]">
-                        Earn big by staking $MERK! Buy, stake, and enjoy an impressive 120% APY while supporting the community.
-                      </p>
+                      <span className="font-newTitle text-[88px] text-[#3E0E0C] font-bold leading-[88px] tracking-[0.88px] uppercase">
+                        {languageHandler('features-a', language)}
+                      </span>
+                      <p className="w-[269px] text-[#3E0E0C] font-neueMontreal font-medium leading-[21px]">{languageHandler('features-b', language)}</p>
                     </div>
                     <button className="flex h-10 justify-center items-center px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
-                      <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px]">LOREMP</span>
+                      <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px]">
+                        {languageHandler('features-c', language)}
+                      </span>
                     </button>
                   </div>
                 </div>
@@ -30,13 +35,15 @@ const Features = () => {
                 <div className="flex flex-col items-start self-stretch">
                   <div className="flex flex-col justify-end items-start gap-6 flex-[1_0_0]">
                     <div className="flex flex-col justify-end items-start gap-6">
-                      <span className="font-newTitle text-[88px] text-[#3E0E0C] font-bold leading-[88px] tracking-[0.88px] uppercase">Airdrop & Mini-App</span>
-                      <p className="w-[269px] text-[#3E0E0C] font-neueMontreal font-medium leading-[21px]">
-                        Download our Mini-App to access to the exclusive airdrop and utilities. Join the fun and unlock the full $MERK experience!
-                      </p>
+                      <span className="font-newTitle text-[88px] text-[#3E0E0C] font-bold leading-[88px] tracking-[0.88px] uppercase">
+                        {languageHandler('features-d', language)}
+                      </span>
+                      <p className="w-[269px] text-[#3E0E0C] font-neueMontreal font-medium leading-[21px]">{languageHandler('features-e', language)}</p>
                     </div>
                     <button className="flex h-10 justify-center items-center px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
-                      <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px]">LOREMP</span>
+                      <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px]">
+                        {languageHandler('features-f', language)}
+                      </span>
                     </button>
                   </div>
                 </div>
@@ -48,13 +55,15 @@ const Features = () => {
                 <div className="flex flex-col items-start self-stretch">
                   <div className="flex flex-col justify-end items-start gap-6 flex-[1_0_0]">
                     <div className="flex flex-col justify-end items-start gap-6">
-                      <span className="font-newTitle text-[88px] text-[#3E0E0C] font-bold leading-[88px] tracking-[0.88px] uppercase">meme generator</span>
-                      <p className="w-[269px] text-[#3E0E0C] font-neueMontreal font-medium leading-[21px]">
-                        Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha
-                      </p>
+                      <span className="font-newTitle text-[88px] text-[#3E0E0C] font-bold leading-[88px] tracking-[0.88px] uppercase">
+                        {languageHandler('features-g', language)}
+                      </span>
+                      <p className="w-[269px] text-[#3E0E0C] font-neueMontreal font-medium leading-[21px]">{languageHandler('features-h', language)}</p>
                     </div>
                     <button className="flex h-10 justify-center items-center px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
-                      <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px]">LOREMP</span>
+                      <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px]">
+                        {languageHandler('features-i', language)}
+                      </span>
                     </button>
                   </div>
                 </div>

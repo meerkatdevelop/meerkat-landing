@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import { CapaFeatureBottom, CapaFeatureTop, CaretDownIcon } from '../../assets'
+import { languageHandler } from '../../helpers'
+import { useAppContext } from '../../context'
 
 const FAQ = () => {
+  const { language } = useAppContext()
   const [isBoxActive, setIsBoxActive] = useState({
     box1: false,
     box2: false,
@@ -16,14 +19,14 @@ const FAQ = () => {
 
         <div className="flex w-full flex-col items-start gap-10 px-20 py-28">
           <h2 className="self-stretch font-newTitle text-[#FFEFD4] text-center text-[104px] font-bold leading-[98px] tracking-[1.04px] uppercase">
-            any question left?
+            {languageHandler('faq-a', language)}
           </h2>
           <div className="flex w-[1278px] flex-col items-start gap-4">
             {/* FAQ_Card */}
             <div className="flex flex-col justify-center items-start self-stretch  px-8 py-3 rounded-3xl bg-[#FFEFD4]">
               <div className="flex h-14 justify-between items-center self-stretch">
                 <span className="flex flex-col justify-center flex-[1_0_0] self-stretch font-neueMontreal text-[#521210] text-[22px] font-bold leading-8 tracking-[0.22px]">
-                  What is Meerkat?
+                  {languageHandler('faq-b', language)}
                 </span>
                 <button
                   className={`flex items-center justify-center w-[56.018px] h-14 shrink-0 rounded-full bg-[#FFCC29] hover:bg-[#cfa423] transition-all ease-in-out duration-300 cursor-meerkat ${isBoxActive.box1 && 'rotate-180'}`}
@@ -35,19 +38,13 @@ const FAQ = () => {
               <div
                 className={`flex flex-col items-start gap-6 self-stretch overflow-hidden transition-all ease-in-out duration-500 ${isBoxActive.box1 ? 'h-[110px]' : 'h-0'}`}
               >
-                <p className="font-neueMontreal text-[#521210] text-lg leading-6">
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit mollis pharetra, porttitor vestibulum bibendum neque ligula massa euismod proin, mauris
-                  dis iaculis pellentesque elementum ullamcorper consequat orci. Velit quam scelerisque porta luctus non placerat inceptos lectus, dictum enim
-                  lacus cursus facilisis interdum vivamus netus tristique, at sagittis hendrerit habitasse fringilla condimentum magnis. Ultricies justo sapien
-                  litora nullam ligula vitae vestibulum, iaculis varius penatibus eget morbi dis molestie venenatis, velit dictumst dignissim interdum cubilia
-                  natoque.
-                </p>
+                <p className="font-neueMontreal text-[#521210] text-lg leading-6">{languageHandler('faq-c', language)}</p>
               </div>
             </div>
             <div className="flex flex-col justify-center items-start self-stretch  px-8 py-3 rounded-3xl bg-[#FFEFD4]">
               <div className="flex h-14 justify-between items-center self-stretch">
                 <span className="flex flex-col justify-center flex-[1_0_0] self-stretch font-neueMontreal text-[#521210] text-[22px] font-bold leading-8 tracking-[0.22px]">
-                  What is Meerkat?
+                  {languageHandler('faq-d', language)}
                 </span>
                 <button
                   className={`flex items-center justify-center w-[56.018px] h-14 shrink-0 rounded-full bg-[#FFCC29] hover:bg-[#cfa423] transition-all ease-in-out duration-300 cursor-meerkat ${isBoxActive.box2 && 'rotate-180'}`}
@@ -59,19 +56,13 @@ const FAQ = () => {
               <div
                 className={`flex flex-col items-start gap-6 self-stretch overflow-hidden transition-all ease-in-out duration-500 ${isBoxActive.box2 ? 'h-[110px]' : 'h-0'}`}
               >
-                <p className="font-neueMontreal text-[#521210] text-lg leading-6">
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit mollis pharetra, porttitor vestibulum bibendum neque ligula massa euismod proin, mauris
-                  dis iaculis pellentesque elementum ullamcorper consequat orci. Velit quam scelerisque porta luctus non placerat inceptos lectus, dictum enim
-                  lacus cursus facilisis interdum vivamus netus tristique, at sagittis hendrerit habitasse fringilla condimentum magnis. Ultricies justo sapien
-                  litora nullam ligula vitae vestibulum, iaculis varius penatibus eget morbi dis molestie venenatis, velit dictumst dignissim interdum cubilia
-                  natoque.
-                </p>
+                <p className="font-neueMontreal text-[#521210] text-lg leading-6">{languageHandler('faq-e', language)}</p>
               </div>
             </div>
             <div className="flex flex-col justify-center items-start self-stretch  px-8 py-3 rounded-3xl bg-[#FFEFD4]">
               <div className="flex h-14 justify-between items-center self-stretch">
                 <span className="flex flex-col justify-center flex-[1_0_0] self-stretch font-neueMontreal text-[#521210] text-[22px] font-bold leading-8 tracking-[0.22px]">
-                  What is Meerkat?
+                  {languageHandler('faq-f', language)}
                 </span>
                 <button
                   className={`flex items-center justify-center w-[56.018px] h-14 shrink-0 rounded-full bg-[#FFCC29] hover:bg-[#cfa423] transition-all ease-in-out duration-300 cursor-meerkat ${isBoxActive.box3 && 'rotate-180'}`}
@@ -83,19 +74,13 @@ const FAQ = () => {
               <div
                 className={`flex flex-col items-start gap-6 self-stretch overflow-hidden transition-all ease-in-out duration-500 ${isBoxActive.box3 ? 'h-[110px]' : 'h-0'}`}
               >
-                <p className="font-neueMontreal text-[#521210] text-lg leading-6">
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit mollis pharetra, porttitor vestibulum bibendum neque ligula massa euismod proin, mauris
-                  dis iaculis pellentesque elementum ullamcorper consequat orci. Velit quam scelerisque porta luctus non placerat inceptos lectus, dictum enim
-                  lacus cursus facilisis interdum vivamus netus tristique, at sagittis hendrerit habitasse fringilla condimentum magnis. Ultricies justo sapien
-                  litora nullam ligula vitae vestibulum, iaculis varius penatibus eget morbi dis molestie venenatis, velit dictumst dignissim interdum cubilia
-                  natoque.
-                </p>
+                <p className="font-neueMontreal text-[#521210] text-lg leading-6">{languageHandler('faq-g', language)}</p>
               </div>
             </div>
             <div className="flex flex-col justify-center items-start self-stretch  px-8 py-3 rounded-3xl bg-[#FFEFD4]">
               <div className="flex h-14 justify-between items-center self-stretch">
                 <span className="flex flex-col justify-center flex-[1_0_0] self-stretch font-neueMontreal text-[#521210] text-[22px] font-bold leading-8 tracking-[0.22px]">
-                  What is Meerkat?
+                  {languageHandler('faq-h', language)}
                 </span>
                 <button
                   className={`flex items-center justify-center w-[56.018px] h-14 shrink-0 rounded-full bg-[#FFCC29] hover:bg-[#cfa423] transition-all ease-in-out duration-300 cursor-meerkat ${isBoxActive.box4 && 'rotate-180'}`}
@@ -107,13 +92,7 @@ const FAQ = () => {
               <div
                 className={`flex flex-col items-start gap-6 self-stretch overflow-hidden transition-all ease-in-out duration-500 ${isBoxActive.box4 ? 'h-[110px]' : 'h-0'}`}
               >
-                <p className="font-neueMontreal text-[#521210] text-lg leading-6">
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit mollis pharetra, porttitor vestibulum bibendum neque ligula massa euismod proin, mauris
-                  dis iaculis pellentesque elementum ullamcorper consequat orci. Velit quam scelerisque porta luctus non placerat inceptos lectus, dictum enim
-                  lacus cursus facilisis interdum vivamus netus tristique, at sagittis hendrerit habitasse fringilla condimentum magnis. Ultricies justo sapien
-                  litora nullam ligula vitae vestibulum, iaculis varius penatibus eget morbi dis molestie venenatis, velit dictumst dignissim interdum cubilia
-                  natoque.
-                </p>
+                <p className="font-neueMontreal text-[#521210] text-lg leading-6">{languageHandler('faq-i', language)}</p>
               </div>
             </div>
           </div>

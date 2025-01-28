@@ -1,10 +1,10 @@
 import { motion, AnimatePresence, MotionValue, useMotionValueEvent, useTransform } from 'motion/react'
-import { CaretDownIcon, CountryEN, ListIcon, Logo, LogoLight } from '../assets'
+import { CaretDownIcon, CountryCH, CountryEN, CountryIN, CountryIT, CountryPT, CountrySP, ListIcon, Logo, LogoLight } from '../assets'
 import CaretCloseIcon from '../assets/icons/caret-close'
 import { Languages, useAppContext } from '../context'
 import Menu from './cover/menu'
 import { useState } from 'react'
-import { languageHandler } from '../helpers'
+import { flagSelector, languageHandler } from '../helpers'
 
 export const springIn = {
   hidden: {
@@ -34,15 +34,17 @@ export const springIn = {
 }
 
 const Navbar = ({ move }: { move: MotionValue<number> }) => {
+  const { isMenuOpen, setIsMenuOpen, language, setLanguage } = useAppContext()
   const [currentImage, setCurrentImage] = useState<string>('')
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false)
+  const [activeBg, setActiveBg] = useState(false)
   const images = [Logo, LogoLight]
   const imageIndex = useTransform(move, [0, 1], [0, images.length - 1])
   useMotionValueEvent(imageIndex, 'change', (latest) => {
     setCurrentImage(images[Math.round(latest)])
+    setActiveBg(latest === 1 ? true : false)
   })
 
-  const { isMenuOpen, setIsMenuOpen, language, setLanguage } = useAppContext()
   const isConnected = false
 
   const handleLanguage = (id: Languages) => {
@@ -50,7 +52,9 @@ const Navbar = ({ move }: { move: MotionValue<number> }) => {
     setIsLanguageMenuOpen(false)
   }
   return (
-    <nav className={`sticky top-0 flex-col w-screen  ${isMenuOpen ? 'z-20' : 'z-10'}`}>
+    <nav
+      className={`sticky top-0 flex-col w-screen pb-2 ${isMenuOpen ? 'z-20' : 'z-10'} ${activeBg ? 'bg-[#250807]' : 'bg-transparent'} transition-all ease-in-out`}
+    >
       <div className="relative w-screen">
         <Menu />
       </div>
@@ -82,8 +86,8 @@ const Navbar = ({ move }: { move: MotionValue<number> }) => {
             className="flex justify-center items-center gap-2 p-2 rounded-lg cursor-meerkat transition-all ease-in-out hover:bg-[#b2b2b280]"
             onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
           >
-            <img src={CountryEN} alt="flag" className="w-6 h-6" />
-            <CaretDownIcon width="24" height="24" color={isMenuOpen ? '#FFCC29' : '#521210'} className="w-6 h-6 object-contain" />
+            <img src={flagSelector(language)} alt="flag" className="w-6 h-6" />
+            <CaretDownIcon width="24" height="24" color={isMenuOpen || activeBg ? '#FFCC29' : '#521210'} className="w-6 h-6 object-contain" />
           </button>
           <AnimatePresence>
             {isLanguageMenuOpen && (
@@ -94,28 +98,28 @@ const Navbar = ({ move }: { move: MotionValue<number> }) => {
                 exit="exit"
                 className="absolute top-14 right-0 flex flex-col w-[184px] h-fit gap-2.5 p-4 bg-[#521210] translate-x-12 rounded-lg"
               >
-                <div className="flex justify-start gap-4 p-2 hover:bg-[#400D0B] transition-all ease-in-out">
-                  <img src={CountryEN} alt="flag" className="w-6 h-6" />
+                <div className="flex justify-start gap-4 p-2 hover:bg-[#400D0B] transition-all ease-in-out" onClick={() => handleLanguage(Languages.IT)}>
+                  <img src={CountryIT} alt="flag" className="w-6 h-6" />
                   <span className="font-neueMontreal text-[#FFF] text-sm font-medium leading-6">{languageHandler('language-menu-a', language)}</span>
                 </div>
-                <div className="flex justify-start gap-4 p-2 hover:bg-[#400D0B] transition-all ease-in-out">
-                  <img src={CountryEN} alt="flag" className="w-6 h-6" />
+                <div className="flex justify-start gap-4 p-2 hover:bg-[#400D0B] transition-all ease-in-out" onClick={() => handleLanguage(Languages.CH)}>
+                  <img src={CountryCH} alt="flag" className="w-6 h-6" />
                   <span className="font-neueMontreal text-[#FFF] text-sm font-medium leading-6">{languageHandler('language-menu-b', language)}</span>
                 </div>
                 <div className="flex justify-start gap-4 p-2 hover:bg-[#400D0B] transition-all ease-in-out" onClick={() => handleLanguage(Languages.US)}>
                   <img src={CountryEN} alt="flag" className="w-6 h-6" />
                   <span className="font-neueMontreal text-[#FFF] text-sm font-medium leading-6">{languageHandler('language-menu-c', language)}</span>
                 </div>
-                <div className="flex justify-start gap-4 p-2 hover:bg-[#400D0B] transition-all ease-in-out">
-                  <img src={CountryEN} alt="flag" className="w-6 h-6" />
+                <div className="flex justify-start gap-4 p-2 hover:bg-[#400D0B] transition-all ease-in-out" onClick={() => handleLanguage(Languages.IN)}>
+                  <img src={CountryIN} alt="flag" className="w-6 h-6" />
                   <span className="font-neueMontreal text-[#FFF] text-sm font-medium leading-6">{languageHandler('language-menu-d', language)}</span>
                 </div>
                 <div className="flex justify-start gap-4 p-2 hover:bg-[#400D0B] transition-all ease-in-out" onClick={() => handleLanguage(Languages.ES)}>
-                  <img src={CountryEN} alt="flag" className="w-6 h-6" />
+                  <img src={CountrySP} alt="flag" className="w-6 h-6" />
                   <span className="font-neueMontreal text-[#FFF] text-sm font-medium leading-6">{languageHandler('language-menu-e', language)}</span>
                 </div>
-                <div className="flex justify-start gap-4 p-2 hover:bg-[#400D0B] transition-all ease-in-out">
-                  <img src={CountryEN} alt="flag" className="w-6 h-6" />
+                <div className="flex justify-start gap-4 p-2 hover:bg-[#400D0B] transition-all ease-in-out" onClick={() => handleLanguage(Languages.PO)}>
+                  <img src={CountryPT} alt="flag" className="w-6 h-6" />
                   <span className="font-neueMontreal text-[#FFF] text-sm font-medium leading-6">{languageHandler('language-menu-f', language)}</span>
                 </div>
               </motion.div>
