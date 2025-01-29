@@ -9,7 +9,7 @@ import About from './components/about'
 import MeerkatWallet from './components/meerkat-wallet'
 import MediaMarketing from './components/media-marketing'
 import ReactLenis from 'lenis/react'
-import { useScroll } from 'motion/react'
+import { useMotionValueEvent, useScroll, useSpring } from 'motion/react'
 import { useRef } from 'react'
 import Hero from './assets/hero'
 import Cover from './components/cover'
@@ -17,6 +17,8 @@ import Cover from './components/cover'
 function App() {
   const parallaxRef = useRef<HTMLDivElement | null>(null)
   const transitionRef = useRef<HTMLDivElement | null>(null)
+  const triggerNavigation = useSpring(0, { damping: 30, stiffness: 100, mass: 2 })
+
   const { scrollYProgress } = useScroll({
     target: parallaxRef,
     offset: ['start start', 'end end'],
@@ -26,11 +28,18 @@ function App() {
     offset: ['start start', 'start start'],
   })
 
+  const moveTo = (to: number) => {
+    triggerNavigation.set(to)
+  }
+
+  useMotionValueEvent(triggerNavigation, 'change', (latest) => {
+    window.scrollTo(0, latest)
+  })
   return (
     <ReactLenis root>
       <main className="cursor-meerkat w-screen justify-center">
         <div ref={parallaxRef} className="relative w-full">
-          <Navbar move={transitionProgress} />
+          <Navbar move={transitionProgress} moveTo={moveTo} />
           <Hero move={scrollYProgress} />
           <Cover />
           <div ref={transitionRef} className="-mt-[98px]">

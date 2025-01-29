@@ -1,16 +1,42 @@
 import { useState } from 'react'
-import { BASE, BNB, CaretDownIcon, CaretLeftIcon, CaretRightIcon, CreditCardIcon, ETH, SOLANA, USDT } from '../../../assets'
+import { BASE, BNB, CaretDownIcon, CaretLeftIcon, CaretRightIcon, CreditCardIcon, ErrorIcon, ETH, GreenCheckIcon, Loader, SOLANA, USDT } from '../../../assets'
 import { languageHandler } from '../../../helpers'
 import { useAppContext } from '../../../context'
+import { pairs } from '../../../constants'
 
 const ActionBox = () => {
   // const [active, setActive] = useState('ETH')
   const [isCoinMenuOpen, setIsCoinMenuOpen] = useState(false)
   const { language } = useAppContext()
   const [form, setForm] = useState('')
-  const [coinSort, setCoinSort] = useState('ALL')
+  const [chain, setChain] = useState<null | 'ETH' | 'SOL' | 'BNB' | 'BASE'>(null)
+  const [pair, setPair] = useState<{ coin: string; chain: string; label: string; name: string }>({
+    coin: ETH,
+    chain: ETH,
+    label: 'ETH',
+    name: 'Ethereum',
+  })
+  const [step, setStep] = useState(1)
   const merkPrice = 0.0151424545
-  const isConnected = false
+  const isConnected = true
+  const isPurchased = false
+  const isPurchaseLoading = true
+  const isPurchaseSuccess = false
+  const isPurchaseError = false
+
+  const handleChain = (chain: 'ETH' | 'SOL' | 'BNB' | 'BASE') => {
+    setChain(chain)
+    setStep(step + 1)
+  }
+  const handleCoin = (pair: { coin: string; chain: string; label: string; name: string }) => {
+    setPair(pair)
+    setStep(step - 1)
+    setIsCoinMenuOpen(false)
+  }
+
+  const getNetworkPairs = (network: 'ETH' | 'SOL' | 'BNB' | 'BASE') => {
+    return pairs[network]
+  }
 
   return (
     <div className="pt-8">
@@ -80,11 +106,14 @@ const ActionBox = () => {
                   onChange={(e) => setForm(e.target.value)}
                 />
                 <button
-                  className="flex w-[120px] h-12 items-center gap-2 px-3 py-3.5 border border-[#998F7F] rounded-lg hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat"
+                  className="flex w-[140px] h-12 items-center gap-2 px-3 py-3.5 border border-[#998F7F] rounded-lg hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat"
                   onClick={() => setIsCoinMenuOpen(true)}
                 >
-                  <img src={ETH} alt="logo" className="w-6 h-6" />
-                  <span className="flex-[1_0_0]  text-[#998F7F] font-neueMontreal font-bold leading-[normal]">{'ETH'}</span>
+                  <div className="relative flex">
+                    <img src={pair.coin} alt="coin" className="w-6 h-6" />
+                    <img src={pair.chain} alt="chain" className="absolute bottom-0 right-0 w-3 h-3 border rounded-[162px] border-white" />
+                  </div>
+                  <span className="flex-[1_0_0]  text-[#998F7F] font-neueMontreal font-bold leading-[normal]">{pair.label}</span>
                   <CaretDownIcon width="24" height="24" color="#998F7F" />
                 </button>
               </div>
@@ -122,14 +151,22 @@ const ActionBox = () => {
           className={`absolute top-0 flex w-[378px] h-[440px] flex-col items-center gap-4 p-6 rounded-3xl bg-[#FFF] ${isCoinMenuOpen ? 'translate-y-0' : 'translate-y-[440px]'} transition-all ease-in-out duration-1000`}
         >
           <div className="flex justify-center items-center gap-4 self-stretch ">
-            <button className="rounded-full hover:bg-[#E5DBDB] transition-all ease-in-out cursor-meerkat" onClick={() => setIsCoinMenuOpen(false)}>
+            <button
+              className="rounded-full hover:bg-[#E5DBDB] transition-all ease-in-out cursor-meerkat"
+              onClick={() => {
+                setIsCoinMenuOpen(false)
+                setStep(1)
+              }}
+            >
               <CaretLeftIcon color="#998F7F" />
             </button>
-            <span className="flex-[1_0_0] font-neueMontreal text-[#59544A] text-center font-medium leading-[normal] tracking-[0.16px]">Select Coin</span>
+            <span className="flex-[1_0_0] font-neueMontreal text-[#59544A] text-center font-medium leading-[normal] tracking-[0.16px]">
+              {step === 1 ? languageHandler('action-box-l', language) : languageHandler('action-box-m', language)}
+            </span>
             <div className="w-4" />
           </div>
           {/* LATERAL_BTNS */}
-          <div className="flex items-start gap-1.5 self-stretch overflow-x-auto no-bar-scroll">
+          {/* <div className="flex items-start gap-1.5 self-stretch overflow-x-auto no-bar-scroll">
             <button
               className={`flex w-[54px] h-10 justify-center items-center gap-3 px-6 py-3 rounded-xl transition-all ease-in-out cursor-meerkat ${coinSort === 'ALL' ? 'bg-[#E5DBDB]' : 'hover:bg-[#FFEFBD]'}`}
               onClick={() => setCoinSort('ALL')}
@@ -164,41 +201,147 @@ const ActionBox = () => {
               <img src={ETH} alt="coin" className="w-6 h-6" />
               <span className="font-neueMontreal text-[#521210] text-[15px] font-bold leading-[15px]">ETH</span>
             </button>
-          </div>
+          </div> */}
           {/* COIN_SELECTOR */}
           <div className="flex flex-col items-start gap-3 flex-[1_0_0] self-stretch">
-            <button className="flex items-center gap-4 self-stretch p-4 border border-[#EEE7E7] rounded-xl hover:bg-[#EEE7E7] transition-all ease-in-out duration-500 cursor-meerkat">
-              <img src={ETH} alt="coin" className="w-6 h-6" />
-              <div className="flex flex-col items-start gap-1 flex-[1_0_0]">
-                <span className="text-left self-stretch font-neueMontreal text-[#521210] text-lg font-bold leading-[18px] tracking-[0.72px]">Ethereum</span>
-                <span className="text-left self-stretch font-neueMontreal text-[#521210] text-sm not-italic font-medium leading-[18px] tracking-[0.56px]">
-                  ETH
-                </span>
-              </div>
-              <CaretRightIcon color="#998F7F" />
-            </button>
-            <button className="flex items-center gap-4 self-stretch p-4 border border-[#EEE7E7] rounded-xl hover:bg-[#EEE7E7] transition-all ease-in-out duration-500 cursor-meerkat">
-              <img src={ETH} alt="coin" className="w-6 h-6" />
-              <div className="flex flex-col items-start gap-1 flex-[1_0_0]">
-                <span className="text-left self-stretch font-neueMontreal text-[#521210] text-lg font-bold leading-[18px] tracking-[0.72px]">Ethereum</span>
-                <span className="text-left self-stretch font-neueMontreal text-[#521210] text-sm not-italic font-medium leading-[18px] tracking-[0.56px]">
-                  ETH
-                </span>
-              </div>
-              <CaretRightIcon color="#998F7F" />
-            </button>
-            <button className="flex items-center gap-4 self-stretch p-4 border border-[#EEE7E7] rounded-xl hover:bg-[#EEE7E7] transition-all ease-in-out duration-500 cursor-meerkat">
-              <img src={ETH} alt="coin" className="w-6 h-6" />
-              <div className="flex flex-col items-start gap-1 flex-[1_0_0]">
-                <span className="text-left self-stretch font-neueMontreal text-[#521210] text-lg font-bold leading-[18px] tracking-[0.72px]">Ethereum</span>
-                <span className="text-left self-stretch font-neueMontreal text-[#521210] text-sm not-italic font-medium leading-[18px] tracking-[0.56px]">
-                  ETH
-                </span>
-              </div>
-              <CaretRightIcon color="#998F7F" />
-            </button>
+            {step === 1 && (
+              <>
+                <button
+                  className="flex items-center gap-4 self-stretch p-4 border border-[#EEE7E7] rounded-xl hover:bg-[#EEE7E7] transition-all ease-in-out duration-500 cursor-meerkat"
+                  onClick={() => handleChain('ETH')}
+                >
+                  <img src={ETH} alt="chain" className="w-6 h-6" />
+                  <div className="flex flex-col items-start gap-1 flex-[1_0_0]">
+                    <span className="text-left self-stretch font-neueMontreal text-[#521210] text-lg font-bold leading-[18px] tracking-[0.72px]">Ethereum</span>
+                    <span className="text-left self-stretch font-neueMontreal text-[#521210] text-sm not-italic font-medium leading-[18px] tracking-[0.56px]">
+                      ETH
+                    </span>
+                  </div>
+                  <CaretRightIcon color="#998F7F" />
+                </button>
+                <button
+                  className="flex items-center gap-4 self-stretch p-4 border border-[#EEE7E7] rounded-xl hover:bg-[#EEE7E7] transition-all ease-in-out duration-500 cursor-meerkat"
+                  onClick={() => handleChain('SOL')}
+                >
+                  <img src={SOLANA} alt="chain" className="w-6 h-6" />
+                  <div className="flex flex-col items-start gap-1 flex-[1_0_0]">
+                    <span className="text-left self-stretch font-neueMontreal text-[#521210] text-lg font-bold leading-[18px] tracking-[0.72px]">Solana</span>
+                    <span className="text-left self-stretch font-neueMontreal text-[#521210] text-sm not-italic font-medium leading-[18px] tracking-[0.56px]">
+                      SOL
+                    </span>
+                  </div>
+                  <CaretRightIcon color="#998F7F" />
+                </button>
+                <button
+                  className="flex items-center gap-4 self-stretch p-4 border border-[#EEE7E7] rounded-xl hover:bg-[#EEE7E7] transition-all ease-in-out duration-500 cursor-meerkat"
+                  onClick={() => handleChain('BNB')}
+                >
+                  <img src={BNB} alt="chain" className="w-6 h-6" />
+                  <div className="flex flex-col items-start gap-1 flex-[1_0_0]">
+                    <span className="text-left self-stretch font-neueMontreal text-[#521210] text-lg font-bold leading-[18px] tracking-[0.72px]">
+                      Binance chain
+                    </span>
+                    <span className="text-left self-stretch font-neueMontreal text-[#521210] text-sm not-italic font-medium leading-[18px] tracking-[0.56px]">
+                      BSC
+                    </span>
+                  </div>
+                  <CaretRightIcon color="#998F7F" />
+                </button>
+                <button
+                  className="flex items-center gap-4 self-stretch p-4 border border-[#EEE7E7] rounded-xl hover:bg-[#EEE7E7] transition-all ease-in-out duration-500 cursor-meerkat"
+                  onClick={() => handleChain('BASE')}
+                >
+                  <img src={BASE} alt="chain" className="w-6 h-6" />
+                  <div className="flex flex-col items-start gap-1 flex-[1_0_0]">
+                    <span className="text-left self-stretch font-neueMontreal text-[#521210] text-lg font-bold leading-[18px] tracking-[0.72px]">Base</span>
+                    <span className="text-left self-stretch font-neueMontreal text-[#521210] text-sm not-italic font-medium leading-[18px] tracking-[0.56px]">
+                      BASE
+                    </span>
+                  </div>
+                  <CaretRightIcon color="#998F7F" />
+                </button>
+              </>
+            )}
+            {step === 2 &&
+              chain &&
+              getNetworkPairs(chain).map((pair, i) => (
+                <button
+                  key={i}
+                  className="flex items-center gap-4 self-stretch p-4 border border-[#EEE7E7] rounded-xl hover:bg-[#EEE7E7] transition-all ease-in-out duration-500 cursor-meerkat"
+                  onClick={() => handleCoin(pair)}
+                >
+                  <div className="relative flex">
+                    <img src={pair.coin} alt="coin" className="w-10 h-10" />
+                    <img src={pair.chain} alt="chain" className="absolute bottom-0 right-0 w-4 h-4 border rounded-[162px] border-white" />
+                  </div>
+
+                  <div className="flex flex-col items-start gap-1 flex-[1_0_0]">
+                    <span className="text-left self-stretch font-neueMontreal text-[#521210] text-lg font-bold leading-[18px] tracking-[0.72px]">
+                      {pair.name}
+                    </span>
+                    <span className="text-left self-stretch font-neueMontreal text-[#521210] text-sm not-italic font-medium leading-[18px] tracking-[0.56px]">
+                      {pair.label}
+                    </span>
+                  </div>
+                  <CaretRightIcon color="#998F7F" />
+                </button>
+              ))}
           </div>
         </div>
+        {isPurchased && (
+          <div
+            className={`absolute top-0 flex w-[378px] h-[440px] flex-col items-center gap-4 p-6 rounded-3xl bg-[#FFF] ${isPurchased ? 'translate-y-0' : 'translate-y-[440px]'} transition-all ease-in-out duration-1000`}
+          >
+            {isPurchaseLoading && (
+              <div className="flex flex-col items-start gap-4 flex-[1_0_0] self-stretch">
+                <span className="self-stretch font-neueMontreal text-[#521210] text-center text-xl font-bold leading-5 uppercase">buying meerkat...</span>
+                <div className="flex flex-col items-center gap-6 flex-[1_0_0] self-stretch px-0 py-9">
+                  <img src={Loader} alt="loader" className="h-[150px] self-stretch object-contain" />
+                  <span className="w-[330px] font-neueMontreal text-[#521210] text-center font-medium leading-[normal]">
+                    Your meerkat will be deposited in your wallet once the transaction is completed
+                  </span>
+                </div>
+                <button className="flex h-10 justify-center items-center gap-3 shrink-0 self-stretch px-6 py-3 border border-[#EEE7E7] rounded-xl hover:bg-[#FFEFBD] cursor-meerkat">
+                  <span className="font-neueMontreal text-[#521210] text-[15px] font-bold leading-[15px] uppercase">cancel</span>
+                </button>
+              </div>
+            )}
+            {isPurchaseSuccess && (
+              <div className="flex flex-col items-start gap-4 flex-[1_0_0] self-stretch">
+                <span className="self-stretch font-neueMontreal text-[#521210] text-center text-xl font-bold leading-5 uppercase">SUCCESSFUL PURCHASE </span>
+                <div className="flex flex-col items-center gap-6 flex-[1_0_0] self-stretch px-0 py-9">
+                  <img src={GreenCheckIcon} alt="icon" className="w-[126px] h-[126px] object-contain" />
+                  <span className="w-[330px] font-neueMontreal text-[#521210] text-center font-medium leading-[normal]">
+                    You can now see your meerkat in your wallet
+                  </span>
+                </div>
+                <div className="flex flex-col items-start gap-4 self-stretch">
+                  <button className="flex h-10 justify-center items-center gap-3 shrink-0 self-stretch px-6 py-3 border border-[#EEE7E7] rounded-xl hover:bg-[#FFEFBD] cursor-meerkat">
+                    <span className="font-neueMontreal text-[#521210] text-[15px] font-bold leading-[15px] uppercase">close</span>
+                  </button>
+                  <button className="flex h-10 justify-center items-center gap-3 shrink-0 self-stretch px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] cursor-meerkat">
+                    <span className="font-neueMontreal text-[#521210] text-[15px] font-bold leading-[15px] uppercase">buy more</span>
+                  </button>
+                </div>
+              </div>
+            )}
+            {isPurchaseError && (
+              <div className="flex flex-col items-start gap-4 flex-[1_0_0] self-stretch">
+                <span className="self-stretch font-neueMontreal text-[#521210] text-center text-xl font-bold leading-5 uppercase">PURCHASE ERROR </span>
+                <div className="flex flex-col items-center gap-6 flex-[1_0_0] self-stretch px-0 py-9">
+                  <img src={ErrorIcon} alt="icon" className="w-[126px] h-[126px] object-contain" />
+                  <span className="w-[330px] font-neueMontreal text-[#521210] text-center font-medium leading-[normal]">
+                    oops.. it seems there has been a problem
+                  </span>
+                </div>
+
+                <button className="flex h-10 justify-center items-center gap-3 shrink-0 self-stretch px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] cursor-meerkat">
+                  <span className="font-neueMontreal text-[#521210] text-[15px] font-bold leading-[15px] uppercase">try again</span>
+                </button>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   )

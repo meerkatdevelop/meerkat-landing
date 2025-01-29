@@ -15,7 +15,7 @@ const Roadmap = () => {
 
   const x = useTransform(scrollYProgress, [0, 1], ['1%', '-110%'])
   return (
-    <section className="cursor-meerkat flex flex-col w-screen items-center gap-2.5 self-stretch py-28 bg-[#250807] ">
+    <section id="roadmap" className="cursor-meerkat flex flex-col w-screen items-center gap-2.5 self-stretch py-28 bg-[#250807] ">
       <div ref={targetRef} className="relative w-full od:w-[1440px] h-[300vh] ">
         <div className="sticky top-0 flex h-screen items-center overflow-x-hidden">
           <div className="absolute top-1/2 left-1/2 flex flex-col items-start gap-16 self-stretch -translate-x-2/4 -translate-y-2/4">

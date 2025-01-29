@@ -32,14 +32,19 @@ export const springIn = {
   },
 }
 
-const Menu = () => {
-  const { isMenuOpen, language } = useAppContext()
+const Menu = ({ moveTo }: { moveTo: (to: number) => void }) => {
+  const { isMenuOpen, setIsMenuOpen, language } = useAppContext()
   const [isActive, setIsActive] = useState({
     itemA: false,
     itemB: false,
     itemC: false,
     itemD: false,
   })
+
+  const handleNavigation = (id: string) => {
+    moveTo(document.getElementById(id)?.offsetTop as number)
+    setIsMenuOpen(false)
+  }
 
   return (
     <AnimatePresence>
@@ -56,16 +61,28 @@ const Menu = () => {
           {/* <Navbar /> */}
           <div className="h-12" />
           <div className="flex justify-between items-center self-stretch">
-            <button className="font-newTitle text-[#FFCC29] text-8xl font-bold leading-[96px] tracking-[2.88px] uppercase hover:text-[#FFEFBD] cursor-meerkat">
+            <button
+              className="font-newTitle text-[#FFCC29] text-8xl font-bold leading-[96px] tracking-[2.88px] uppercase hover:text-[#FFEFBD] cursor-meerkat"
+              onClick={() => handleNavigation('about')}
+            >
               {languageHandler('menu-a', language)}
             </button>
-            <button className="font-newTitle text-[#FFCC29] text-8xl font-bold leading-[96px] tracking-[2.88px] uppercase hover:text-[#FFEFBD] cursor-meerkat">
+            <button
+              className="font-newTitle text-[#FFCC29] text-8xl font-bold leading-[96px] tracking-[2.88px] uppercase hover:text-[#FFEFBD] cursor-meerkat"
+              onClick={() => handleNavigation('roadmap')}
+            >
               {languageHandler('menu-b', language)}
             </button>
-            <button className="font-newTitle text-[#FFCC29] text-8xl font-bold leading-[96px] tracking-[2.88px] uppercase hover:text-[#FFEFBD] cursor-meerkat">
+            <button
+              className="font-newTitle text-[#FFCC29] text-8xl font-bold leading-[96px] tracking-[2.88px] uppercase hover:text-[#FFEFBD] cursor-meerkat"
+              onClick={() => handleNavigation('tokenomics')}
+            >
               {languageHandler('menu-c', language)}
             </button>
-            <button className="font-newTitle text-[#FFCC29] text-8xl font-bold leading-[96px] tracking-[2.88px] uppercase hover:text-[#FFEFBD] cursor-meerkat">
+            <button
+              className="font-newTitle text-[#FFCC29] text-8xl font-bold leading-[96px] tracking-[2.88px] uppercase hover:text-[#FFEFBD] cursor-meerkat"
+              onClick={() => handleNavigation('faq')}
+            >
               {languageHandler('menu-d', language)}
             </button>
           </div>
@@ -89,34 +106,43 @@ const Menu = () => {
               />
             </div>
             <div className="flex justify-end items-center gap-4 flex-[1_0_0]">
-              <button
+              <a
                 className="cursor-meerkat"
                 onMouseEnter={() => setIsActive({ ...isActive, itemA: true })}
                 onMouseLeave={() => setIsActive({ ...isActive, itemA: false })}
+                href="https://x.com/Meerkatwtf"
+                target="blank_"
+                rel="noreferrer"
               >
                 <XIcon color={isActive.itemA ? '#FFEFBD' : '#FFCC29'} />
-              </button>
-              <button
+              </a>
+              <a
                 className="cursor-meerkat"
                 onMouseEnter={() => setIsActive({ ...isActive, itemB: true })}
                 onMouseLeave={() => setIsActive({ ...isActive, itemB: false })}
+                href="https://t.me/meerkatwtf"
+                target="blank_"
+                rel="noreferrer"
               >
                 <TelegramIcon color={isActive.itemB ? '#FFEFBD' : '#FFCC29'} />
-              </button>
-              <button
+              </a>
+              <a
                 className="cursor-meerkat"
                 onMouseEnter={() => setIsActive({ ...isActive, itemC: true })}
                 onMouseLeave={() => setIsActive({ ...isActive, itemC: false })}
               >
                 <DiscordIcon color={isActive.itemC ? '#FFEFBD' : '#FFCC29'} />
-              </button>
-              <button
+              </a>
+              <a
                 className="cursor-meerkat"
                 onMouseEnter={() => setIsActive({ ...isActive, itemD: true })}
                 onMouseLeave={() => setIsActive({ ...isActive, itemD: false })}
+                href="https://www.instagram.com/meerkatwtf/#/"
+                target="blank_"
+                rel="noreferrer"
               >
                 <InstagramIcon color={isActive.itemD ? '#FFEFBD' : '#FFCC29'} />
-              </button>
+              </a>
             </div>
           </div>
         </motion.div>

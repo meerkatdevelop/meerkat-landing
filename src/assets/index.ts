@@ -34,6 +34,9 @@ import Coin1 from './images/Coin1.svg'
 import Coin2 from './images/Coin2.svg'
 import Coin3 from './images/Coin3.svg'
 import MWallet from './images/Meerkat_Wallet.svg'
+import Loader from './images/loader.gif'
+import ErrorIcon from './images/error-icon.svg'
+import GreenCheckIcon from './images/check-icon.svg'
 
 //Flags
 import CountryCH from './flags/COUNTRY_CH.svg'
@@ -86,6 +89,9 @@ export {
   Coin2,
   Coin3,
   MWallet,
+  Loader,
+  ErrorIcon,
+  GreenCheckIcon,
   //Flags
   CountryCH,
   CountryEN,

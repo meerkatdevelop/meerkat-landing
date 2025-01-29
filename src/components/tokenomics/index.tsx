@@ -48,7 +48,7 @@ const Tokenomics = () => {
   }
 
   return (
-    <section className="cursor-meerkat flex w-screen flex-col items-center  px-20 py-28 bg-[#250807]">
+    <section id="tokenomics" className="cursor-meerkat flex w-screen flex-col items-center  px-20 py-28 bg-[#250807]">
       <div className="flex flex-col w-full od:w-[1440px] gap-[88px] od:px-20">
         <div className="flex flex-col items-center gap-16 self-stretch">
           <h2 className="self-stretch font-newTitle text-[#FFEFD4] text-center text-[104px] font-bold leading-[98px] tracking-[1.04px] uppercase">

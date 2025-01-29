@@ -23,7 +23,7 @@ const Features = () => {
                       <p className="w-[269px] text-[#3E0E0C] font-neueMontreal font-medium leading-[21px]">{languageHandler('features-b', language)}</p>
                     </div>
                     <button className="flex h-10 justify-center items-center px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
-                      <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px]">
+                      <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px] uppercase">
                         {languageHandler('features-c', language)}
                       </span>
                     </button>
@@ -41,7 +41,7 @@ const Features = () => {
                       <p className="w-[269px] text-[#3E0E0C] font-neueMontreal font-medium leading-[21px]">{languageHandler('features-e', language)}</p>
                     </div>
                     <button className="flex h-10 justify-center items-center px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
-                      <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px]">
+                      <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px] uppercase">
                         {languageHandler('features-f', language)}
                       </span>
                     </button>
@@ -60,7 +60,7 @@ const Features = () => {
                       </span>
                       <p className="w-[269px] text-[#3E0E0C] font-neueMontreal font-medium leading-[21px]">{languageHandler('features-h', language)}</p>
                     </div>
-                    <button className="flex h-10 justify-center items-center px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
+                    <button className="flex h-10 justify-center items-center px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat uppercase">
                       <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px]">
                         {languageHandler('features-i', language)}
                       </span>

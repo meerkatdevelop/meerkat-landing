@@ -42,34 +42,43 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex h-px justify-end items-end gap-6">
-            <button
+            <a
               className="cursor-meerkat"
               onMouseEnter={() => setIsActive({ ...isActive, itemA: true })}
               onMouseLeave={() => setIsActive({ ...isActive, itemA: false })}
+              href="https://x.com/Meerkatwtf"
+              target="blank_"
+              rel="noreferrer"
             >
               <XIcon color={isActive.itemA ? '#FFEFBD' : '#FFCC29'} />
-            </button>
-            <button
+            </a>
+            <a
               className="cursor-meerkat"
               onMouseEnter={() => setIsActive({ ...isActive, itemB: true })}
               onMouseLeave={() => setIsActive({ ...isActive, itemB: false })}
+              href="https://t.me/meerkatwtf"
+              target="blank_"
+              rel="noreferrer"
             >
               <TelegramIcon color={isActive.itemB ? '#FFEFBD' : '#FFCC29'} />
-            </button>
-            <button
+            </a>
+            <a
               className="cursor-meerkat"
               onMouseEnter={() => setIsActive({ ...isActive, itemC: true })}
               onMouseLeave={() => setIsActive({ ...isActive, itemC: false })}
             >
               <DiscordIcon color={isActive.itemC ? '#FFEFBD' : '#FFCC29'} />
-            </button>
-            <button
+            </a>
+            <a
               className="cursor-meerkat"
               onMouseEnter={() => setIsActive({ ...isActive, itemD: true })}
               onMouseLeave={() => setIsActive({ ...isActive, itemD: false })}
+              href="https://www.instagram.com/meerkatwtf/#/"
+              target="blank_"
+              rel="noreferrer"
             >
               <InstagramIcon color={isActive.itemD ? '#FFEFBD' : '#FFCC29'} />
-            </button>
+            </a>
           </div>
         </div>
       </div>

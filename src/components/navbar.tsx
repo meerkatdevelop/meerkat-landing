@@ -33,7 +33,7 @@ export const springIn = {
   },
 }
 
-const Navbar = ({ move }: { move: MotionValue<number> }) => {
+const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: number) => void }) => {
   const { isMenuOpen, setIsMenuOpen, language, setLanguage } = useAppContext()
   const [currentImage, setCurrentImage] = useState<string>('')
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false)
@@ -41,8 +41,10 @@ const Navbar = ({ move }: { move: MotionValue<number> }) => {
   const images = [Logo, LogoLight]
   const imageIndex = useTransform(move, [0, 1], [0, images.length - 1])
   useMotionValueEvent(imageIndex, 'change', (latest) => {
-    setCurrentImage(images[Math.round(latest)])
-    setActiveBg(latest === 1 ? true : false)
+    setTimeout(() => {
+      setCurrentImage(images[Math.round(latest)])
+      setActiveBg(latest === 1 ? true : false)
+    }, 0)
   })
 
   const isConnected = false
@@ -56,7 +58,7 @@ const Navbar = ({ move }: { move: MotionValue<number> }) => {
       className={`sticky top-0 flex-col w-screen pb-2 ${isMenuOpen ? 'z-20' : 'z-10'} ${activeBg ? 'bg-[#250807]' : 'bg-transparent'} transition-all ease-in-out`}
     >
       <div className="relative w-screen">
-        <Menu />
+        <Menu moveTo={moveTo} />
       </div>
       <div className="flex items-center gap-6 pt-10 px-20">
         <div className="flex items-center gap-10 flex-[1_0_0]">
@@ -72,9 +74,15 @@ const Navbar = ({ move }: { move: MotionValue<number> }) => {
               <ListIcon color={'#521210'} />
             </button>
           )}
-          <div className="flex flex-col items-start gap-2.5 flex-[1_0_0]">
+          <button
+            className="flex flex-col items-start gap-2.5 flex-[1_0_0] cursor-meerkat"
+            onClick={() => {
+              moveTo(0)
+              setIsMenuOpen(false)
+            }}
+          >
             <img src={isMenuOpen ? LogoLight : currentImage ? currentImage : Logo} alt="logo" className="w-[136.163px] h-10 object-cover" />
-          </div>
+          </button>
         </div>
         <div className="relative flex items-center gap-4">
           <button className="flex h-12 justify-center items-center px-4 py-0 rounded-lg bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">

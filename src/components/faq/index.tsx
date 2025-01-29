@@ -12,7 +12,7 @@ const FAQ = () => {
     box4: false,
   })
   return (
-    <section className="cursor-meerkat relative flex flex-col w-screen  h-fit items-center py-[100px] bg-[#310B0A]">
+    <section id="faq" className="cursor-meerkat relative flex flex-col w-screen  h-fit items-center py-[100px] bg-[#310B0A]">
       <div className="flex flex-col w-full od:w-[1440px]">
         {/* TOP ILUSTRATION */}
         <img src={CapaFeatureTop} alt="decoration" className="absolute top-0 left-0 w-full object-contain" />

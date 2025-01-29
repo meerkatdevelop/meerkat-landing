@@ -5,8 +5,9 @@ import { ImageMarquee } from './marquee-imgs'
 
 const About = () => {
   const { language } = useAppContext()
+
   return (
-    <section className="relative cursor-meerkat flex flex-col w-screen justify-center items-center  pt-[100px] pb-[120px] px-[242px] bg-[#250807] ">
+    <section id="about" className="relative cursor-meerkat flex flex-col w-screen justify-center items-center  pt-[100px] pb-[120px] px-[242px] bg-[#250807]">
       <div className="w-full od:w-[1440px] justify-center items-center gap-12">
         <div className="flex w-full flex-col items-center gap-6">
           <h4 className="self-stretch font-neueMontreal text-[#BFB39F] text-center font-medium leading-[normal] tracking-[0.16px] uppercase">
