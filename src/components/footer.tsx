@@ -15,7 +15,7 @@ const Footer = () => {
   })
 
   return (
-    <footer className="cursor-meerkat relative w-screen justify-center  h-[768px] shrink-0 bg-no-repeat bg-cover bg-[url('./assets/images/FOOTER_IMG2.svg')]">
+    <footer className="cursor-meerkat relative w-screen justify-center  h-[768px] shrink-0 bg-no-repeat bg-cover bg-[url('./assets/images/FOOTER_CONCEPT2.svg')]">
       <div className="flex w-full od:w-[1440px]">
         {/* TOP ILUSTRATION */}
         {/* <img src={FooterTopDecoration} alt="decoration" className="absolute top-0 left-0 w-full object-contain" /> */}

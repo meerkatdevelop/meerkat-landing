@@ -59,7 +59,7 @@ const Tokenomics = () => {
               <div className="flex flex-col justify-center items-start flex-[1_0_0] self-stretch">
                 <div className="flex flex-col items-start gap-2 self-stretch">
                   <span className="self-stretch font-neueMontreal text-[#FFEFD4] leading-5 uppercase">{languageHandler('tokenomics-b', language)}</span>
-                  <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-2xl leading-[25px]">1,000000000000000000000,000,000.00</span>
+                  <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-2xl leading-[25px]">6,000,000,000</span>
                 </div>
               </div>
               <div className="flex items-center gap-10">

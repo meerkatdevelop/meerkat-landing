@@ -1,5 +1,20 @@
 import { motion, AnimatePresence, MotionValue, useMotionValueEvent, useTransform } from 'motion/react'
-import { CaretDownIcon, CountryCH, CountryEN, CountryIN, CountryIT, CountryPT, CountrySP, ListIcon, Logo, LogoLight } from '../assets'
+import {
+  CaretDownIcon,
+  CountryCH,
+  CountryEN,
+  CountryIN,
+  CountryIT,
+  CountryPT,
+  CountrySP,
+  DiscordIcon,
+  InstagramIcon,
+  ListIcon,
+  Logo,
+  LogoLight,
+  TelegramIcon,
+  XIcon,
+} from '../assets'
 import CaretCloseIcon from '../assets/icons/caret-close'
 import { Languages, useAppContext } from '../context'
 import Menu from './cover/menu'
@@ -38,6 +53,12 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
   const [currentImage, setCurrentImage] = useState<string>('')
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false)
   const [activeBg, setActiveBg] = useState(false)
+  const [isActive, setIsActive] = useState({
+    itemA: false,
+    itemB: false,
+    itemC: false,
+    itemD: false,
+  })
   const images = [Logo, LogoLight]
   const imageIndex = useTransform(move, [0, 1], [0, images.length - 1])
   useMotionValueEvent(imageIndex, 'change', (latest) => {
@@ -60,7 +81,7 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
       <div className="relative w-screen">
         <Menu moveTo={moveTo} />
       </div>
-      <div className="flex items-center gap-6 pt-10 px-20">
+      <div className={`flex items-center gap-6 px-20 ${activeBg ? 'pt-2' : 'pt-10'} transition-all ease-in-out`}>
         <div className="flex items-center gap-10 flex-[1_0_0]">
           {isMenuOpen ? (
             <button className="w-8 h-8 transition-all ease-in-out cursor-meerkat" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -84,12 +105,7 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
             <img src={isMenuOpen ? LogoLight : currentImage ? currentImage : Logo} alt="logo" className="w-[136.163px] h-10 object-cover" />
           </button>
         </div>
-        <div className="relative flex items-center gap-4">
-          <button className="flex h-12 justify-center items-center px-4 py-0 rounded-lg bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
-            <span className="font-neueMontreal text-[#521210] text-sm font-bold leading-6 uppercase">
-              {isConnected ? languageHandler('navbar-b', language) : languageHandler('navbar-a', language)}
-            </span>
-          </button>
+        <div className="relative flex items-center gap-8">
           <button
             className="flex justify-center items-center gap-2 p-2 rounded-lg cursor-meerkat transition-all ease-in-out hover:bg-[#b2b2b280]"
             onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
@@ -97,6 +113,51 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
             <img src={flagSelector(language)} alt="flag" className="w-6 h-6" />
             <CaretDownIcon width="24" height="24" color={isMenuOpen || activeBg ? '#FFCC29' : '#521210'} className="w-6 h-6 object-contain" />
           </button>
+          <div className="flex justify-end items-center gap-4 flex-[1_0_0]">
+            <a
+              className="cursor-meerkat"
+              onMouseEnter={() => setIsActive({ ...isActive, itemA: true })}
+              onMouseLeave={() => setIsActive({ ...isActive, itemA: false })}
+              href="https://x.com/Meerkatwtf"
+              target="blank_"
+              rel="noreferrer"
+            >
+              <XIcon color={isActive.itemA ? '#FFEFBD' : '#FFCC29'} />
+            </a>
+            <a
+              className="cursor-meerkat"
+              onMouseEnter={() => setIsActive({ ...isActive, itemB: true })}
+              onMouseLeave={() => setIsActive({ ...isActive, itemB: false })}
+              href="https://t.me/meerkatwtf"
+              target="blank_"
+              rel="noreferrer"
+            >
+              <TelegramIcon color={isActive.itemB ? '#FFEFBD' : '#FFCC29'} />
+            </a>
+            <a
+              className="cursor-meerkat"
+              onMouseEnter={() => setIsActive({ ...isActive, itemC: true })}
+              onMouseLeave={() => setIsActive({ ...isActive, itemC: false })}
+            >
+              <DiscordIcon color={isActive.itemC ? '#FFEFBD' : '#FFCC29'} />
+            </a>
+            <a
+              className="cursor-meerkat"
+              onMouseEnter={() => setIsActive({ ...isActive, itemD: true })}
+              onMouseLeave={() => setIsActive({ ...isActive, itemD: false })}
+              href="https://www.instagram.com/meerkatwtf/#/"
+              target="blank_"
+              rel="noreferrer"
+            >
+              <InstagramIcon color={isActive.itemD ? '#FFEFBD' : '#FFCC29'} />
+            </a>
+          </div>
+          <button className="flex h-12 justify-center items-center px-4 py-0 rounded-lg bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
+            <span className="font-neueMontreal text-[#521210] text-sm font-bold leading-6 uppercase">
+              {isConnected ? languageHandler('navbar-b', language) : languageHandler('navbar-a', language)}
+            </span>
+          </button>
+
           <AnimatePresence>
             {isLanguageMenuOpen && (
               <motion.div

@@ -12,8 +12,8 @@ const MediaMarketing = () => {
             {languageHandler('media-marketing-a', language)}
           </h2>
           <div className="flex items-start gap-6 self-stretch">
-            <div className="flex h-[344px] flex-col items-start gap-4 flex-[1_0_0] pt-4 pb-6 px-4 border border-[#521210] rounded-3xl bg-[#521210]">
-              <div className="flex justify-center items-center flex-[1_0_0] self-stretch p-2 rounded-2xl bg-[#3e0e0c]">
+            <div className="flex h-[344px] flex-col items-start gap-4 flex-[1_0_0] pt-4 pb-6 px-4 border border-[#521210] rounded-3xl bg-[#310B0A]">
+              <div className="flex justify-center items-center flex-[1_0_0] self-stretch p-2 rounded-2xl bg-[#3E0E0C]">
                 <PlayIcon className="opacity-[0.37]" />
               </div>
               <div className="flex w-96 flex-col items-start gap-2 px-2 py-0">
@@ -25,8 +25,8 @@ const MediaMarketing = () => {
                 </div>
               </div>
             </div>
-            <div className="flex h-[344px] flex-col items-start gap-4 flex-[1_0_0] pt-4 pb-6 px-4 border border-[#521210] rounded-3xl bg-[#521210]">
-              <div className="flex justify-center items-center flex-[1_0_0] self-stretch p-2 rounded-2xl bg-[#3e0e0c]">
+            <div className="flex h-[344px] flex-col items-start gap-4 flex-[1_0_0] pt-4 pb-6 px-4 border border-[#521210] rounded-3xl bg-[#310B0A]">
+              <div className="flex justify-center items-center flex-[1_0_0] self-stretch p-2 rounded-2xl bg-[#3E0E0C]">
                 <PlayIcon className="opacity-[0.37]" />
               </div>
               <div className="flex w-96 flex-col items-start gap-2 px-2 py-0">
@@ -38,8 +38,8 @@ const MediaMarketing = () => {
                 </div>
               </div>
             </div>
-            <div className="flex h-[344px] flex-col items-start gap-4 flex-[1_0_0] pt-4 pb-6 px-4 border border-[#521210] rounded-3xl bg-[#521210]">
-              <div className="flex justify-center items-center flex-[1_0_0] self-stretch p-2 rounded-2xl bg-[#3e0e0c]">
+            <div className="flex h-[344px] flex-col items-start gap-4 flex-[1_0_0] pt-4 pb-6 px-4 border border-[#521210] rounded-3xl bg-[#310B0A]">
+              <div className="flex justify-center items-center flex-[1_0_0] self-stretch p-2 rounded-2xl bg-[#3E0E0C]">
                 <PlayIcon className="opacity-[0.37]" />
               </div>
               <div className="flex w-96 flex-col items-start gap-2 px-2 py-0">
