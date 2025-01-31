@@ -1,16 +1,13 @@
+import { useRef } from 'react'
+import { useMotionValueEvent, useScroll, useSpring } from 'motion/react'
+import ReactLenis from 'lenis/react'
 import Navbar from './components/navbar'
 import Features from './components/features'
-import Presale from './components/pre-sale'
-import Roadmap from './components/roadmap'
 import Tokenomics from './components/tokenomics'
 import FAQ from './components/faq'
 import Footer from './components/footer'
 import About from './components/about'
 import MeerkatWallet from './components/meerkat-wallet'
-import MediaMarketing from './components/media-marketing'
-import ReactLenis from 'lenis/react'
-import { useMotionValueEvent, useScroll, useSpring } from 'motion/react'
-import { useRef } from 'react'
 import Hero from './assets/hero'
 import Cover from './components/cover'
 
@@ -45,12 +42,12 @@ function App() {
           <div ref={transitionRef} className="-mt-[98px]">
             <About />
             <Features />
-            <Roadmap />
+            {/* <Roadmap /> */}
             <Tokenomics />
             <MeerkatWallet />
-            <MediaMarketing />
+            {/* <MediaMarketing /> */}
             <FAQ />
-            <Presale />
+            {/* <Presale /> */}
             <Footer />
           </div>
         </div>

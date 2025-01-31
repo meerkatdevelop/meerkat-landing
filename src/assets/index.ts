@@ -5,6 +5,7 @@ import CaretUpIcon from './icons/caret-up'
 import CaretLeftIcon from './icons/caret-left'
 import CaretRightIcon from './icons/caret-right'
 import CreditCardIcon from './icons/credit-card'
+import InfoIcon from './icons/info'
 import CheckIcon from './icons/check'
 import PlayIcon from './icons/play'
 import XIcon from './icons/x'
@@ -37,6 +38,7 @@ import MWallet from './images/Meerkat_Wallet.svg'
 import Loader from './images/loader.gif'
 import ErrorIcon from './images/error-icon.svg'
 import GreenCheckIcon from './images/check-icon.svg'
+import TelegramVector from './images/telegram-vector.svg'
 
 //Flags
 import CountryCH from './flags/COUNTRY_CH.svg'
@@ -62,11 +64,13 @@ export {
   CaretRightIcon,
   CheckIcon,
   CreditCardIcon,
+  InfoIcon,
   PlayIcon,
   XIcon,
   TelegramIcon,
   DiscordIcon,
   InstagramIcon,
+
   //Images
   Logo,
   LogoLight,
@@ -92,6 +96,7 @@ export {
   Loader,
   ErrorIcon,
   GreenCheckIcon,
+  TelegramVector,
   //Flags
   CountryCH,
   CountryEN,

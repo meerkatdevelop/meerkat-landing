@@ -27,7 +27,8 @@ const About = () => {
             {languageHandler('about-b', language)}
           </h3>
           <p className="w-[956px] font-neueMontreal text-[#FFEFD4] text-center text-2xl leading-10 tracking-[0.24px] pt-4">
-            {languageHandler('about-c', language)}
+            {languageHandler('about-c', language)[0]} <span className="font-bold">{languageHandler('about-c', language)[1]}</span>
+            {languageHandler('about-c', language)[2]}
           </p>
           <img src={Coin1} alt="coin1" className="absolute top-0 left-0 translate-y-[250px]" />
           <img src={Coin2} alt="coin2" className="absolute top-0 right-0 translate-y-[330px]" />

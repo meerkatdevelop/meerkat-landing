@@ -7,7 +7,7 @@ import ch from './languages/ch.json'
 import ind from './languages/ind.json'
 import pt from './languages/pt.json'
 
-export const languageHandler = (id: string, language: Languages) => {
+export const languageHandler = (id: string, language: Languages): string | string[] => {
   let array
   switch (true) {
     case language === Languages.ES:
@@ -30,7 +30,20 @@ export const languageHandler = (id: string, language: Languages) => {
       break
   }
 
-  return array[id as keyof typeof array]
+  if (array[id as keyof typeof array].includes('$MERK')) {
+    let newArray = array[id as keyof typeof array].split('$MERK')
+    if (newArray.length > 2 && newArray.length <= 3) {
+      newArray = [newArray[0], '$MERK', newArray[1], '$MERK', newArray[2]]
+    } else {
+      newArray = [newArray[0], '$MERK', newArray[1]]
+    }
+
+    array = newArray
+  } else {
+    array = array[id as keyof typeof array]
+  }
+
+  return array
 }
 
 export const flagSelector = (language: Languages) => {

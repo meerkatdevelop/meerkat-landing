@@ -1,11 +1,11 @@
-import { CapaFeatureBottom, CapaFeatureTop, MemeCreator, MiniApp, TreeMoney } from '../../assets'
 import { useAppContext } from '../../context'
 import { languageHandler } from '../../helpers'
+import { CapaFeatureBottom, CapaFeatureTop, MemeCreator, MiniApp, TelegramVector, TreeMoney } from '../../assets'
 
 const Features = () => {
   const { language } = useAppContext()
   return (
-    <section className="cursor-meerkat relative flex flex-col w-screen justify-center items-center h-[1451px]  bg-[#310B0A]">
+    <section className="cursor-meerkat relative flex flex-col w-screen justify-center items-center h-[1451px] pb-24 bg-[#310B0A]">
       {/* TOP ILUSTRATION */}
       <img src={CapaFeatureTop} alt="decoration" className="absolute top-0 left-0 w-full object-contain" />
 
@@ -37,14 +37,15 @@ const Features = () => {
                 <div className="flex w-[221px] flex-col items-start gap-2.5 shrink-0 self-stretch">
                   <div className="flex flex-col justify-end items-start gap-6 flex-[1_0_0]">
                     <div className="flex flex-col items-start gap-6 flex-[1_0_0] self-stretch">
-                      <span className="font-newTitle text-[88px] text-[#3E0E0C] font-bold leading-[88px] tracking-[0.88px] uppercase">
+                      <span className="font-newTitle text-[82px] text-[#3E0E0C] font-bold leading-[70px] tracking-[0.64px] uppercase">
                         {languageHandler('features-d', language)}
                       </span>
                       <p className="w-[269px] text-[#3E0E0C] font-neueMontreal font-medium leading-[21px]">{languageHandler('features-e', language)}</p>
                     </div>
                     <button className="flex h-10 justify-center items-center px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
-                      <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px] uppercase">
+                      <span className="flex items-center gap-2 font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px] uppercase">
                         {languageHandler('features-f', language)}
+                        <img src={TelegramVector} alt="telegram-vector" />
                       </span>
                     </button>
                   </div>
@@ -57,10 +58,10 @@ const Features = () => {
                 <div className="flex w-[221px] flex-col items-start gap-2.5 shrink-0 self-stretch">
                   <div className="flex flex-col justify-end items-start gap-6 flex-[1_0_0]">
                     <div className="flex flex-col items-start gap-6 flex-[1_0_0] self-stretch">
-                      <span className="font-newTitle text-[88px] text-[#3E0E0C] font-bold leading-[88px] tracking-[0.88px] uppercase">
+                      <span className="font-newTitle text-[82px] text-[#3E0E0C] font-bold leading-[70px] tracking-[0.88px] uppercase">
                         {languageHandler('features-g', language)}
                       </span>
-                      <p className="w-[269px] text-[#3E0E0C] font-neueMontreal font-medium leading-[21px]">{languageHandler('features-h', language)}</p>
+                      <p className="w-[269px] text-[#3E0E0C] font-neueMontreal font-medium leading-[18px]">{languageHandler('features-h', language)}</p>
                     </div>
                     <button className="flex h-10 justify-center items-center px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat uppercase">
                       <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px]">

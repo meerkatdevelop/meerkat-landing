@@ -39,7 +39,7 @@ const ActionBox = () => {
   }
 
   return (
-    <div className="pt-8">
+    <div className="pt-14">
       <div className="relative flex w-[378px] flex-col items-center gap-4 p-6 rounded-3xl bg-white overflow-y-hidden">
         <div className="flex flex-col items-start self-stretch border border-[#521210] rounded-xl">
           <div className="flex flex-col justify-center items-center gap-1 self-stretch px-0 py-2 rounded-[12px_12px_0px_0px] bg-[#521210]">
@@ -68,7 +68,7 @@ const ActionBox = () => {
           <div className="flex flex-col items-start gap-2 self-stretch px-0 py-2 rounded-xl bg-[#fffdfb]">
             <div className="flex flex-col items-start gap-2 self-stretch rounded-lg">
               <div className="flex flex-col justify-center items-start gap-1 self-stretch">
-                <span className="self-stretch font-neueMontreal text-[#C9B6B5] text-[10px] font-medium leading-3 tracking-[0.1px] uppercase">
+                <span className="self-stretch font-neueMontreal text-[#C9B6B5] text-[11px] font-medium leading-3 tracking-[0.1px] uppercase">
                   {languageHandler('action-box-f', language)}
                 </span>
                 <div className="flex items-center gap-2.5 self-stretch">
@@ -90,10 +90,10 @@ const ActionBox = () => {
           >
             <div className="flex flex-col justify-center items-start gap-2 flex-[1_0_0]">
               <div className="flex justify-center items-center self-stretch px-1 py-0">
-                <span className="flex-[1_0_0] font-neueMontreal text-[#C9B6B5] text-[10px] font-medium leading-3 tracking-[0.1px] uppercase">
-                  {languageHandler('action-box-g', language)} {'ETH'}
+                <span className="flex-[1_0_0] font-neueMontreal text-[#C9B6B5] text-[11px] font-medium leading-3 tracking-[0.1px] uppercase">
+                  {languageHandler('action-box-g', language)} {pair.label}
                 </span>
-                <span className="flex-[1_0_0] text-[#FFCC29] text-right font-neueMontreal text-[10px] font-bold leading-3 tracking-[0.1px] uppercase">
+                <span className="flex-[1_0_0] text-[#FFCC29] text-right font-neueMontreal text-[11px] font-bold leading-3 tracking-[0.1px] uppercase">
                   {languageHandler('action-box-h', language)}.
                 </span>
               </div>

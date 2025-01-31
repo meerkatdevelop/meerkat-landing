@@ -1,11 +1,20 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { languageHandler } from '../../helpers'
 import { useAppContext } from '../../context'
+import { InfoIcon } from '../../assets'
 
 const Tokenomics = () => {
   const { language } = useAppContext()
   const sectionRef = useRef<HTMLDivElement | null>(null)
+  const presaleBoxRef = useRef<HTMLDivElement | null>(null)
+  const stakingRewardsPostBoxRef = useRef<HTMLDivElement | null>(null)
+  const stakingRewardsDuringBoxRef = useRef<HTMLDivElement | null>(null)
+  const marketingBoxRef = useRef<HTMLDivElement | null>(null)
+  const developmentBoxRef = useRef<HTMLDivElement | null>(null)
+  const dexBoxRef = useRef<HTMLDivElement | null>(null)
+  const cexBoxRef = useRef<HTMLDivElement | null>(null)
+  const [active, setActive] = useState<{ id: string } | null>(null)
   const [isBlendAreaActive, setIsBlendAreaActive] = useState(false)
   const [coordinates, setCoordinates] = useState<{ x: number; y: number } | null>(null)
 
@@ -13,25 +22,38 @@ const Tokenomics = () => {
 
   // console.log(isInView)
 
-  // useEffect(() => {
-  //   const handleMouseMove = (event: MouseEvent) => {
-  //     const sectionElement = sectionRef.current
-  //     if (sectionElement) {
-  //       const { left, top, right, bottom } = sectionElement.getBoundingClientRect()
-  //       const isInside = event.clientX >= left && event.clientX <= right && event.clientY >= top && event.clientY <= bottom
-  //       setIsBlendAreaActive(isInside)
-  //       if (isInside) {
-  //         setCoordinates({ x: event.clientX, y: event.clientY })
-  //       } else {
-  //         setCoordinates(null)
-  //       }
-  //     }
-  //   }
-  //   window.addEventListener('mousemove', handleMouseMove)
-  //   return () => {
-  //     window.removeEventListener('mousemove', handleMouseMove)
-  //   }
-  // }, [])
+  useEffect(() => {
+    const handleMouseBox = (event: MouseEvent) => {
+      const boxes = [
+        presaleBoxRef.current,
+        stakingRewardsPostBoxRef.current,
+        stakingRewardsDuringBoxRef.current,
+        marketingBoxRef.current,
+        developmentBoxRef.current,
+        dexBoxRef.current,
+        cexBoxRef.current,
+      ]
+
+      for (const box of boxes) {
+        if (box) {
+          const { left, top, right, bottom } = box.getBoundingClientRect()
+          const isInside = event.clientX >= left && event.clientX <= right && event.clientY >= top && event.clientY <= bottom
+
+          if (isInside) {
+            setActive({ id: box.id })
+            setCoordinates(null)
+            break
+          } else {
+            setActive(null)
+          }
+        }
+      }
+    }
+    window.addEventListener('mousemove', handleMouseBox)
+    return () => {
+      window.removeEventListener('mousemove', handleMouseBox)
+    }
+  }, [])
 
   const handleMouseMove = (event: React.MouseEvent) => {
     const sectionElement = sectionRef.current
@@ -63,10 +85,10 @@ const Tokenomics = () => {
                 </div>
               </div>
               <div className="flex items-center gap-10">
-                <div className="flex w-[126px] flex-col items-start gap-2">
+                {/* <div className="flex w-[126px] flex-col items-start gap-2">
                   <span className="w-[119px] font-neueMontreal text-[#FFEFD4] leading-5 uppercase">{languageHandler('tokenomics-c', language)}</span>
                   <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-2xl leading-[25px]">12.56%</span>
-                </div>
+                </div> */}
                 <div className="flex flex-col items-start gap-2">
                   <span className="self-stretch font-neueMontreal text-[#FFEFD4] leading-5 uppercase">{languageHandler('tokenomics-d', language)}</span>
                   <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-2xl leading-[25px] uppercase">
@@ -105,23 +127,66 @@ const Tokenomics = () => {
           onMouseMove={(event) => handleMouseMove(event)}
           onMouseLeave={() => setIsBlendAreaActive(false)}
         >
-          <h4 className="flex w-[910px] h-[281px] flex-col justify-center shrink-0 font-newTitle text-[#FFEFBD] text-center text-[160px] font-bold leading-[139px] tracking-tight uppercase">
-            {languageHandler('tokenomics-j', language)}
-          </h4>
+          {active && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                ease: 'easeInOut',
+                duration: 0.4,
+              }}
+              exit={{ opacity: 0, scale: 0 }}
+              className="inline-flex w-[641px] flex-col pt-10 justify-center items-center gap-6 p-2.5"
+            >
+              <h5 className="font-newTitle text-[#FFEFD4] text-center text-[64px] font-bold leading-[54px] uppercase">
+                {languageHandler(active.id, language)}&nbsp;
+                {languageHandler(active.id + '-a', language)}&nbsp; {languageHandler(active.id + '-b', language)}
+              </h5>
+              <span className="font-neueMontreal text-[#FFEFD4] text-center text-[32px] font-medium leading-[38px]">
+                {languageHandler(active.id + '-c', language)}
+              </span>
+            </motion.div>
+          )}
+
+          {!active && (
+            <motion.h4
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                ease: 'easeInOut',
+                duration: 0.4,
+              }}
+              exit={{ opacity: 0, scale: 0 }}
+              className="flex w-[910px] h-[281px] flex-col justify-center shrink-0 font-newTitle text-[#FFEFBD] text-center text-[160px] font-bold leading-[139px] tracking-tight uppercase"
+            >
+              {languageHandler('tokenomics-j', language)}
+            </motion.h4>
+          )}
+
           {/* TokenomicsCard */}
-          <div className="absolute left-[144px] bottom-[0px] flex w-[195.617px] h-16 items-start gap-1 px-4 py-3.5 border border-[#521210] rounded-2xl bg-[#250807]">
-            <div className="flex flex-col justify-between items-center flex-[1_0_0] self-stretch">
+          <div
+            ref={presaleBoxRef}
+            id="tokenomics-k"
+            className="absolute left-[144px] bottom-[0px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
+          >
+            <InfoIcon color="#FFCC29" />
+            <div className="flex w-[113px] flex-col justify-center items-center gap-2">
               <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-[10px]  leading-3 tracking-[0.1px]">
                 {languageHandler('tokenomics-k', language)}:
               </span>
-              <span className="self-stretch font-neueMontreal text-[#FFCC29] text-sm font-bold leading-[14px] tracking-[0.14px]">450M Tokens</span>
+              <span className="self-stretch font-neueMontreal text-[#FFCC29] text-sm font-bold leading-[14px] tracking-[0.14px]">3B Tokens</span>
             </div>
             <span className="flex w-[47px] flex-col justify-center shrink-0 self-stretch font-newTitle text-[#FFCC29] text-5xl font-bold leading-[48px]">
-              7.5%
+              50%
             </span>
           </div>
-          <div className="absolute right-[144px] bottom-[0px] flex w-[195.617px] h-16 items-start gap-1 px-4 py-3.5 border border-[#521210] rounded-2xl bg-[#250807]">
-            <div className="flex flex-col justify-between items-center flex-[1_0_0] self-stretch">
+          <div
+            ref={stakingRewardsPostBoxRef}
+            id="tokenomics-l"
+            className="absolute right-[144px] bottom-[0px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
+          >
+            <InfoIcon color="#FFCC29" />
+            <div className="flex w-[113px] flex-col justify-center items-center gap-2">
               <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-[10px]  leading-3 tracking-[0.1px]">
                 {languageHandler('tokenomics-l', language)}:
               </span>
@@ -131,19 +196,29 @@ const Tokenomics = () => {
               5%
             </span>
           </div>
-          <div className="absolute left-[544px] bottom-[0px] flex w-[195.617px] h-16 items-start gap-1 px-4 py-3.5 border border-[#521210] rounded-2xl bg-[#250807]">
+          <div
+            ref={stakingRewardsDuringBoxRef}
+            id="tokenomics-m"
+            className="absolute left-[544px] bottom-[0px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
+          >
+            <InfoIcon color="#FFCC29" />
             <div className="flex flex-col justify-between items-center flex-[1_0_0] self-stretch">
               <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-[10px]  leading-3 tracking-[0.1px]">
                 {languageHandler('tokenomics-m', language)}:
               </span>
-              <span className="self-stretch font-neueMontreal text-[#FFCC29] text-sm font-bold leading-[14px] tracking-[0.14px]">300M Tokens</span>
+              <span className="self-stretch font-neueMontreal text-[#FFCC29] text-sm font-bold leading-[14px] tracking-[0.14px]">1.2B Tokens</span>
             </div>
             <span className="flex w-[47px] flex-col justify-center shrink-0 self-stretch font-newTitle text-[#FFCC29] text-5xl font-bold leading-[48px]">
-              5%
+              20%
             </span>
           </div>
-          <div className="absolute left-[364px] top-[0px] flex w-[195.617px] h-16 items-start gap-1 px-4 py-3.5 border border-[#521210] rounded-2xl bg-[#250807]">
-            <div className="flex flex-col justify-between items-center flex-[1_0_0] self-stretch">
+          <div
+            ref={marketingBoxRef}
+            id="tokenomics-n"
+            className="absolute left-[324px] top-[0px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
+          >
+            <InfoIcon color="#FFCC29" />
+            <div className="flex w-[113px] flex-col justify-center items-center gap-2">
               <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-[10px]  leading-3 tracking-[0.1px]">
                 {languageHandler('tokenomics-n', language)}:
               </span>
@@ -153,37 +228,52 @@ const Tokenomics = () => {
               7.5%
             </span>
           </div>
-          <div className="absolute left-[90px] top-[146px] flex w-[195.617px] h-16 items-start gap-1 px-4 py-3.5 border border-[#521210] rounded-2xl bg-[#250807]">
-            <div className="flex flex-col justify-between items-center flex-[1_0_0] self-stretch">
+          <div
+            ref={developmentBoxRef}
+            id="tokenomics-o"
+            className="absolute left-[20px] top-[146px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
+          >
+            <InfoIcon color="#FFCC29" />
+            <div className="flex w-[113px] flex-col justify-center items-center gap-2">
               <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-[10px]  leading-3 tracking-[0.1px]">
                 {languageHandler('tokenomics-o', language)}:
               </span>
-              <span className="self-stretch font-neueMontreal text-[#FFCC29] text-sm font-bold leading-[14px] tracking-[0.14px]">600M Tokens</span>
+              <span className="self-stretch font-neueMontreal text-[#FFCC29] text-sm font-bold leading-[14px] tracking-[0.14px]">450M Tokens</span>
             </div>
             <span className="flex w-[47px] flex-col justify-center shrink-0 self-stretch font-newTitle text-[#FFCC29] text-5xl font-bold leading-[48px]">
-              10%
+              7.5%
             </span>
           </div>
-          <div className="absolute right-[360px] top-[0px] flex w-[195.617px] h-16 items-start gap-1 px-4 py-3.5 border border-[#521210] rounded-2xl bg-[#250807]">
-            <div className="flex flex-col justify-between items-center flex-[1_0_0] self-stretch">
+          <div
+            ref={dexBoxRef}
+            id="tokenomics-p"
+            className="absolute right-[360px] top-[0px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
+          >
+            <InfoIcon color="#FFCC29" />
+            <div className="flex w-[113px] flex-col justify-center items-center gap-2">
               <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-[10px]  leading-3 tracking-[0.1px]">
                 {languageHandler('tokenomics-p', language)}:
               </span>
-              <span className="self-stretch font-neueMontreal text-[#FFCC29] text-sm font-bold leading-[14px] tracking-[0.14px]">2.4B Tokens</span>
+              <span className="self-stretch font-neueMontreal text-[#FFCC29] text-sm font-bold leading-[14px] tracking-[0.14px]">300M Tokens</span>
             </div>
             <span className="flex w-[47px] flex-col justify-center shrink-0 self-stretch font-newTitle text-[#FFCC29] text-5xl font-bold leading-[48px]">
-              40%
+              5%
             </span>
           </div>
-          <div className="absolute right-[60px] bottom-[140px] flex w-[195.617px] h-16 items-start gap-1 px-4 py-3.5 border border-[#521210] rounded-2xl bg-[#250807]">
-            <div className="flex flex-col justify-between items-center flex-[1_0_0] self-stretch">
+          <div
+            ref={cexBoxRef}
+            id="tokenomics-q"
+            className="absolute right-[60px] bottom-[140px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
+          >
+            <InfoIcon color="#FFCC29" />
+            <div className="flex w-[113px] flex-col justify-center items-center gap-2">
               <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-[10px]  leading-3 tracking-[0.1px] text-nowrap">
                 {languageHandler('tokenomics-q', language)}:
               </span>
-              <span className="self-stretch font-neueMontreal text-[#FFCC29] text-sm font-bold leading-[14px] tracking-[0.14px]">2.4B Tokens</span>
+              <span className="self-stretch font-neueMontreal text-[#FFCC29] text-sm font-bold leading-[14px] tracking-[0.14px]">300M Tokens</span>
             </div>
             <span className="flex w-[47px] flex-col justify-center shrink-0 self-stretch font-newTitle text-[#FFCC29] text-5xl font-bold leading-[48px]">
-              30%
+              5%
             </span>
           </div>
           <AnimatePresence>

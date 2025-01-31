@@ -13,7 +13,7 @@ const Roadmap = () => {
     target: targetRef,
   })
 
-  const x = useTransform(scrollYProgress, [0, 1], ['1%', '-110%'])
+  const x = useTransform(scrollYProgress, [0, 1], ['1%', '-60%'])
   return (
     <section id="roadmap" className="cursor-meerkat flex flex-col w-screen items-center gap-2.5 self-stretch py-28 bg-[#250807] ">
       <div ref={targetRef} className="relative w-full od:w-[1440px] h-[300vh] ">
