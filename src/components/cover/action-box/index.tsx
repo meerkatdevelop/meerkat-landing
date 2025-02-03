@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BASE, BNB, CaretDownIcon, CaretLeftIcon, CaretRightIcon, CreditCardIcon, ErrorIcon, ETH, GreenCheckIcon, Loader, SOLANA, USDT } from '../../../assets'
 import { languageHandler } from '../../../helpers'
 import { useAppContext } from '../../../context'
@@ -8,6 +8,7 @@ const ActionBox = () => {
   // const [active, setActive] = useState('ETH')
   const [isCoinMenuOpen, setIsCoinMenuOpen] = useState(false)
   const { language } = useAppContext()
+  const [countdown, setCountdown] = useState({ days: '00', hours: '00', minutes: '00', seconds: '00' })
   const [form, setForm] = useState('')
   const [chain, setChain] = useState<null | 'ETH' | 'SOL' | 'BNB' | 'BASE'>(null)
   const [pair, setPair] = useState<{ coin: string; chain: string; label: string; name: string }>({
@@ -38,6 +39,30 @@ const ActionBox = () => {
     return pairs[network]
   }
 
+  useEffect(() => {
+    const getTimeLeftUntil = (targetDate: Date): { days: string; hours: string; minutes: string; seconds: string } => {
+      const now = new Date()
+      const diff = targetDate.getTime() - now.getTime()
+      if (diff <= 0) {
+        return { days: '00', hours: '00', minutes: '00', seconds: '00' }
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24))
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24)
+      const minutes = Math.floor((diff / (1000 * 60)) % 60)
+      const seconds = Math.floor((diff / 1000) % 60)
+      return {
+        days: days < 10 ? `0${days}` : days.toString(),
+        hours: hours < 10 ? `0${hours}` : hours.toString(),
+        minutes: minutes < 10 ? `0${minutes}` : minutes.toString(),
+        seconds: seconds < 10 ? `0${seconds}` : seconds.toString(),
+      }
+    }
+    const interval = setInterval(() => {
+      setCountdown(getTimeLeftUntil(new Date(Date.UTC(2025, 1, 25, 16, 0, 0))))
+    }, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <div className="pt-14">
       <div className="relative flex w-[378px] flex-col items-center gap-4 p-6 rounded-3xl bg-white overflow-y-hidden">
@@ -47,19 +72,19 @@ const ActionBox = () => {
           </div>
           <div className="flex h-16 justify-center items-center gap-2 self-stretch px-0 py-4 rounded-[0px_0px_12px_12px]">
             <div className="flex flex-col  px-2 py-0 rounded-[8px_0px_0px_8px]">
-              <span className=" w-14 font-neueMontreal text-center text-2xl font-bold ">120</span>
+              <span className=" w-14 font-neueMontreal text-center text-2xl font-bold ">{countdown.days}</span>
               <span className="font-neueMontreal text-center text-[10px] font-bold ">{languageHandler('action-box-b', language)}</span>
             </div>
             <div className="flex flex-col  px-2 py-0 rounded-[8px_0px_0px_8px]">
-              <span className=" w-14 font-neueMontreal text-center text-2xl font-bold ">23</span>
+              <span className=" w-14 font-neueMontreal text-center text-2xl font-bold ">{countdown.hours}</span>
               <span className="font-neueMontreal text-center text-[10px] font-bold ">{languageHandler('action-box-c', language)}</span>
             </div>
             <div className="flex flex-col  px-2 py-0 rounded-[8px_0px_0px_8px]">
-              <span className=" w-14 font-neueMontreal text-center text-2xl font-bold ">60</span>
+              <span className=" w-14 font-neueMontreal text-center text-2xl font-bold ">{countdown.minutes}</span>
               <span className="font-neueMontreal text-center text-[10px] font-bold ">{languageHandler('action-box-d', language)}</span>
             </div>
             <div className="flex flex-col  px-2 py-0 rounded-[8px_0px_0px_8px]">
-              <span className=" w-14 font-neueMontreal text-center text-2xl font-bold ">06</span>
+              <span className=" w-14 font-neueMontreal text-center text-2xl font-bold ">{countdown.seconds}</span>
               <span className="font-neueMontreal text-center text-[10px] font-bold ">{languageHandler('action-box-e', language)}</span>
             </div>
           </div>

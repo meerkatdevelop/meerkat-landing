@@ -47,7 +47,7 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
     }, 0)
   })
 
-  const isConnected = false
+  // const isConnected = false
 
   const handleLanguage = (id: Languages) => {
     setLanguage(id)
@@ -64,7 +64,7 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
         <div className="flex items-center gap-10 flex-[1_0_0]">
           {isMenuOpen ? (
             <button className="w-8 h-8 transition-all ease-in-out cursor-meerkat" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              <CaretCloseIcon color={'#FFCC29'} />
+              <CaretCloseIcon color="#FFCC29" />
             </button>
           ) : (
             <button
@@ -99,13 +99,13 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
               <InstagramIcon color="#EEE7E7" />
             </a>
           </div>
-          <button className="flex h-10 justify-center items-center px-4 py-0 rounded-lg bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
+          {/* <button className="flex h-10 justify-center items-center px-4 py-0 rounded-lg bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
             <span className="font-neueMontreal text-[#521210] text-sm font-bold leading-6 uppercase">
               {isConnected ? languageHandler('navbar-b', language) : languageHandler('navbar-a', language)}
             </span>
-          </button>
+          </button> */}
           <button
-            className="flex w-10 h-10 rounded-full justify-center items-center gap-2 p-2 cursor-meerkat transition-all ease-in-out bg-[#EEE7E7] hover:bg-[#FFEFBD]"
+            className="flex w-10 h-10 rounded-full justify-center items-center gap-2 p-2 cursor-meerkat transition-all ease-in-out bg-[#EEE7E7] hover:bg-[#C9B6B5]"
             onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
           >
             <img src={flagSelector(language)} alt="flag" className="w-6 h-6" />

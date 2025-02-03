@@ -2,7 +2,7 @@ import { motion } from 'motion/react'
 import { useAppContext } from '../../../context'
 import { AnimatePresence } from 'motion/react'
 import { languageHandler } from '../../../helpers'
-import { InstagramIcon, TelegramIcon, XIcon } from '../../../assets'
+// import { InstagramIcon, TelegramIcon, XIcon } from '../../../assets'
 
 export const springIn = {
   hidden: {
@@ -98,20 +98,20 @@ const Menu = ({ moveTo }: { moveTo: (to: number) => void }) => {
                 className="relative font-neueMontreal text-[#FFEFD4] font-bold leading-3 cursor-meerkat custom-button h-3 py-2"
               />
             </div>
-            <div className="flex justify-end items-center gap-4 flex-[1_0_0]">
+            {/* <div className="flex justify-end items-center gap-4 flex-[1_0_0]">
               <a className="cursor-meerkat" href="https://x.com/Meerkatwtf" target="blank_" rel="noreferrer">
                 <XIcon color="#FFCC29" />
               </a>
               <a className="cursor-meerkat" href="https://t.me/meerkatwtf" target="blank_" rel="noreferrer">
                 <TelegramIcon color="#FFCC29" />
               </a>
-              {/* <a className="cursor-meerkat">
+              <a className="cursor-meerkat">
                 <DiscordIcon color="#FFCC29" />
-              </a> */}
+              </a>
               <a className="cursor-meerkat" href="https://www.instagram.com/meerkatwtf/#/" target="blank_" rel="noreferrer">
                 <InstagramIcon color="#FFCC29" />
               </a>
-            </div>
+            </div> */}
           </div>
         </motion.div>
       )}

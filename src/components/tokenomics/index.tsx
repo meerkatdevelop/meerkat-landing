@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { languageHandler } from '../../helpers'
 import { useAppContext } from '../../context'
-import { InfoIcon } from '../../assets'
+import { Etherscan, InfoIcon } from '../../assets'
 
 const Tokenomics = () => {
   const { language } = useAppContext()
@@ -15,12 +15,21 @@ const Tokenomics = () => {
   const dexBoxRef = useRef<HTMLDivElement | null>(null)
   const cexBoxRef = useRef<HTMLDivElement | null>(null)
   const [active, setActive] = useState<{ id: string } | null>(null)
+  const [isCopied, setIsCopied] = useState(false)
   const [isBlendAreaActive, setIsBlendAreaActive] = useState(false)
   const [coordinates, setCoordinates] = useState<{ x: number; y: number } | null>(null)
 
   // const isInView = useInView(sectionRef)
 
   // console.log(isInView)
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText('deploy pending')
+    setIsCopied(true)
+    setTimeout(() => {
+      setIsCopied(false)
+    }, 3000)
+  }
 
   useEffect(() => {
     const handleMouseBox = (event: MouseEvent) => {
@@ -76,7 +85,7 @@ const Tokenomics = () => {
           <h2 className="self-stretch font-newTitle text-[#FFEFD4] text-center text-[104px] font-bold leading-[98px] tracking-[1.04px] uppercase">
             {languageHandler('tokenomics-a', language)}
           </h2>
-          <div className="flex  flex-col items-start gap-10 self-stretch p-6 border border-[#4A100E] rounded-3xl">
+          <div className="flex w-[848px] flex-col items-start gap-10 p-6 border border-[#4A100E] rounded-3xl">
             <div className="flex h-[60px] justify-between items-center self-stretch">
               <div className="flex flex-col justify-center items-start flex-[1_0_0] self-stretch">
                 <div className="flex flex-col items-start gap-2 self-stretch">
@@ -85,10 +94,6 @@ const Tokenomics = () => {
                 </div>
               </div>
               <div className="flex items-center gap-10">
-                {/* <div className="flex w-[126px] flex-col items-start gap-2">
-                  <span className="w-[119px] font-neueMontreal text-[#FFEFD4] leading-5 uppercase">{languageHandler('tokenomics-c', language)}</span>
-                  <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-2xl leading-[25px]">12.56%</span>
-                </div> */}
                 <div className="flex flex-col items-start gap-2">
                   <span className="self-stretch font-neueMontreal text-[#FFEFD4] leading-5 uppercase">{languageHandler('tokenomics-d', language)}</span>
                   <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-2xl leading-[25px] uppercase">
@@ -105,16 +110,17 @@ const Tokenomics = () => {
             </div>
             <div className="flex items-start gap-6 self-stretch">
               <div className="flex h-10 flex-col justify-center items-start gap-2.5 flex-[1_0_0] p-4 rounded-xl bg-[#310B0A]">
-                <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-sm font-bold leading-6 uppercase">
-                  {languageHandler('tokenomics-h', language)}: <span className="font-normal">Df6yfrKC8kZE3KNkrHERKzAetSxbrWeniQfyJY4Jpump</span>
+                <span className="flex gap-2.5 self-stretch font-neueMontreal text-[#FFEFD4] text-sm font-bold leading-6 uppercase">
+                  <img src={Etherscan} alt="logo" />
+                  {languageHandler('tokenomics-h', language)}: <span className="font-normal">deploy pending</span>
                 </span>
               </div>
               <button
                 className="flex h-10 justify-center items-center px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat"
-                onClick={() => navigator.clipboard.writeText('Df6yfrKC8kZE3KNkrHERKzAetSxbrWeniQfyJY4Jpump')}
+                onClick={handleCopy}
               >
                 <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px] uppercase">
-                  {languageHandler('tokenomics-i', language)}
+                  {languageHandler(`tokenomics-i-${isCopied ? 'b' : 'a'}`, language)}
                 </span>
               </button>
             </div>
@@ -136,13 +142,13 @@ const Tokenomics = () => {
                 duration: 0.4,
               }}
               exit={{ opacity: 0, scale: 0 }}
-              className="inline-flex w-[641px] flex-col pt-10 justify-center items-center gap-6 p-2.5"
+              className="inline-flex w-[755px] flex-col p-2.5 justify-center items-center gap-4"
             >
-              <h5 className="font-newTitle text-[#FFEFD4] text-center text-[64px] font-bold leading-[54px] uppercase">
+              <h5 className="font-newTitle text-[#FFCC29] text-center text-[32px] font-bold leading-6 uppercase">
                 {languageHandler(active.id, language)}&nbsp;
                 {languageHandler(active.id + '-a', language)}&nbsp; {languageHandler(active.id + '-b', language)}
               </h5>
-              <span className="font-neueMontreal text-[#FFEFD4] text-center text-[32px] font-medium leading-[38px]">
+              <span className="font-newTitle text-[#FFEFD4] text-center text-[64px] font-bold leading-[64px] uppercase">
                 {languageHandler(active.id + '-c', language)}
               </span>
             </motion.div>
@@ -157,7 +163,7 @@ const Tokenomics = () => {
                 duration: 0.4,
               }}
               exit={{ opacity: 0, scale: 0 }}
-              className="flex w-[910px] h-[281px] flex-col justify-center shrink-0 font-newTitle text-[#FFEFBD] text-center text-[160px] font-bold leading-[139px] tracking-tight uppercase"
+              className="flex w-[910px] h-[281px] flex-col justify-center shrink-0 font-newTitle text-[#FFEFBD] text-center text-[152px] font-bold leading-[129px] tracking-tight uppercase"
             >
               {languageHandler('tokenomics-j', language)}
             </motion.h4>
@@ -202,7 +208,7 @@ const Tokenomics = () => {
             className="absolute left-[544px] bottom-[0px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
           >
             <InfoIcon color="#FFCC29" />
-            <div className="flex flex-col justify-between items-center flex-[1_0_0] self-stretch">
+            <div className="flex w-[113px] flex-col justify-center items-center gap-2">
               <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-[10px]  leading-3 tracking-[0.1px]">
                 {languageHandler('tokenomics-m', language)}:
               </span>
