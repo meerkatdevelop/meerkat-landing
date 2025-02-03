@@ -26,7 +26,7 @@ const About = () => {
           <h3 className="self-stretch font-newTitle text-[#FFEFD4] text-center text-[102px] font-bold leading-[90px] tracking-[1.02px] uppercase">
             {languageHandler('about-b', language)}
           </h3>
-          <p className="w-full odd:w-[956px] font-neueMontreal text-[#FFEFD4] text-center text-2xl leading-10 tracking-[0.24px] pt-4">
+          <p className="w-full od:w-[956px] font-neueMontreal text-[#FFEFD4] text-center text-2xl leading-10 tracking-[0.24px] pt-4">
             {languageHandler('about-c', language)[0]} <span className="font-bold">{languageHandler('about-c', language)[1]}</span>
             {languageHandler('about-c', language)[2]}
           </p>
