@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { useMotionValueEvent, useScroll, useSpring } from 'motion/react'
 import ReactLenis from 'lenis/react'
-import Navbar from './components/navbar'
+import Navbar from './components/navbar/navbar'
 import Features from './components/features'
 import Tokenomics from './components/tokenomics'
 import FAQ from './components/faq'

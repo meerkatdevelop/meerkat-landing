@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { motion, AnimatePresence, MotionValue, useMotionValueEvent, useTransform } from 'motion/react'
-import CaretCloseIcon from '../assets/icons/caret-close'
-import { Languages, useAppContext } from '../context'
-import Menu from './cover/menu'
-import { flagSelector, languageHandler } from '../helpers'
+import CaretCloseIcon from '../../assets/icons/caret-close'
+import { Languages, useAppContext } from '../../context'
+import Menu from '../cover/menu'
+import { flagSelector, formatNetworkById, languageHandler } from '../../helpers'
 import {
   CaretDownIcon,
   CountryCH,
@@ -12,19 +12,18 @@ import {
   CountryIT,
   CountryPT,
   CountrySP,
-  CreditCardIcon,
-  ETH,
   ExitIcon,
-  InstagramIcon,
   ListIcon,
   Logo,
   LogoLight,
   MagnifyingGlassIcon,
   MeerkatCoin,
-  TelegramIcon,
-  XIcon,
-} from '../assets'
-import { chains, springInChainSelector, springInLaguageSelector, springInUserMenu } from '../constants'
+} from '../../assets'
+import { springInLaguageSelector, springInUserMenu } from '../../constants'
+import NetworksSelector from './networksSelector'
+import { useChangeEvmNetwork } from '../../hooks/useEvmHooks'
+import SocialNetworks from './SocialNetworks'
+import ConnectWalletBtn from './ConnectWalletBtn'
 
 const LanguagesList = [Languages.IT, Languages.CH, Languages.US, Languages.IN, Languages.ES, Languages.PO]
 const LanguagesIcons = [CountryIT, CountryCH, CountryEN, CountryIN, CountrySP, CountryPT]
@@ -35,11 +34,11 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false)
   const [isChainMenuOpen, setIsChainMenuOpen] = useState(false)
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
-  const [chain, setChain] = useState<{ chain: string; label: string; name: string }>({
-    chain: ETH,
-    label: 'ETH',
-    name: 'Ethereum',
-  })
+
+  const { connectedChain } = useChangeEvmNetwork()
+  const chainInfo = formatNetworkById(connectedChain?.id)
+  console.log(connectedChain)
+
   const [activeBg, setActiveBg] = useState(false)
   const [search, setSearch] = useState('')
   const images = [Logo, LogoLight]
@@ -50,8 +49,6 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
       setActiveBg(latest === 1 ? true : false)
     }, 0)
   })
-
-  const isConnected = true
 
   const handleLanguage = (id: Languages) => {
     setLanguage(id)
@@ -68,14 +65,6 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
     const result = languages.filter((language) => language.lingo.slice(0, search.length).toLowerCase() === search.toLowerCase())
 
     return result
-  }
-  const handleChain = (id: 'ETH' | 'SOL' | 'BNB' | 'BASE') => {
-    const selection = chains.find((network) => network.label === id)
-    if (selection) {
-      setChain(selection)
-      setIsChainMenuOpen(false)
-      return
-    }
   }
 
   return (
@@ -110,44 +99,16 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
           </button>
         </div>
         <div className="relative flex items-center gap-4">
-          <div className="flex justify-end items-center gap-4 flex-[1_0_0]">
-            <a className="cursor-meerkat" href="https://x.com/Meerkatwtf" target="blank_" rel="noreferrer">
-              <XIcon color="#EEE7E7" />
-            </a>
-            <a className="cursor-meerkat" href="https://t.me/meerkatwtf" target="blank_" rel="noreferrer">
-              <TelegramIcon color="#EEE7E7" />
-            </a>
-            {/* <a className="cursor-meerkat">
-              <DiscordIcon color="#EEE7E7" />
-            </a> */}
-            <a className="cursor-meerkat" href="https://www.instagram.com/meerkatwtf/#/" target="blank_" rel="noreferrer">
-              <InstagramIcon color="#EEE7E7" />
-            </a>
-          </div>
+          <SocialNetworks />
           <button
             className="flex h-10 justify-center items-center gap-2 px-6 py-3 rounded-xl bg-[#EEE7E7] hover:bg-[#C9B6B5] transition-all ease-in-out cursor-meerkat"
             onClick={() => setIsChainMenuOpen(!isChainMenuOpen)}
           >
-            <img src={chain.chain} alt={chain.label} className="w-6 h-6" />
-            <span className="font-neueMontreal text-[#521210] text-sm font-bold leading-6">{chain.name} Chain</span>
+            <img src={chainInfo?.chain} alt={chainInfo?.label} className="w-6 h-6" />
+            <span className="font-neueMontreal text-[#521210] text-sm font-bold leading-6">{chainInfo?.name} Chain</span>
             <CaretDownIcon color="#521210" />
           </button>
-          <button
-            className={`flex h-10 justify-center items-center gap-2 px-6 py-3 rounded-xl  transition-all ease-in-out cursor-meerkat ${isConnected ? 'bg-[#EEE7E7] hover:bg-[#C9B6B5]' : 'bg-[#FFCC29] hover:bg-[#FFEFBD]'}`}
-            onClick={() => (isConnected ? setIsUserMenuOpen(!isUserMenuOpen) : () => {})}
-          >
-            {isConnected && (
-              <CreditCardIcon
-                color="#521210"
-                className="flex w-[25px] h-[25px] justify-center items-center pl-[3px] pr-1 pt-[3px] pb-1 rounded-[100px] bg-white"
-              />
-            )}
-            <span className={`font-neueMontreal text-[#521210] text-sm font-bold leading-6  ${!isConnected && 'uppercase'}`}>
-              {isConnected ? '0x...3233' : languageHandler('navbar-a', language)}
-            </span>
-
-            {isConnected && <CaretDownIcon color="#521210" />}
-          </button>
+          <ConnectWalletBtn language={language} setIsUserMenuOpen={setIsUserMenuOpen} />
           <button
             className="flex w-10 h-10 rounded-full justify-center items-center gap-2 p-2 cursor-meerkat transition-all ease-in-out bg-[#EEE7E7] hover:bg-[#C9B6B5]"
             onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
@@ -196,35 +157,7 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
               </motion.div>
             )}
           </AnimatePresence>
-          <AnimatePresence>
-            {isChainMenuOpen && (
-              <motion.div
-                variants={springInChainSelector}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                className="absolute top-14 right-36 flex w-[332px] flex-col justify-start items-start gap-4 p-6 shadow-[1px_2px_13px_0px_rgba(0,0,0,0.30)] rounded-3xl bg-[#250807] overflow-hidden"
-              >
-                <div className="flex justify-center items-center gap-2.5 self-stretch px-3 py-0">
-                  <span className="flex-[1_0_0] font-neueMontreal text-[#FFFDFB] text-[15px] font-bold leading-[18px]">
-                    {languageHandler('chain-menu-a', language)}
-                  </span>
-                </div>
-                <div className="flex w-[284px] flex-col items-start gap-2 self-stretch">
-                  {chains.map((chain, i) => (
-                    <div
-                      key={i}
-                      className="flex w-[408px] items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-[#400D0B] transition-all ease-in-out"
-                      onClick={() => handleChain(chain.label as 'ETH' | 'SOL' | 'BNB' | 'BASE')}
-                    >
-                      <img src={chain.chain} alt="flag" className="w-6 h-6" />
-                      <span className="text-[#FFFDFB] text-[15px] font-normal leading-[18px] font-neueMontreal">{chain.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <AnimatePresence>{isChainMenuOpen && <NetworksSelector language={language} />}</AnimatePresence>
           <AnimatePresence>
             {isUserMenuOpen && (
               <motion.div

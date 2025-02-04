@@ -25,8 +25,9 @@ export const useChangeEvmNetwork = () => {
     setChain, // function to call to initiate user to switch chains in their wallet
   ] = useSetChain()
 
-  const changeEvmNetwork =  (newChangeName: 'ethereum' | 'base' | 'bsc') => {
-    const newChainData = chains.find((chain) => chain.label?.toLowerCase() === newChangeName)
+  const changeEvmNetwork =  (newChangeName: 'ethereum' | 'base' | 'binance') => {
+    const formattedName = newChangeName === "binance" ? "bsc" : newChangeName
+    const newChainData = chains.find((chain) => chain.label?.toLowerCase() === formattedName.toLowerCase())
     const hexChainId = `${newChainData?.id}`
     setChain({ chainId: hexChainId })
   }

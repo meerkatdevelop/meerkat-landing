@@ -6,6 +6,7 @@ import it from './languages/it.json'
 import ch from './languages/ch.json'
 import ind from './languages/ind.json'
 import pt from './languages/pt.json'
+import { chains } from './constants'
 
 export const languageHandler = (id: string, language: Languages): string | string[] => {
   let array
@@ -67,3 +68,12 @@ export const flagSelector = (language: Languages) => {
 }
 
 //
+
+export const formatNetworkById = (networkHexId: string | undefined) => {
+  const ethData = chains.find((chain) => chain.name === 'Ethereum')
+  if (!networkHexId) return ethData
+  if (networkHexId === '0x1') return ethData
+  else if (networkHexId === '0x2105') return chains.find((chain) => chain.name === 'Base')
+  else if (networkHexId === '0x38') return chains.find((chain) => chain.name === 'Binance')
+  else return ethData
+}
