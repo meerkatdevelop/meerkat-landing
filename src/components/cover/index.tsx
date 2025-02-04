@@ -1,8 +1,6 @@
-// import { PlayIcon } from '../../assets'
-
 import useCurrentDimensions from '../../hooks/useCurrentDimensions'
-import ActionBox from './action-box'
 import Banner from './banner'
+import PreSaleCover from './pre-sale'
 
 const Cover = () => {
   const { dimensions } = useCurrentDimensions()
@@ -21,7 +19,8 @@ const Cover = () => {
         }}
       >
         <Banner />
-        <ActionBox />
+        {/* <ActionBox /> */}
+        <PreSaleCover />
       </div>
     </section>
   )

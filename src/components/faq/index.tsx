@@ -123,7 +123,7 @@ const FAQ = () => {
                   {languageHandler('faq-w', language)}
                 </span>
                 <button
-                  className={`flex items-center justify-center w-[56.018px] h-14 shrink-0 rounded-full bg-[#FFCC29] hover:bg-[#cfa423] transition-all ease-in-out duration-300 cursor-meerkat ${isBoxActive.box4 && 'rotate-180'}`}
+                  className={`flex items-center justify-center w-[56.018px] h-14 shrink-0 rounded-full bg-[#FFCC29] hover:bg-[#cfa423] transition-all ease-in-out duration-300 cursor-meerkat z-10 ${isBoxActive.box4 && 'rotate-180'}`}
                   onClick={() => setIsBoxActive({ ...isBoxActive, box4: !isBoxActive.box4 })}
                 >
                   <CaretDownIcon width="32" height="32" color="#521210" />

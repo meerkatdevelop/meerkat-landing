@@ -34,7 +34,7 @@ const Marquee = ({ children, speed = 20 }: { children: React.ReactNode | React.R
   const duplicateChildren = new Array(3).fill(children)
 
   return (
-    <motion.div className="overflow-hidden">
+    <motion.div className="overflow-hidden custom-mask">
       <motion.div
         animate={{
           x: [-marqueeWidth / 3, 0],

@@ -24,7 +24,6 @@ import CapaFeatureBottom from './images/Capa_Feature_Bottom.svg'
 import TreeMoney from './images/ILUSTRACIONES.svg'
 import MiniApp from './images/Frame 292.svg'
 import MemeCreator from './images/Frame 294.svg'
-import FooterTopDecoration from './images/FOOTER_CONCEPT2.svg'
 import CoinTelegraph from './images/coin-telegraph.svg'
 import BitcoinATM from './images/Bitcoin-ATM.svg'
 import Beincrypto from './images/beincrypto.svg'
@@ -39,6 +38,10 @@ import Loader from './images/loader.gif'
 import ErrorIcon from './images/error-icon.svg'
 import GreenCheckIcon from './images/check-icon.svg'
 import TelegramVector from './images/telegram-vector.svg'
+import Etherscan from './images/etherscan-logo.svg'
+import CoverPre1 from './images/Cover-pre-1.svg'
+import CoverPre2 from './images/Cover-pre-2.svg'
+import CoverPre3 from './images/Cover-pre-3.svg'
 
 //Flags
 import CountryCH from './flags/COUNTRY_CH.svg'
@@ -82,7 +85,6 @@ export {
   TreeMoney,
   MiniApp,
   MemeCreator,
-  FooterTopDecoration,
   CoinTelegraph,
   BitcoinATM,
   Beincrypto,
@@ -97,6 +99,10 @@ export {
   ErrorIcon,
   GreenCheckIcon,
   TelegramVector,
+  Etherscan,
+  CoverPre1,
+  CoverPre2,
+  CoverPre3,
   //Flags
   CountryCH,
   CountryEN,

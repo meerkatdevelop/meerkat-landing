@@ -9,6 +9,7 @@ import pt from './languages/pt.json'
 
 export const languageHandler = (id: string, language: Languages): string | string[] => {
   let array
+
   switch (true) {
     case language === Languages.ES:
       array = es
@@ -29,6 +30,8 @@ export const languageHandler = (id: string, language: Languages): string | strin
       array = us
       break
   }
+
+  if (id in array === false) return id
 
   if (array[id as keyof typeof array].includes('$MERK')) {
     let newArray = array[id as keyof typeof array].split('$MERK')
@@ -63,19 +66,4 @@ export const flagSelector = (language: Languages) => {
   }
 }
 
-export const getFooterTop = (language: Languages) => {
-  switch (true) {
-    case language === Languages.ES:
-      return 474.75
-    case language === Languages.IT:
-      return 384.75
-    case language === Languages.CH:
-      return 394.75
-    case language === Languages.IN:
-      return 394.75
-    case language === Languages.PO:
-      return 374.75
-    default:
-      return 374.75
-  }
-}
+//
