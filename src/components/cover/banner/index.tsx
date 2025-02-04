@@ -28,12 +28,13 @@ const Banner = () => {
           <CreditCardIcon color="#521210" />
           <span className="font-neueMontreal text-[#521210] text-sm font-bold leading-6 uppercase">{languageHandler('banner-d', language)}</span>
         </button>
-        <div className="flex flex-col items-start gap-4 self-stretch">
-          <div className="flex items-start gap-2.5">
+        <div className="flex flex-col cutcover:flex-row items-start cutcover:items-end gap-4 self-stretch">
+          <div className="flex gap-2.5">
             <img src={CoverPre1} alt="cover-pre-1" className="rounded-xl" />
             <img src={CoverPre2} alt="cover-pre-2" className="rounded-xl" />
-            <img src={CoverPre3} alt="cover-pre-3" className="rounded-xl" />
           </div>
+
+          <img src={CoverPre3} alt="cover-pre-3" className="rounded-xl" />
         </div>
       </div>
     </div>

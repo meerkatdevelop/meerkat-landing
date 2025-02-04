@@ -12,7 +12,7 @@ const Cover = () => {
       }}
     >
       <div
-        className="flex w-screen justify-between items-start"
+        className="flex max-[1313px]:flex-col max-[1313px]:justify-start justify-between w-screen items-start"
         style={{
           paddingLeft: `${dimensions.width > 1440 ? `${(dimensions.width - 1094.55) / 69.06}rem` : '5rem'}`,
           paddingRight: `${dimensions.width > 1440 ? `${(dimensions.width - 1094.55) / 69.06}rem` : '5rem'}`,
@@ -27,3 +27,5 @@ const Cover = () => {
 }
 
 export default Cover
+// className="flex w-screen justify-between items-start"
+//1313

@@ -19,6 +19,7 @@ export default {
     //Screen Over the design 1440px - shorthand od
     screens: {
       od: '1440px',
+      cutcover: '1190px',
     },
   },
   plugins: [],
