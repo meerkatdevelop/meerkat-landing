@@ -12,6 +12,8 @@ import XIcon from './icons/x'
 import TelegramIcon from './icons/telegram'
 import DiscordIcon from './icons/discord'
 import InstagramIcon from './icons/instagram'
+import MagnifyingGlassIcon from './icons/magnifying-glass'
+import ExitIcon from './icons/exit'
 
 //Images
 import Logo from './images/MEERKAT_LOGO 1.svg'
@@ -73,6 +75,8 @@ export {
   TelegramIcon,
   DiscordIcon,
   InstagramIcon,
+  MagnifyingGlassIcon,
+  ExitIcon,
 
   //Images
   Logo,

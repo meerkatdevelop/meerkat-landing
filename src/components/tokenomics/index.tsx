@@ -19,10 +19,6 @@ const Tokenomics = () => {
   const [isBlendAreaActive, setIsBlendAreaActive] = useState(false)
   const [coordinates, setCoordinates] = useState<{ x: number; y: number } | null>(null)
 
-  // const isInView = useInView(sectionRef)
-
-  // console.log(isInView)
-
   const handleCopy = () => {
     navigator.clipboard.writeText('deploy pending')
     setIsCopied(true)

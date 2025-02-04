@@ -20,3 +20,89 @@ export const pairs = {
     { coin: USDT, chain: BASE, label: 'USDT', name: 'Tether' },
   ],
 }
+export const chains = [
+  { chain: ETH, label: 'ETH', name: 'Ethereum' },
+  { chain: SOLANA, label: 'SOL', name: 'Solana' },
+  { chain: BNB, label: 'BNB', name: 'Binance' },
+  { chain: BASE, label: 'BASE', name: 'Base' },
+]
+
+export const springInLaguageSelector = {
+  hidden: {
+    height: 0,
+    opacity: 0,
+  },
+  visible: {
+    height: 320,
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+      type: 'spring',
+      damping: 25,
+      stiffness: 500,
+    },
+  },
+  exit: {
+    height: 0,
+    opacity: 0,
+    transition: {
+      duration: 0.2,
+      type: 'spring',
+      damping: 25,
+      stiffness: 500,
+    },
+  },
+}
+
+export const springInChainSelector = {
+  hidden: {
+    height: 0,
+    opacity: 0,
+  },
+  visible: {
+    height: 260,
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+      type: 'spring',
+      damping: 25,
+      stiffness: 500,
+    },
+  },
+  exit: {
+    height: 0,
+    opacity: 0,
+    transition: {
+      duration: 0.2,
+      type: 'spring',
+      damping: 25,
+      stiffness: 500,
+    },
+  },
+}
+export const springInUserMenu = {
+  hidden: {
+    height: 0,
+    opacity: 0,
+  },
+  visible: {
+    height: 380,
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+      type: 'spring',
+      damping: 25,
+      stiffness: 500,
+    },
+  },
+  exit: {
+    height: 0,
+    opacity: 0,
+    transition: {
+      duration: 0.2,
+      type: 'spring',
+      damping: 25,
+      stiffness: 500,
+    },
+  },
+}
