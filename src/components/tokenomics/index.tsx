@@ -86,19 +86,19 @@ const Tokenomics = () => {
               <div className="flex flex-col justify-center items-start flex-[1_0_0] self-stretch">
                 <div className="flex flex-col items-start gap-2 self-stretch">
                   <span className="self-stretch font-neueMontreal text-[#FFEFD4] leading-5 uppercase">{languageHandler('tokenomics-b', language)}</span>
-                  <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-2xl leading-[25px]">6,000,000,000</span>
+                  <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-2xl font-bold leading-[25px]">6,000,000,000</span>
                 </div>
               </div>
               <div className="flex items-center gap-10">
                 <div className="flex flex-col items-start gap-2">
                   <span className="self-stretch font-neueMontreal text-[#FFEFD4] leading-5 uppercase">{languageHandler('tokenomics-d', language)}</span>
-                  <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-2xl leading-[25px] uppercase">
+                  <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-2xl font-bold leading-[25px] uppercase">
                     0% {languageHandler('tokenomics-e', language)}
                   </span>
                 </div>
                 <div className="flex flex-col items-start gap-2">
                   <span className="w-[119px] font-neueMontreal text-[#FFEFD4] leading-5 uppercase">{languageHandler('tokenomics-f', language)}</span>
-                  <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-2xl leading-[25px] uppercase">
+                  <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-2xl font-bold leading-[25px] uppercase">
                     100% {languageHandler('tokenomics-g', language)}
                   </span>
                 </div>
@@ -169,7 +169,7 @@ const Tokenomics = () => {
           <div
             ref={presaleBoxRef}
             id="tokenomics-k"
-            className="absolute left-[144px] bottom-[0px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
+            className="absolute max-[1248px]:left-[260px] max-[1248px]:-bottom-[86px] max-[1310px]:left-[100px] left-[144px] bottom-[0px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
           >
             <InfoIcon color="#FFCC29" />
             <div className="flex w-[113px] flex-col justify-center items-center gap-2">
@@ -183,9 +183,9 @@ const Tokenomics = () => {
             </span>
           </div>
           <div
-            ref={stakingRewardsPostBoxRef}
+            ref={stakingRewardsDuringBoxRef}
             id="tokenomics-l"
-            className="absolute right-[144px] bottom-[0px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
+            className="absolute max-[1248px]:right-[320px] max-[1248px]:bottom-[0] max-[1310px]:right-[260px] right-[144px] bottom-[0px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
           >
             <InfoIcon color="#FFCC29" />
             <div className="flex w-[113px] flex-col justify-center items-center gap-2">
@@ -199,9 +199,9 @@ const Tokenomics = () => {
             </span>
           </div>
           <div
-            ref={stakingRewardsDuringBoxRef}
+            ref={stakingRewardsPostBoxRef}
             id="tokenomics-m"
-            className="absolute left-[544px] bottom-[0px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
+            className="absolute max-[1248px]:left-[0px] max-[1248px]:-bottom-[86px]  max-[1310px]:left-[360px] left-[544px] bottom-[0px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
           >
             <InfoIcon color="#FFCC29" />
             <div className="flex w-[113px] flex-col justify-center items-center gap-2">
@@ -215,9 +215,9 @@ const Tokenomics = () => {
             </span>
           </div>
           <div
-            ref={marketingBoxRef}
+            ref={dexBoxRef}
             id="tokenomics-n"
-            className="absolute left-[324px] top-[0px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
+            className="absolute max-[1248px]:left-[0px] max-[1248px]:-top-[82px] max-[1310px]:left-[160px] left-[324px] top-[0px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
           >
             <InfoIcon color="#FFCC29" />
             <div className="flex w-[113px] flex-col justify-center items-center gap-2">
@@ -231,9 +231,9 @@ const Tokenomics = () => {
             </span>
           </div>
           <div
-            ref={developmentBoxRef}
+            ref={cexBoxRef}
             id="tokenomics-o"
-            className="absolute left-[20px] top-[146px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
+            className="absolute max-[1248px]:left-[250px] max-[1248px]:-top-[82px] left-[20px] top-[146px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
           >
             <InfoIcon color="#FFCC29" />
             <div className="flex w-[113px] flex-col justify-center items-center gap-2">
@@ -247,7 +247,7 @@ const Tokenomics = () => {
             </span>
           </div>
           <div
-            ref={dexBoxRef}
+            ref={developmentBoxRef}
             id="tokenomics-p"
             className="absolute right-[360px] top-[0px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
           >
@@ -263,9 +263,9 @@ const Tokenomics = () => {
             </span>
           </div>
           <div
-            ref={cexBoxRef}
+            ref={marketingBoxRef}
             id="tokenomics-q"
-            className="absolute right-[60px] bottom-[140px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
+            className="absolute max-[1248px]:right-[50px] max-[1248px]:bottom-[0] right-[60px] bottom-[140px] inline-flex items-start gap-2.5 p-3.5 border border-[#521210]  hover:border-[#FFCC29] hover:shadow-[0px_0px_14px_0px_rgba(255,204,41,0.20)] rounded-xl bg-[#250807] transition-all ease-in-out duration-300"
           >
             <InfoIcon color="#FFCC29" />
             <div className="flex w-[113px] flex-col justify-center items-center gap-2">
