@@ -26,7 +26,7 @@ export const useChangeEvmNetwork = () => {
   ] = useSetChain()
 
   const changeEvmNetwork =  (newChangeName: 'ethereum' | 'base' | 'binance') => {
-    const formattedName = newChangeName === "binance" ? "bsc" : newChangeName
+    const formattedName = newChangeName === "binance" ? "Binance Smart Chain" : newChangeName
     const newChainData = chains.find((chain) => chain.label?.toLowerCase() === formattedName.toLowerCase())
     const hexChainId = `${newChainData?.id}`
     setChain({ chainId: hexChainId })
