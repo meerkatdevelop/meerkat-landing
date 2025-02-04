@@ -4,26 +4,13 @@ import CaretCloseIcon from '../../assets/icons/caret-close'
 import { Languages, useAppContext } from '../../context'
 import Menu from '../cover/menu'
 import { flagSelector, formatNetworkById, languageHandler } from '../../helpers'
-import {
-  CaretDownIcon,
-  CountryCH,
-  CountryEN,
-  CountryIN,
-  CountryIT,
-  CountryPT,
-  CountrySP,
-  ExitIcon,
-  ListIcon,
-  Logo,
-  LogoLight,
-  MagnifyingGlassIcon,
-  MeerkatCoin,
-} from '../../assets'
-import { springInLaguageSelector, springInUserMenu } from '../../constants'
+import { CaretDownIcon, CountryCH, CountryEN, CountryIN, CountryIT, CountryPT, CountrySP, ListIcon, Logo, LogoLight, MagnifyingGlassIcon } from '../../assets'
+import { springInLaguageSelector } from '../../constants'
 import NetworksSelector from './networksSelector'
 import { useChangeEvmNetwork } from '../../hooks/useEvmHooks'
 import SocialNetworks from './SocialNetworks'
 import ConnectWalletBtn from './ConnectWalletBtn'
+import UserMenu from './userMenu'
 
 const LanguagesList = [Languages.IT, Languages.CH, Languages.US, Languages.IN, Languages.ES, Languages.PO]
 const LanguagesIcons = [CountryIT, CountryCH, CountryEN, CountryIN, CountrySP, CountryPT]
@@ -37,7 +24,6 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
 
   const { connectedChain } = useChangeEvmNetwork()
   const chainInfo = formatNetworkById(connectedChain?.id)
-  console.log(connectedChain)
 
   const [activeBg, setActiveBg] = useState(false)
   const [search, setSearch] = useState('')
@@ -158,45 +144,7 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
             )}
           </AnimatePresence>
           <AnimatePresence>{isChainMenuOpen && <NetworksSelector language={language} />}</AnimatePresence>
-          <AnimatePresence>
-            {isUserMenuOpen && (
-              <motion.div
-                variants={springInUserMenu}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                className="absolute top-14 right-0 flex w-[332px] flex-col justify-start items-start gap-4 p-6 shadow-[1px_2px_13px_0px_rgba(0,0,0,0.30)] rounded-3xl bg-[#250807] overflow-hidden"
-              >
-                <div className="flex flex-col justify-center items-start gap-4 self-stretch p-6 border-b-[#521210] rounded-[24px_24px_0px_0px] border-b bg-[#250807]">
-                  <span className="flex-[1_0_0] font-neueMontreal text-[#FFFDFB] text-[15px] font-bold leading-[18px]">
-                    {languageHandler('user-menu-a', language)}
-                  </span>
-                  <span className="flex-[1_0_0] font-neueMontreal text-[#FFFDFB] text-[15px] font-bold leading-[18px]">
-                    {languageHandler('user-menu-b', language)}
-                  </span>
-                </div>
-                <div className="flex flex-col justify-center items-start gap-4 self-stretch p-6 border-b-[#521210] border-b bg-[#250807]">
-                  <div className="flex items-center gap-2.5 self-stretch px-3 py-2">
-                    <img src={MeerkatCoin} alt="meerkat-coin" className="flex w-[25px] h-[25px] justify-center items-center p-[3px] rounded-[100px] bg-white" />
-                    <span className="font-neueMontreal text-[#FFFDFB] text-[15px] leading-[18px]">$merk: 0.00</span>
-                  </div>
-                  <div className="flex items-center gap-2.5 self-stretch px-3 py-2">
-                    <img src={MeerkatCoin} alt="meerkat-coin" className="flex w-[25px] h-[25px] justify-center items-center p-[3px] rounded-[100px] bg-white" />
-                    <span className="font-neueMontreal text-[#FFFDFB] text-[15px] leading-[18px]">Staked: 0.00</span>
-                  </div>
-                </div>
-                <div className="flex flex-col justify-center items-start gap-4 self-stretch p-6  rounded-[24px_24px_0px_0px] bg-[#250807]">
-                  <button
-                    className="flex h-10 justify-center items-center gap-2 self-stretch px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat"
-                    onClick={() => setIsChainMenuOpen(!isChainMenuOpen)}
-                  >
-                    <span className="font-neueMontreal text-[#521210] text-sm font-bold leading-6 uppercase">{languageHandler('user-menu-c', language)}</span>
-                    <ExitIcon color="#521210" />
-                  </button>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <AnimatePresence>{isUserMenuOpen && <UserMenu language={language} setIsUserMenuOpen={setIsUserMenuOpen} />}</AnimatePresence>
         </div>
       </div>
     </nav>
