@@ -39,7 +39,6 @@ import ErrorIcon from './images/error-icon.svg'
 import GreenCheckIcon from './images/check-icon.svg'
 import TelegramVector from './images/telegram-vector.svg'
 import Etherscan from './images/etherscan-logo.svg'
-import CoinPresale from './images/Coin_presale.svg'
 import CoverPre1 from './images/Cover-pre-1.svg'
 import CoverPre2 from './images/Cover-pre-2.svg'
 import CoverPre3 from './images/Cover-pre-3.svg'
@@ -101,7 +100,6 @@ export {
   GreenCheckIcon,
   TelegramVector,
   Etherscan,
-  CoinPresale,
   CoverPre1,
   CoverPre2,
   CoverPre3,

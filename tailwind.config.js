@@ -9,6 +9,9 @@ export default {
         neueMontreal: ['neue'],
         newTitle: ['new'],
       },
+      backgroundImage: {
+        presalecover: 'linear-gradient(180deg, #FFEFBD 32.89%, #FFF 100%)',
+      },
     },
     cursor: {
       meerkat: "url('/src/assets/cursor/Vector 1.svg'), default",
