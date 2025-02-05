@@ -18,7 +18,8 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false)
   const [isChainMenuOpen, setIsChainMenuOpen] = useState(false)
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
-
+  const [isSolana, setIsSolana] = useState(false)
+  console.log(isSolana)
   const { connectedChain } = useChangeEvmNetwork()
   const chainInfo = formatNetworkById(connectedChain?.id)
 
@@ -92,7 +93,9 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
           <AnimatePresence>
             {isLanguageMenuOpen && <LanguageSelector language={language} handleLanguage={handleLanguage} search={search} setSearch={setSearch} />}
           </AnimatePresence>
-          <AnimatePresence>{isChainMenuOpen && <NetworksSelector language={language} />}</AnimatePresence>
+          <AnimatePresence>
+            {isChainMenuOpen && <NetworksSelector language={language} setIsSolana={setIsSolana} setIsChainMenuOpen={setIsChainMenuOpen} />}
+          </AnimatePresence>
           <AnimatePresence>{isUserMenuOpen && <UserMenu language={language} setIsUserMenuOpen={setIsUserMenuOpen} />}</AnimatePresence>
         </div>
       </div>
