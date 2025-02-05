@@ -22,7 +22,7 @@ const FAQ = () => {
           <h2 className="self-stretch font-newTitle text-[#FFEFD4] text-center text-[104px] font-bold leading-[98px] tracking-[1.04px] uppercase">
             {languageHandler('faq-a', language)}
           </h2>
-          <div className="flex w-[1278px] flex-col items-start gap-4">
+          <div className="flex w-full od:w-[1278px] flex-col items-start gap-4">
             {/* FAQ_Card */}
             <div className="flex flex-col justify-center items-start self-stretch  px-8 py-3 rounded-3xl bg-[#FFEFD4]">
               <div className="flex h-14 justify-between items-center self-stretch">
@@ -95,7 +95,7 @@ const FAQ = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col justify-center items-start self-stretch  px-8 py-3 rounded-3xl bg-[#FFEFD4]">
+            <div className="flex flex-col justify-center items-start  self-stretch  px-8 py-3 rounded-3xl bg-[#FFEFD4]">
               <div className="flex h-14 justify-between items-center self-stretch">
                 <span className="flex flex-col justify-center flex-[1_0_0] self-stretch font-neueMontreal text-[#521210] text-[22px] font-bold leading-8 tracking-[0.22px]">
                   {languageHandler('faq-r', language)}
