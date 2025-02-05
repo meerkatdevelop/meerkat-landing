@@ -57,6 +57,10 @@ import MarcoDivisorBottomMobile from './images/Marco-divisor-bottom-mobile.svg'
 import MeerkatFace from './images/meerkat-face.svg'
 import ChainsWallet from './images/chains.svg'
 import CoinsWallet from './images/coins.svg'
+import CoinsWalletMobile from './images/coins-wallet-mobile.svg'
+import PlayStoreLogo from './images/Badge.svg'
+import AppStoreLogo from './images/Badge-1.svg'
+import DividerFooterMobile from './images/divider-footer-mobile.svg'
 
 //Flags
 import CountryCH from './flags/COUNTRY_CH.svg'
@@ -133,6 +137,10 @@ export {
   MeerkatFace,
   ChainsWallet,
   CoinsWallet,
+  CoinsWalletMobile,
+  PlayStoreLogo,
+  AppStoreLogo,
+  DividerFooterMobile,
   //Flags
   CountryCH,
   CountryEN,

@@ -5,12 +5,6 @@
 body {
   overflow-x: hidden;
 }
-
-#root {
-  cursor: url('./assets/cursor/Vector 1.svg'), default;
-  overflow-x: hidden;
-}
-
 .custom-scrollbar {
   scrollbar-color: #ffcc29 #310b0a;
 }

@@ -9,7 +9,7 @@ const FeaturesMobile = () => {
       <img src={MarcoDivisorMobile} alt="decoration" className="absolute top-0 left-0 w-full object-contain" />
       <div className="flex flex-col items-center gap-8 self-stretch py-[130px]">
         <div className="flex flex-col justify-center items-center gap-8 self-stretch">
-          <div className="flex flex-col items-start gap-[15px] self-stretch">
+          <div className="flex flex-col items-start gap-[15px] self-stretch z-10">
             <span className="self-stretch font-neueMontreal text-[#FFEFD4] text-center text-xl font-bold leading-[18px] tracking-[0.24px] uppercase">
               {languageHandler('features-a', language)}
             </span>
@@ -17,7 +17,7 @@ const FeaturesMobile = () => {
               {languageHandler('features-b', language)}
             </h4>
           </div>
-          <p className="self-stretch font-neueMontreal text-[#FFEFD4] text-center font-normal leading-[18px]">{languageHandler('features-c', language)}</p>
+          <p className="w-[358px] font-neueMontreal text-[#FFEFD4] text-center font-normal leading-[18px]">{languageHandler('features-c', language)}</p>
         </div>
 
         <div className="flex w-[358px] h-[464px] flex-col items-center shrink-0 p-6 bg-no-repeat bg-contain bg-[url('./assets/images/box-mobile.svg')]">
@@ -66,7 +66,7 @@ const FeaturesMobile = () => {
             </div>
           </div>
         </div>
-        <div className="relative flex w-[358px] h-[464px] flex-col items-center shrink-0 p-6 bg-no-repeat bg-contain bg-[url('./assets/images/box-mobile.svg')]">
+        <div className="relative flex w-[358px] h-[464px] flex-col items-center shrink-0 p-6 bg-no-repeat bg-contain bg-[url('./assets/images/box-mobile.svg')] z-10">
           <div className="flex flex-col items-start gap-2 self-stretch">
             <div className="flex flex-col justify-end items-start flex-[1_0_0]">
               <div className="flex flex-col items-start gap-2 self-stretch">

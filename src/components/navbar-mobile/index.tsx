@@ -6,7 +6,7 @@ const NavbarMobile = ({ moveTo }: { moveTo: (to: number) => void }) => {
   const { isMenuOpen, setIsMenuOpen } = useAppContext()
 
   return (
-    <nav className="sticky top-0 flex w-full justify-between items-center p-7 bg-[#250807] z-10">
+    <nav className="sticky top-0 flex w-full justify-between items-center p-7 bg-[#250807] z-20">
       <button
         className="flex flex-col items-start gap-2.5 shrink-0 cursor-meerkat"
         onClick={() => {

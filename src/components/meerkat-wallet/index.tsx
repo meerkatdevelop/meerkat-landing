@@ -1,4 +1,4 @@
-import { ChainsWallet, CoinsWallet, MeerkatFace, MWallet } from '../../assets'
+import { AppStoreLogo, ChainsWallet, CoinsWallet, MeerkatFace, MWallet, PlayStoreLogo } from '../../assets'
 import { useAppContext } from '../../context'
 import { languageHandler } from '../../helpers'
 
@@ -48,6 +48,10 @@ const MeerkatWallet = () => {
                     </span> */}
                     <img src={CoinsWallet} alt="chains-wallet" className="w-[240px] mt-2" />
                   </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <img src={PlayStoreLogo} alt="playstore-logo" />
+                  <img src={AppStoreLogo} alt="appstore-logo" />
                 </div>
               </div>
             </div>

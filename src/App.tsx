@@ -15,6 +15,9 @@ import NavbarMobile from './components/navbar-mobile'
 import AboutMobile from './components/about-mobile'
 import FeaturesMobile from './components/features-mobile'
 import HeroMobile from './assets/hero-mobile'
+import MeerkatWalletMobile from './components/meerkat-wallet-mobile'
+import FAQMobile from './components/faq-mobile'
+import FooterMobile from './components/footer-mobile'
 
 function App() {
   const parallaxRef = useRef<HTMLDivElement | null>(null)
@@ -60,21 +63,26 @@ function App() {
               <>
                 <AboutMobile />
                 <FeaturesMobile />
+                <MeerkatWalletMobile />
+                <FAQMobile />
+                <FooterMobile />
               </>
             ) : (
               <>
                 <About />
                 <Features />
+                <Tokenomics />
+                <MeerkatWallet />
+                <FAQ />
+                <Footer />
               </>
             )}
 
             {/* <Roadmap /> */}
-            <Tokenomics />
-            <MeerkatWallet />
+
             {/* <MediaMarketing /> */}
-            <FAQ />
+
             {/* <Presale /> */}
-            <Footer />
           </div>
         </div>
       </main>
