@@ -26,6 +26,7 @@ import CapaFeatureBottom from './images/Capa_Feature_Bottom.svg'
 import TreeMoney from './images/ILUSTRACIONES.svg'
 import MiniApp from './images/Frame 292.svg'
 import MemeCreator from './images/Frame 294.svg'
+import MemeCreatorCut from './images/Frame 508.svg'
 import CoinTelegraph from './images/coin-telegraph.svg'
 import BitcoinATM from './images/Bitcoin-ATM.svg'
 import Beincrypto from './images/beincrypto.svg'
@@ -89,6 +90,7 @@ export {
   TreeMoney,
   MiniApp,
   MemeCreator,
+  MemeCreatorCut,
   CoinTelegraph,
   BitcoinATM,
   Beincrypto,

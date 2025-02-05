@@ -6,15 +6,25 @@ import { useChangeEvmNetwork, useWallet } from '../../hooks/useEvmHooks'
 
 interface NetworksSelectorProps {
   language: Languages
+  setIsSolana: (isSolana: boolean) => void
+  setIsChainMenuOpen: (isChainMenuOpen: boolean) => void
 }
 
-const NetworksSelector = ({ language }: NetworksSelectorProps) => {
+const NetworksSelector = ({ language, setIsSolana, setIsChainMenuOpen }: NetworksSelectorProps) => {
   const { wallet } = useWallet()
   const { changeEvmNetwork } = useChangeEvmNetwork()
   const handleChangeNetwork = (networkName: 'Solana' | 'Ethereum' | 'Base' | 'Binance') => {
-    if(!wallet) return
-    if (networkName === 'Solana') return
+    if (networkName === 'Solana') {
+      setIsSolana(true)
+      setIsChainMenuOpen(false)
+      return
+    }
+    if (!wallet) {
+      setIsChainMenuOpen(false)
+      return
+    }
     changeEvmNetwork(networkName.toLowerCase() as 'ethereum' | 'base' | 'binance')
+    setIsChainMenuOpen(false)
   }
 
   return (
