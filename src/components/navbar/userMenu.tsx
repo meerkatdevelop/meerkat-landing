@@ -5,12 +5,14 @@ import { springInUserMenu } from '../../constants'
 import { Dispatch } from 'react'
 import { Languages } from '../../context'
 import { useWallet } from '../../hooks/useEvmHooks'
+import { CustomSolanaDisconnectWalletBtn } from '../../contracts/solana/CustomSolanaWalletBtn'
 
 interface UserMenuProps {
   language: Languages
   setIsUserMenuOpen: Dispatch<React.SetStateAction<boolean>>
+  isSolana: boolean
 }
-const UserMenu = ({ language, setIsUserMenuOpen }: UserMenuProps) => {
+const UserMenu = ({ language, setIsUserMenuOpen, isSolana }: UserMenuProps) => {
   const { wallet, disconnect } = useWallet()
 
   const disconnectHandler = () => {
@@ -40,13 +42,17 @@ const UserMenu = ({ language, setIsUserMenuOpen }: UserMenuProps) => {
         </div>
       </div>
       <div className="flex flex-col justify-center items-start gap-4 self-stretch p-6  rounded-[24px_24px_0px_0px] bg-[#250807]">
-        <button
-          className="flex h-10 justify-center items-center gap-2 self-stretch px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat"
-          onClick={disconnectHandler}
-        >
-          <span className="font-neueMontreal text-[#521210] text-sm font-bold leading-6 uppercase">{languageHandler('user-menu-c', language)}</span>
-          <ExitIcon color="#521210" />
-        </button>
+        {!isSolana ? (
+          <button
+            className="flex h-10 justify-center items-center gap-2 self-stretch px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat"
+            onClick={disconnectHandler}
+          >
+            <span className="font-neueMontreal text-[#521210] text-sm font-bold leading-6 uppercase">{languageHandler('user-menu-c', language)}</span>
+            <ExitIcon color="#521210" />
+          </button>
+        ) : (
+          <CustomSolanaDisconnectWalletBtn setIsUserMenuOpen={setIsUserMenuOpen}/>
+        )}
       </div>
     </motion.div>
   )

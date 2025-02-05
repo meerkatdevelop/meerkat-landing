@@ -8,7 +8,7 @@ import { CaretDownIcon, ListIcon, Logo, LogoLight } from '../../assets'
 import NetworksSelector from './networksSelector'
 import { useChangeEvmNetwork } from '../../hooks/useEvmHooks'
 import SocialNetworks from './SocialNetworks'
-import ConnectWalletBtn from './ConnectWalletBtn'
+import { ConnectEvmWalletButton, ConnectSolanaWalletButton } from './ConnectWalletBtn'
 import UserMenu from './userMenu'
 import LanguageSelector from './languageSelector'
 
@@ -81,7 +81,11 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
             <span className="font-neueMontreal text-[#521210] text-sm font-bold leading-6">{chainInfo?.name} Chain</span>
             <CaretDownIcon color="#521210" />
           </button>
-          <ConnectWalletBtn language={language} setIsUserMenuOpen={setIsUserMenuOpen} />
+          {!isSolana ? (
+            <ConnectEvmWalletButton language={language} setIsUserMenuOpen={setIsUserMenuOpen} />
+          ) : (
+            <ConnectSolanaWalletButton language={language} setIsUserMenuOpen={setIsUserMenuOpen} />
+          )}
           <button
             className="flex w-10 h-10 rounded-full justify-center items-center gap-2 p-2 cursor-meerkat transition-all ease-in-out bg-[#EEE7E7] hover:bg-[#C9B6B5]"
             onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
@@ -96,7 +100,7 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
           <AnimatePresence>
             {isChainMenuOpen && <NetworksSelector language={language} setIsSolana={setIsSolana} setIsChainMenuOpen={setIsChainMenuOpen} />}
           </AnimatePresence>
-          <AnimatePresence>{isUserMenuOpen && <UserMenu language={language} setIsUserMenuOpen={setIsUserMenuOpen} />}</AnimatePresence>
+          <AnimatePresence>{isUserMenuOpen && <UserMenu language={language} setIsUserMenuOpen={setIsUserMenuOpen} isSolana={isSolana} />}</AnimatePresence>
         </div>
       </div>
     </nav>
