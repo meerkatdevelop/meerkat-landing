@@ -43,9 +43,11 @@ const AboutMobile = () => {
                 </span>
               </h1>
             </div>
-            <button className="flex h-10 justify-center items-center gap-3 px-4 py-0 rounded-lg bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
-              <ExitIcon color="#521210" />
-              <span className="font-neueMontreal text-[#521210] text-[15px] font-bold leading-[15px] uppercase">{languageHandler('banner-d', language)}</span>
+            <button className="flex h-10 justify-center items-center px-4 py-0 rounded-lg bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
+              <a className="cursor-meerkat items-center flex gap-3" href="https://docs.meerkat.wtf" target="blank_" rel="noreferrer">
+                <ExitIcon color="#521210" />
+                <span className="font-neueMontreal text-[#521210] text-[15px] font-bold leading-[15px] uppercase">{languageHandler('banner-d', language)}</span>
+              </a>
             </button>
           </div>
           <div className="flex px-3 flex-col items-center gap-[13.81px]">

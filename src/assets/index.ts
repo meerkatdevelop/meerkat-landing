@@ -54,6 +54,9 @@ import MarcoDivisorMobile from './images/MARCO-DIVISOR-MOBILE.svg'
 import TreeMobile from './images/Tree-mobile.svg'
 import GeneratorMobile from './images/Generator-mobile.svg'
 import MarcoDivisorBottomMobile from './images/Marco-divisor-bottom-mobile.svg'
+import MeerkatFace from './images/meerkat-face.svg'
+import ChainsWallet from './images/chains.svg'
+import CoinsWallet from './images/coins.svg'
 
 //Flags
 import CountryCH from './flags/COUNTRY_CH.svg'
@@ -127,6 +130,9 @@ export {
   TreeMobile,
   GeneratorMobile,
   MarcoDivisorBottomMobile,
+  MeerkatFace,
+  ChainsWallet,
+  CoinsWallet,
   //Flags
   CountryCH,
   CountryEN,

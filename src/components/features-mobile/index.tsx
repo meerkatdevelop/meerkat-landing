@@ -55,11 +55,13 @@ const FeaturesMobile = () => {
               <div className="flex w-full justify-center">
                 <img src={MiniApp} alt="img-2" className="flex w-[258px] h-[180px] justify-center items-center pl-[18.517px] pr-[18.156px] py-0" />
               </div>
-              <button className="flex h-10 justify-center items-center gap-3 shrink-0 self-stretch px-4 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
-                <img src={TelegramVector} alt="telegram-vector" />
-                <span className="font-neueMontreal text-[#3E0E0C] text-[15px] font-bold leading-[15px] uppercase">
-                  {languageHandler('features-i', language)}
-                </span>
+              <button className="flex h-10 justify-center items-center shrink-0 self-stretch px-4 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
+                <a href="https://t.me/meerkatwtf" target="blank_" rel="noreferrer" className="cursor-meerkat">
+                  <span className="flex items-center gap-2 font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px] uppercase">
+                    {languageHandler('features-i', language)}
+                    <img src={TelegramVector} alt="telegram-vector" />
+                  </span>
+                </a>
               </button>
             </div>
           </div>
