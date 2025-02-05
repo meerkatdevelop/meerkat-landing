@@ -10,11 +10,17 @@ import About from './components/about'
 import MeerkatWallet from './components/meerkat-wallet'
 import Hero from './assets/hero'
 import Cover from './components/cover'
+import useCurrentDimensions from './hooks/useCurrentDimensions'
+import NavbarMobile from './components/navbar-mobile'
+import AboutMobile from './components/about-mobile'
+import FeaturesMobile from './components/features-mobile'
+import HeroMobile from './assets/hero-mobile'
 
 function App() {
   const parallaxRef = useRef<HTMLDivElement | null>(null)
   const transitionRef = useRef<HTMLDivElement | null>(null)
   const triggerNavigation = useSpring(0, { damping: 30, stiffness: 100, mass: 2 })
+  const { dimensions } = useCurrentDimensions()
 
   const { scrollYProgress } = useScroll({
     target: parallaxRef,
@@ -36,12 +42,32 @@ function App() {
     <ReactLenis root>
       <main className="cursor-meerkat w-screen justify-center">
         <div ref={parallaxRef} className="relative w-full">
-          <Navbar move={transitionProgress} moveTo={moveTo} />
-          <Hero move={scrollYProgress} />
-          <Cover />
+          {dimensions.width < 1024 ? (
+            <>
+              <NavbarMobile moveTo={moveTo} />
+              <HeroMobile />
+            </>
+          ) : (
+            <>
+              <Navbar move={transitionProgress} moveTo={moveTo} />
+              <Hero move={scrollYProgress} />
+              <Cover />
+            </>
+          )}
+
           <div ref={transitionRef} className="-mt-[98px]">
-            <About />
-            <Features />
+            {dimensions.width < 1024 ? (
+              <>
+                <AboutMobile />
+                <FeaturesMobile />
+              </>
+            ) : (
+              <>
+                <About />
+                <Features />
+              </>
+            )}
+
             {/* <Roadmap /> */}
             <Tokenomics />
             <MeerkatWallet />

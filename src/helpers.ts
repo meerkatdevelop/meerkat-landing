@@ -71,7 +71,7 @@ export const flagSelector = (language: Languages) => {
 
 export const formatNetworkById = (networkHexId: string | undefined) => {
   const ethData = chains.find((chain) => chain.name === 'Ethereum')
-  if (!networkHexId) return ethData
+  if (!networkHexId) return null
   if (networkHexId === '0x1') return ethData
   else if (networkHexId === '0x2105') return chains.find((chain) => chain.name === 'Base')
   else if (networkHexId === '0x38') return chains.find((chain) => chain.name === 'Binance')

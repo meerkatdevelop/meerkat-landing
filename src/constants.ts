@@ -86,7 +86,7 @@ export const springInUserMenu = {
     opacity: 0,
   },
   visible: {
-    height: 380,
+    height: 260,
     opacity: 1,
     transition: {
       duration: 0.4,
