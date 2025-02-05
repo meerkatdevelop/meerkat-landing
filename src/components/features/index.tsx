@@ -31,15 +31,13 @@ const Features = () => {
                 <div className="flex w-[221px] flex-col items-start gap-2.5 shrink-0 self-stretch">
                   <div className="flex flex-col justify-end items-start gap-6 flex-[1_0_0]">
                     <div className="flex flex-col items-start gap-6 flex-[1_0_0] self-stretch">
-                      <span className="font-newTitle text-[82px] text-[#3E0E0C] font-bold leading-[70px] tracking-[0.88px] uppercase">
+                      <span className="self-stretch font-newTitle text-[64px] text-[#3E0E0C] font-bold leading-[56px] tracking-[0.64px] uppercase">
                         {languageHandler('features-d', language)}
                       </span>
-                      <p className="flex w-[260px] flex-col justify-center self-stretch text-[#3E0E0C] font-neueMontreal font-medium leading-[21px]">
-                        {languageHandler('features-e', language)}
-                      </p>
+                      <p className="self-stretch text-[#3E0E0C] font-neueMontreal font-medium leading-[21px]">{languageHandler('features-e', language)}</p>
                     </div>
-                    <button className="flex h-10 justify-center items-center px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
-                      <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px] uppercase">
+                    <button className="flex h-10 justify-center items-center px-3.5 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
+                      <span className="font-neueMontreal text-[#3E0E0C] text-[15px] font-bold leading-[15px] uppercase">
                         {languageHandler('features-f', language)}
                       </span>
                     </button>
@@ -51,16 +49,18 @@ const Features = () => {
                 <div className="flex w-[221px] flex-col items-start gap-2.5 shrink-0 self-stretch">
                   <div className="flex flex-col justify-end items-start gap-6 flex-[1_0_0]">
                     <div className="flex flex-col items-start gap-6 flex-[1_0_0] self-stretch">
-                      <span className="font-newTitle text-[82px] text-[#3E0E0C] font-bold leading-[70px] tracking-[0.64px] uppercase">
+                      <span className="self-stretch font-newTitle text-[64px] text-[#3E0E0C] font-bold leading-[56px] tracking-[0.64px] uppercase">
                         {languageHandler('features-g', language)}
                       </span>
-                      <p className="w-[269px] text-[#3E0E0C] font-neueMontreal font-medium leading-[21px]">{languageHandler('features-h', language)}</p>
+                      <p className="self-stretch text-[#3E0E0C] font-neueMontreal font-medium leading-[21px]">{languageHandler('features-h', language)}</p>
                     </div>
-                    <button className="flex h-10 justify-center items-center px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
-                      <span className="flex items-center gap-2 font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px] uppercase">
-                        {languageHandler('features-i', language)}
-                        <img src={TelegramVector} alt="telegram-vector" />
-                      </span>
+                    <button className="flex h-10 justify-center items-center px-3.5 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
+                      <a href="https://t.me/meerkatwtf" target="blank_" rel="noreferrer" className="cursor-meerkat">
+                        <span className="flex items-center gap-2 font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px] uppercase">
+                          {languageHandler('features-i', language)}
+                          <img src={TelegramVector} alt="telegram-vector" />
+                        </span>
+                      </a>
                     </button>
                   </div>
                 </div>
@@ -74,16 +74,21 @@ const Features = () => {
                   <div className="flex w-[221px] flex-col items-start gap-2.5 shrink-0 self-stretch">
                     <div className="flex flex-col justify-end items-start gap-6 flex-[1_0_0]">
                       <div className="flex flex-col items-start gap-6 flex-[1_0_0] self-stretch">
-                        <span className="font-newTitle text-[82px] text-[#3E0E0C] font-bold leading-[70px] tracking-[0.88px] uppercase">
+                        <div className="flex h-7 justify-center items-center gap-1.5 px-3 py-1.5 border border-[#521210] rounded-[100px] bg-[#FFFAEA]">
+                          <span className="font-neueMontreal text-[#521210] text-xs font-bold leading-[normal] tracking-[0.12px] uppercase">
+                            {languageHandler('features-l', language)}
+                          </span>
+                        </div>
+                        <span className="self-stretch font-newTitle text-[64px] text-[#3E0E0C] font-bold leading-[56px] tracking-[0.64px] uppercase">
                           {languageHandler('features-j', language)}
                         </span>
-                        <p className="w-[269px] text-[#3E0E0C] font-neueMontreal font-medium leading-[18px]">{languageHandler('features-k', language)}</p>
+                        <p className="self-stretch text-[#3E0E0C] font-neueMontreal font-medium leading-[21px]">{languageHandler('features-k', language)}</p>
                       </div>
-                      <button className="flex h-10 justify-center items-center px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat uppercase">
+                      {/* <button className="flex h-10 justify-center items-center px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat uppercase">
                         <span className="font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px]">
                           {languageHandler('features-l', language)}
                         </span>
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                   <img src={MemeCreator} alt="img-3" className="flex h-[464px] items-center flex-[1_0_0]" />
@@ -95,17 +100,22 @@ const Features = () => {
                   <div className="flex w-[221px] flex-col items-start gap-2.5 shrink-0 self-stretch">
                     <div className="flex flex-col justify-end items-start gap-6 flex-[1_0_0]">
                       <div className="flex flex-col items-start gap-6 flex-[1_0_0] self-stretch">
-                        <span className="font-newTitle text-[82px] text-[#3E0E0C] font-bold leading-[70px] tracking-[0.64px] uppercase">
+                        <div className="flex h-7 justify-center items-center gap-1.5 px-3 py-1.5 border border-[#521210] rounded-[100px] bg-[#FFFAEA]">
+                          <span className="font-neueMontreal text-[#521210] text-xs font-bold leading-[normal] tracking-[0.12px] uppercase">
+                            {languageHandler('features-l', language)}
+                          </span>
+                        </div>
+                        <span className="self-stretch font-newTitle text-[64px] text-[#3E0E0C] font-bold leading-[56px] tracking-[0.64px] uppercase">
                           {languageHandler('features-j', language)}
                         </span>
-                        <p className="w-[269px] text-[#3E0E0C] font-neueMontreal font-medium leading-[21px]">{languageHandler('features-k', language)}</p>
+                        <p className="self-stretch text-[#3E0E0C] font-neueMontreal font-medium leading-[21px]">{languageHandler('features-k', language)}</p>
                       </div>
-                      <button className="flex h-10 justify-center items-center px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
+                      {/* <button className="flex h-10 justify-center items-center px-6 py-3 rounded-xl bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
                         <span className="flex items-center gap-2 font-neueMontreal text-[#3E0E0C] text-sm not-italic font-bold leading-[14px] uppercase">
                           {languageHandler('features-l', language)}
                           <img src={TelegramVector} alt="telegram-vector" />
                         </span>
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                   <img src={MemeCreatorCut} alt="img-3" className="absolute bottom-0 right-0" />

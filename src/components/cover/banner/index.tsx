@@ -25,8 +25,10 @@ const Banner = () => {
           <img src={Placeholder} alt="placeholder" />
         </div> */}
         <button className="flex h-10 justify-center items-center gap-3 px-4 py-0 rounded-lg bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
-          <ExitIcon color="#521210" />
-          <span className="font-neueMontreal text-[#521210] text-sm font-bold leading-6 uppercase">{languageHandler('banner-d', language)}</span>
+          <a className="flex gap-3 cursor-meerkat" href="https://docs.meerkat.wtf" target="blank_" rel="noreferrer">
+            <ExitIcon color="#521210" />
+            <span className="font-neueMontreal text-[#521210] text-sm font-bold leading-6 uppercase">{languageHandler('banner-d', language)}</span>
+          </a>
         </button>
         <div className="flex flex-col cutcover:flex-row items-start cutcover:items-end gap-4 self-stretch">
           <div className="flex gap-2.5">

@@ -1,10 +1,9 @@
-import { useState } from 'react'
 import { useAppContext } from '../../context'
 import { ListIcon, LogoLight } from '../../assets'
 import CaretCloseIcon from '../../assets/icons/caret-close'
 
 const NavbarMobile = ({ moveTo }: { moveTo: (to: number) => void }) => {
-  const { isMenuOpen, setIsMenuOpen, language, setLanguage } = useAppContext()
+  const { isMenuOpen, setIsMenuOpen } = useAppContext()
 
   return (
     <nav className="sticky top-0 flex w-full justify-between items-center p-7 bg-[#250807] z-10">
