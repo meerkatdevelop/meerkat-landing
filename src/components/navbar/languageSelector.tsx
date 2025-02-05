@@ -4,8 +4,8 @@ import { languageHandler } from '../../helpers'
 import { CountryCH, CountryEN, CountryIN, CountryIT, CountryPT, CountrySP, MagnifyingGlassIcon } from '../../assets'
 import { Languages } from '../../context'
 
-const LanguagesList = [Languages.IT, Languages.CH, Languages.US, Languages.IN, Languages.ES, Languages.PO]
-const LanguagesIcons = [CountryIT, CountryCH, CountryEN, CountryIN, CountrySP, CountryPT]
+const LanguagesList = [Languages.US, Languages.ES, Languages.CH, Languages.IT, Languages.IN, Languages.PO]
+const LanguagesIcons = [CountryEN, CountrySP, CountryCH, CountryIT, CountryIN, CountryPT]
 
 interface LanguageSelectorProps {
   language: Languages
@@ -31,14 +31,14 @@ const LanguageSelector = ({ language, handleLanguage, search, setSearch }: Langu
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="absolute top-14 right-0 flex w-[332px] h-[460px] flex-col justify-start items-start gap-4 p-6 shadow-[1px_2px_13px_0px_rgba(0,0,0,0.30)] rounded-3xl bg-[#250807] overflow-hidden"
+      className="absolute top-14 -right-10 flex w-[240px] h-[460px] flex-col justify-start items-start gap-4 p-6 shadow-[1px_2px_13px_0px_rgba(0,0,0,0.30)] rounded-3xl bg-[#250807] overflow-hidden"
     >
       <div className="flex justify-center items-center gap-2.5 self-stretch px-3 py-0">
         <span className="flex-[1_0_0] font-neueMontreal text-[#FFFDFB] text-[15px] font-bold leading-[18px]">
           {languageHandler('language-menu-a', language)}
         </span>
       </div>
-      <div className="flex items-center min-h-[46px] gap-2.5 self-stretch px-3 py-0 border border-[#521210] rounded-lg bg-[#310B0A]">
+      <div className="flex items-center min-h-[36px] gap-2.5 self-stretch px-3 py-0 border border-[#521210] rounded-lg bg-[#310B0A]">
         <MagnifyingGlassIcon color="#EEE7E7" />
         <input
           type="text"

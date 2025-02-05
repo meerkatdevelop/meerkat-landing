@@ -1,9 +1,8 @@
 import { Dispatch } from 'react'
-import CaretDownIcon from '../../assets/icons/caret-down'
-import CreditCardIcon from '../../assets/icons/credit-card'
 import { Languages } from '../../context'
 import { languageHandler } from '../../helpers'
 import { useWallet } from '../../hooks/useEvmHooks'
+import { CaretDownIcon, WalletIcon } from '../../assets'
 
 interface ConnectWalletBtnProps {
   language: Languages
@@ -22,14 +21,21 @@ const ConnectWalletBtn = ({ language, setIsUserMenuOpen }: ConnectWalletBtnProps
   }
   return (
     <button
-      className={`flex h-10 justify-center items-center gap-2 px-6 py-3 rounded-xl  transition-all ease-in-out cursor-meerkat ${wallet ? 'bg-[#EEE7E7] hover:bg-[#C9B6B5]' : 'bg-[#FFCC29] hover:bg-[#FFEFBD]'}`}
+      className={`relative flex h-10 justify-center items-center gap-2 px-3.5 py-3  rounded-xl ml-1  transition-all ease-in-out cursor-meerkat ${wallet ? 'bg-[#EEE7E7] hover:bg-[#C9B6B5]' : 'bg-[#FFCC29] hover:bg-[#FFEFBD]'}`}
       onClick={walletButtonHandler}
     >
       {wallet && (
-        <CreditCardIcon color="#521210" className="flex w-[25px] h-[25px] justify-center items-center pl-[3px] pr-1 pt-[3px] pb-1 rounded-[100px] bg-white" />
+        <>
+          <div className="w-6 h-6" />
+          <WalletIcon
+            color="#521210"
+            className="absolute flex top-0 left-0 w-11 h-11 justify-center items-center pl-[3px] pr-1 pt-[3px] pb-1 rounded-[100px] bg-[#EEE7E7]
+             -translate-x-2 -translate-y-px"
+          />
+        </>
       )}
-      <span className={`font-neueMontreal text-[#521210] text-sm font-bold leading-6  ${!wallet && 'uppercase'}`}>
-        {wallet ? `${evmUserAddress?.slice(0, 6)}...${evmUserAddress?.slice(36)}` : languageHandler('navbar-a', language)}
+      <span className="font-neueMontreal text-[#521210] text-sm font-bold leading-6 uppercase">
+        {wallet ? `${evmUserAddress?.slice(0, 2)}...${evmUserAddress?.slice(-4)}` : languageHandler('navbar-a', language)}
       </span>
 
       {wallet && <CaretDownIcon color="#521210" />}

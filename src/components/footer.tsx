@@ -1,6 +1,6 @@
 import { useAppContext } from '../context'
 import { languageHandler } from '../helpers'
-import { Coin3, InstagramIcon, LogoLight, TelegramIcon, XIcon } from '../assets'
+import { Coin3, InstagramIcon, LogoLight, TelegramIcon, TiktokIcon, XIcon } from '../assets'
 import Marquee from './about/marquee-imgs'
 
 const Footer = () => {
@@ -53,11 +53,12 @@ const Footer = () => {
             <a className="cursor-meerkat" href="https://t.me/meerkatwtf" target="blank_" rel="noreferrer">
               <TelegramIcon color="#EEE7E7" />
             </a>
-            {/* <a className="cursor-meerkat">
-              <DiscordIcon color="#EEE7E7" />
-            </a> */}
+
             <a className="cursor-meerkat" href="https://www.instagram.com/meerkatwtf/#/" target="blank_" rel="noreferrer">
               <InstagramIcon color="#EEE7E7" />
+            </a>
+            <a className="cursor-meerkat" href="https://www.tiktok.com/@meerkatwtf" target="blank_" rel="noreferrer">
+              <TiktokIcon color="#EEE7E7" />
             </a>
           </div>
         </div>

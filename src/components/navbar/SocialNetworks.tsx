@@ -1,3 +1,4 @@
+import { TiktokIcon } from '../../assets'
 import InstagramIcon from '../../assets/icons/instagram'
 import TelegramIcon from '../../assets/icons/telegram'
 import XIcon from '../../assets/icons/x'
@@ -16,6 +17,10 @@ const SocialNetworks = () => {
     </a> */}
       <a className="cursor-meerkat" href="https://www.instagram.com/meerkatwtf/#/" target="blank_" rel="noreferrer">
         <InstagramIcon color="#EEE7E7" />
+      </a>
+
+      <a className="cursor-meerkat" href="https://www.tiktok.com/@meerkatwtf" target="blank_" rel="noreferrer">
+        <TiktokIcon color="#EEE7E7" />
       </a>
     </div>
   )

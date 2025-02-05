@@ -1,8 +1,8 @@
-// import { PlayIcon } from '../../assets'
-// import Placeholder from '../../../assets/images/Frame 135.svg'
-import { CoverPre1, CoverPre2, CoverPre3, CreditCardIcon } from '../../../assets'
 import { useAppContext } from '../../../context'
 import { languageHandler } from '../../../helpers'
+import { CoverPre1, CoverPre2, CoverPre3, ExitIcon } from '../../../assets'
+// import { PlayIcon } from '../../assets'
+// import Placeholder from '../../../assets/images/Frame 135.svg'
 
 const Banner = () => {
   const { language } = useAppContext()
@@ -25,7 +25,7 @@ const Banner = () => {
           <img src={Placeholder} alt="placeholder" />
         </div> */}
         <button className="flex h-10 justify-center items-center gap-3 px-4 py-0 rounded-lg bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
-          <CreditCardIcon color="#521210" />
+          <ExitIcon color="#521210" />
           <span className="font-neueMontreal text-[#521210] text-sm font-bold leading-6 uppercase">{languageHandler('banner-d', language)}</span>
         </button>
         <div className="flex flex-col cutcover:flex-row items-start cutcover:items-end gap-4 self-stretch">
