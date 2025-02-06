@@ -3,23 +3,23 @@ import { AnimatePresence, MotionValue, useMotionValueEvent, useTransform } from 
 import CaretCloseIcon from '../../assets/icons/caret-close'
 import { Languages, useAppContext } from '../../context'
 import Menu from '../cover/menu'
-import { flagSelector, formatNetworkById } from '../../helpers'
+import { flagSelector, formatNetworkById, languageHandler } from '../../helpers'
 import { CaretDownIcon, ListIcon, Logo, LogoLight } from '../../assets'
 import NetworksSelector from './networksSelector'
-import { useChangeEvmNetwork } from '../../hooks/useEvmHooks'
+import { useChangeEvmNetwork, useWallet } from '../../hooks/useEvmHooks'
 import SocialNetworks from './SocialNetworks'
 import { ConnectEvmWalletButton, ConnectSolanaWalletButton } from './ConnectWalletBtn'
 import UserMenu from './userMenu'
 import LanguageSelector from './languageSelector'
 
 const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: number) => void }) => {
+  const { wallet } = useWallet()
   const { isMenuOpen, setIsMenuOpen, language, setLanguage } = useAppContext()
   const [currentImage, setCurrentImage] = useState<string>('')
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false)
   const [isChainMenuOpen, setIsChainMenuOpen] = useState(false)
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
   const [isSolana, setIsSolana] = useState(false)
-  console.log(isSolana)
   const { connectedChain } = useChangeEvmNetwork()
   const chainInfo = formatNetworkById(connectedChain?.id)
   const [activeBg, setActiveBg] = useState(false)
@@ -72,20 +72,7 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
         </div>
         <div className="relative flex items-center gap-4">
           <SocialNetworks />
-          <button
-            className="relative flex h-10 justify-center items-center gap-2 px-3.5 py-3 rounded-xl bg-[#EEE7E7] hover:bg-[#C9B6B5] transition-all ease-in-out cursor-meerkat ml-1"
-            onClick={() => setIsChainMenuOpen(!isChainMenuOpen)}
-          >
-            <img src={chainInfo?.chain} alt={chainInfo?.label} className="absolute top-0 left-0 w-11 h-11 -translate-x-2 -translate-y-px" />
-            <span className="font-neueMontreal text-[#521210] text-sm font-bold leading-6">{chainInfo?.name} Chain</span>
-            <CaretDownIcon color="#521210" />
-          </button>
-          {!isSolana ? (
-            <ConnectEvmWalletButton language={language} setIsUserMenuOpen={setIsUserMenuOpen} />
-          ) : (
-            <ConnectSolanaWalletButton language={language} setIsUserMenuOpen={setIsUserMenuOpen} />
-          )}
-          {/* {chainInfo ? (
+          {chainInfo ? (
             <button
               className="relative flex h-10 justify-center items-center gap-2 px-3.5 py-3 rounded-xl bg-[#EEE7E7] hover:bg-[#C9B6B5] transition-all ease-in-out cursor-meerkat ml-1"
               onClick={() => setIsChainMenuOpen(!isChainMenuOpen)}
@@ -106,7 +93,13 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
               </span>
               <CaretDownIcon color={wallet ? '#521210' : '#E5DBDB'} />
             </button>
-          )} */}
+          )}
+          {!isSolana ? (
+            <ConnectEvmWalletButton language={language} setIsUserMenuOpen={setIsUserMenuOpen} />
+          ) : (
+            <ConnectSolanaWalletButton language={language} setIsUserMenuOpen={setIsUserMenuOpen} />
+          )}
+          {/* */}
 
           <button
             className="flex w-10 h-10 rounded-full justify-center items-center gap-2 p-2 cursor-meerkat transition-all ease-in-out bg-[#EEE7E7] hover:bg-[#C9B6B5]"
