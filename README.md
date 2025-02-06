@@ -1,1 +1,3 @@
 # Meerkat-Landing
+
+ENV VARIABLES
