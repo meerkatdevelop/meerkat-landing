@@ -1,3 +1,5 @@
 # Meerkat-Landing
 
 ENV VARIABLES
+
+- VITE_WALLET_CONNECT_PROJECT_ID
