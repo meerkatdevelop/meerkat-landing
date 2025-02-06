@@ -22,7 +22,6 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
   console.log(isSolana)
   const { connectedChain } = useChangeEvmNetwork()
   const chainInfo = formatNetworkById(connectedChain?.id)
-
   const [activeBg, setActiveBg] = useState(false)
   const [search, setSearch] = useState('')
   const images = [Logo, LogoLight]
@@ -47,10 +46,10 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
       <div className="relative w-screen">
         <Menu moveTo={moveTo} />
       </div>
-      <div className={`flex items-center gap-6 px-20 ${activeBg ? 'pt-2' : 'pt-10'} transition-all ease-in-out`}>
+      <div className={`flex items-center gap-6 px-20 ${activeBg ? 'py-4' : 'pt-10'} transition-all ease-in-out`}>
         <div className="flex items-center gap-10 flex-[1_0_0]">
           {isMenuOpen ? (
-            <button className="w-8 h-8 transition-all ease-in-out cursor-meerkat" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <button className="w-10 h-[34px] transition-all ease-in-out cursor-meerkat" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               <CaretCloseIcon color="#FFCC29" />
             </button>
           ) : (
@@ -74,10 +73,10 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
         <div className="relative flex items-center gap-4">
           <SocialNetworks />
           <button
-            className="flex h-10 justify-center items-center gap-2 px-6 py-3 rounded-xl bg-[#EEE7E7] hover:bg-[#C9B6B5] transition-all ease-in-out cursor-meerkat"
+            className="relative flex h-10 justify-center items-center gap-2 px-3.5 py-3 rounded-xl bg-[#EEE7E7] hover:bg-[#C9B6B5] transition-all ease-in-out cursor-meerkat ml-1"
             onClick={() => setIsChainMenuOpen(!isChainMenuOpen)}
           >
-            <img src={chainInfo?.chain} alt={chainInfo?.label} className="w-6 h-6" />
+            <img src={chainInfo?.chain} alt={chainInfo?.label} className="absolute top-0 left-0 w-11 h-11 -translate-x-2 -translate-y-px" />
             <span className="font-neueMontreal text-[#521210] text-sm font-bold leading-6">{chainInfo?.name} Chain</span>
             <CaretDownIcon color="#521210" />
           </button>
@@ -86,6 +85,29 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
           ) : (
             <ConnectSolanaWalletButton language={language} setIsUserMenuOpen={setIsUserMenuOpen} />
           )}
+          {/* {chainInfo ? (
+            <button
+              className="relative flex h-10 justify-center items-center gap-2 px-3.5 py-3 rounded-xl bg-[#EEE7E7] hover:bg-[#C9B6B5] transition-all ease-in-out cursor-meerkat ml-1"
+              onClick={() => setIsChainMenuOpen(!isChainMenuOpen)}
+            >
+              <img src={chainInfo?.chain} alt={chainInfo?.label} className="absolute top-0 left-0 w-11 h-11 -translate-x-2 -translate-y-px" />
+              <div className="w-6 h-6" />
+              <span className="font-neueMontreal text-[#521210] text-sm font-bold leading-6">{chainInfo?.name}</span>
+              <CaretDownIcon color="#521210" />
+            </button>
+          ) : (
+            <button
+              className={`flex h-10 justify-center items-center gap-2 px-3.5 py-3 rounded-xl  transition-all ease-in-out cursor-meerkat ${wallet ? 'bg-[#EEE7E7] hover:bg-[#C9B6B5]' : 'bg-[#EEE7E7]'}`}
+              onClick={() => wallet && setIsChainMenuOpen(!isChainMenuOpen)}
+              disabled={!wallet}
+            >
+              <span className={`font-neueMontreal text-[#521210] text-sm font-bold leading-6 uppercase ${wallet ? 'text-[#521210]' : 'text-[#E5DBDB]'}`}>
+                {languageHandler('chain-menu-a', language)}
+              </span>
+              <CaretDownIcon color={wallet ? '#521210' : '#E5DBDB'} />
+            </button>
+          )} */}
+
           <button
             className="flex w-10 h-10 rounded-full justify-center items-center gap-2 p-2 cursor-meerkat transition-all ease-in-out bg-[#EEE7E7] hover:bg-[#C9B6B5]"
             onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}

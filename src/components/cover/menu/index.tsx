@@ -51,9 +51,8 @@ const Menu = ({ moveTo }: { moveTo: (to: number) => void }) => {
           exit="exit"
           className={`absolute top-0 left-0 flex w-full flex-col justify-between items-start shrink-0 px-20 py-10 rounded-[0px_0px_32px_32px] bg-[#250807] -z-10 cursor-meerkat`}
         >
-          {/* <Navbar /> */}
           <div className="h-12" />
-          <div className="flex justify-between items-center self-stretch">
+          <div className="flex max-[1150px]:flex-col max-[1150px]:items-start justify-between items-center self-stretch">
             <button
               className="font-newTitle text-[#FFCC29] text-8xl font-bold leading-[96px] tracking-[2.88px] uppercase hover:text-[#FFEFBD] cursor-meerkat"
               onClick={() => handleNavigation('about')}

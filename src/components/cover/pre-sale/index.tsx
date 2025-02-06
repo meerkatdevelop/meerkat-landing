@@ -86,7 +86,7 @@ const PreSaleCover = () => {
           <div className="flex flex-col items-center gap-4 self-stretch pt-0 pb-5 px-4 border-r-[#EEE7E7] border-b-[#EEE7E7] border-l-[#EEE7E7] rounded-[0px_0px_24px_24px] border-r border-b border-l bg-white">
             <div className="flex items-center gap-[31px] self-stretch pb-4 border-b-[#C9B6B5] border-b-[0.5px]">
               <div className="flex flex-col justify-center items-start gap-2">
-                <div className="flex h-7 justify-center items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#FFCC29]">
+                <div className="flex h-7 justify-center items-center gap-1.5 px-3 py-1.5  border border-[#521210] rounded-[100px]  bg-[#FFFAEA]">
                   <span className="font-neueMontreal text-[#521210] text-xs font-bold leading-[normal] tracking-[0.12px]">
                     {languageHandler('presale-box-f', language)} 1
                   </span>
@@ -108,7 +108,7 @@ const PreSaleCover = () => {
             </div>
             <div className="flex items-center gap-[31px] self-stretch pb-4 border-b-[#C9B6B5] border-b-[0.5px] opacity-15">
               <div className="flex flex-col justify-center items-start gap-2">
-                <div className="flex h-7 justify-center items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#FFCC29]">
+                <div className="flex h-7 justify-center items-center gap-1.5 px-3 py-1.5  border border-[#521210] rounded-[100px]  bg-[#FFFAEA]">
                   <span className="font-neueMontreal text-[#521210] text-xs font-bold leading-[normal] tracking-[0.12px]">
                     {languageHandler('presale-box-f', language)} 2
                   </span>
@@ -131,7 +131,7 @@ const PreSaleCover = () => {
             </div>
             <div className="flex items-center gap-[31px] self-stretch pb-4 border-b-[#C9B6B5] border-b-[0.5px] opacity-15">
               <div className="flex flex-col justify-center items-start gap-2">
-                <div className="flex h-7 justify-center items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#FFCC29]">
+                <div className="flex h-7 justify-center items-center gap-1.5 px-3 py-1.5  border border-[#521210] rounded-[100px]  bg-[#FFFAEA]">
                   <span className="font-neueMontreal text-[#521210] text-xs font-bold leading-[normal] tracking-[0.12px]">
                     {languageHandler('presale-box-f', language)} 3
                   </span>

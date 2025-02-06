@@ -12,8 +12,10 @@ import XIcon from './icons/x'
 import TelegramIcon from './icons/telegram'
 import DiscordIcon from './icons/discord'
 import InstagramIcon from './icons/instagram'
+import TiktokIcon from './icons/tiktok'
 import MagnifyingGlassIcon from './icons/magnifying-glass'
 import ExitIcon from './icons/exit'
+import WalletIcon from './icons/wallet'
 
 //Images
 import Logo from './images/MEERKAT_LOGO 1.svg'
@@ -45,6 +47,20 @@ import Etherscan from './images/etherscan-logo.svg'
 import CoverPre1 from './images/Cover-pre-1.svg'
 import CoverPre2 from './images/Cover-pre-2.svg'
 import CoverPre3 from './images/Cover-pre-3.svg'
+import ApyShortMobile from './images/Apy-short-mobile.svg'
+import GamesShortMobile from './images/Games-short-mobile.svg'
+import GeneratorShortMobile from './images/Generator-short-mobile.svg'
+import MarcoDivisorMobile from './images/MARCO-DIVISOR-MOBILE.svg'
+import TreeMobile from './images/TreeMobile.svg'
+import GeneratorMobile from './images/GeneratorMobile.svg'
+import MarcoDivisorBottomMobile from './images/Marco-divisor-bottom-mobile.svg'
+import MeerkatFace from './images/meerkat-face.svg'
+import ChainsWallet from './images/chains.svg'
+import CoinsWallet from './images/coins.svg'
+import CoinsWalletMobile from './images/coins-wallet-mobile.svg'
+import PlayStoreLogo from './images/Badge.svg'
+import AppStoreLogo from './images/Badge-1.svg'
+import DividerFooterMobile from './images/divider-footer-mobile.svg'
 
 //Flags
 import CountryCH from './flags/COUNTRY_CH.svg'
@@ -76,8 +92,10 @@ export {
   TelegramIcon,
   DiscordIcon,
   InstagramIcon,
+  TiktokIcon,
   MagnifyingGlassIcon,
   ExitIcon,
+  WalletIcon,
 
   //Images
   Logo,
@@ -109,6 +127,20 @@ export {
   CoverPre1,
   CoverPre2,
   CoverPre3,
+  ApyShortMobile,
+  GamesShortMobile,
+  GeneratorShortMobile,
+  MarcoDivisorMobile,
+  TreeMobile,
+  GeneratorMobile,
+  MarcoDivisorBottomMobile,
+  MeerkatFace,
+  ChainsWallet,
+  CoinsWallet,
+  CoinsWalletMobile,
+  PlayStoreLogo,
+  AppStoreLogo,
+  DividerFooterMobile,
   //Flags
   CountryCH,
   CountryEN,

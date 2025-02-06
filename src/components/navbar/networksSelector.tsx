@@ -33,7 +33,7 @@ const NetworksSelector = ({ language, setIsSolana, setIsChainMenuOpen }: Network
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="absolute top-14 right-36 flex w-[332px] flex-col justify-start items-start gap-4 p-6 shadow-[1px_2px_13px_0px_rgba(0,0,0,0.30)] rounded-3xl bg-[#250807] overflow-hidden"
+      className="absolute top-14 right-[210px] flex w-[190px] flex-col justify-start items-start gap-4 p-6 shadow-[1px_2px_13px_0px_rgba(0,0,0,0.30)] rounded-3xl bg-[#250807] overflow-hidden"
     >
       <div className="flex justify-center items-center gap-2.5 self-stretch px-3 py-0">
         <span className="flex-[1_0_0] font-neueMontreal text-[#FFFDFB] text-[15px] font-bold leading-[18px]">{languageHandler('chain-menu-a', language)}</span>
