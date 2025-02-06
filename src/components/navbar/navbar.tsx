@@ -21,7 +21,7 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
   const [isSolana, setIsSolana] = useState(false)
   const { connectedChain } = useChangeEvmNetwork()
-  const chainInfo = formatNetworkById(connectedChain?.id)
+  const chainInfo = formatNetworkById(connectedChain?.id, isSolana)
   const [activeBg, setActiveBg] = useState(false)
   const [search, setSearch] = useState('')
   const images = [Logo, LogoLight]
@@ -99,14 +99,11 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
           ) : (
             <ConnectSolanaWalletButton language={language} setIsUserMenuOpen={setIsUserMenuOpen} />
           )}
-          {/* */}
-
           <button
             className="flex w-10 h-10 rounded-full justify-center items-center gap-2 p-2 cursor-meerkat transition-all ease-in-out bg-[#EEE7E7] hover:bg-[#C9B6B5]"
             onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
           >
             <img src={flagSelector(language)} alt="flag" className="w-6 h-6" />
-            {/* <CaretDownIcon width="24" height="24" color={isMenuOpen || activeBg ? '#FFCC29' : '#521210'} className="w-6 h-6 object-contain" /> */}
           </button>
 
           <AnimatePresence>

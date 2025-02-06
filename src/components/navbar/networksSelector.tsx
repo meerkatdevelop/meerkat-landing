@@ -19,6 +19,7 @@ const NetworksSelector = ({ language, setIsSolana, setIsChainMenuOpen }: Network
       setIsChainMenuOpen(false)
       return
     }
+    setIsSolana(false)
     if (!wallet) {
       setIsChainMenuOpen(false)
       return

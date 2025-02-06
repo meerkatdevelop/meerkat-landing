@@ -22,7 +22,7 @@ const OnBoardGloablProvider: React.FC<PropsWithChildren> = ({ children }) => {
      * Strongly recommended to provide atleast one URL as it is required by some wallets (i.e. MetaMask)
      * To connect with WalletConnect
      */
-    dappUrl: 'http://YourAwesomeDapp.com',
+    dappUrl: 'https://meerkat.wtf',
   }
 
   const chains = [ethereum, bsc, base]
