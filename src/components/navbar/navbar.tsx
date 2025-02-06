@@ -94,11 +94,7 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
               <CaretDownIcon color={wallet ? '#521210' : '#E5DBDB'} />
             </button>
           )}
-          {!isSolana ? (
-            <ConnectEvmWalletButton language={language} setIsUserMenuOpen={setIsUserMenuOpen} />
-          ) : (
-            <ConnectSolanaWalletButton language={language} setIsUserMenuOpen={setIsUserMenuOpen} />
-          )}
+          {!isSolana ? <ConnectEvmWalletButton setIsUserMenuOpen={setIsUserMenuOpen} /> : <ConnectSolanaWalletButton setIsUserMenuOpen={setIsUserMenuOpen} />}
           <button
             className="flex w-10 h-10 rounded-full justify-center items-center gap-2 p-2 cursor-meerkat transition-all ease-in-out bg-[#EEE7E7] hover:bg-[#C9B6B5]"
             onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}

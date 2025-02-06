@@ -2,6 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'neue';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/Neue Montreal/NeueMontreal-Regular.otf') format('truetype');
+}
+@font-face {
+  font-family: 'neue';
+  font-style: medium;
+  font-weight: 500;
+  src: url('./assets/fonts/Neue Montreal/NeueMontreal-Medium.otf') format('truetype');
+}
+@font-face {
+  font-family: 'neue';
+  font-style: bold;
+  font-weight: 700;
+  src: url('./assets/fonts/Neue Montreal/NeueMontreal-Bold.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'new';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/New Title/NewTitle-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'new';
+  font-style: bold;
+  font-weight: 700;
+  src: url('./assets/fonts/New Title/NewTitle-Bold.ttf') format('truetype');
+}
+
 body {
   overflow-x: hidden;
 }
@@ -58,35 +91,24 @@ body {
     transform: translateY(0) rotateX(0);
   }
 }
-@font-face {
-  font-family: 'neue';
-  font-style: normal;
-  font-weight: 400;
-  src: url('./assets/fonts/Neue Montreal/NeueMontreal-Regular.otf') format('truetype');
-}
-@font-face {
-  font-family: 'neue';
-  font-style: medium;
-  font-weight: 500;
-  src: url('./assets/fonts/Neue Montreal/NeueMontreal-Medium.otf') format('truetype');
-}
-@font-face {
-  font-family: 'neue';
-  font-style: bold;
-  font-weight: 700;
-  src: url('./assets/fonts/Neue Montreal/NeueMontreal-Bold.otf') format('truetype');
-}
 
-@font-face {
-  font-family: 'new';
-  font-style: normal;
-  font-weight: 400;
-  src: url('./assets/fonts/New Title/NewTitle-Regular.ttf') format('truetype');
+.wallet-adapter-button-trigger {
+  background-color: #ffcc29 !important;
 }
-
-@font-face {
-  font-family: 'new';
-  font-style: bold;
+.wallet-adapter-button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  color: var(--Foundation-Brown-Normal, #521210);
+  font-family: 'neue';
+  font-size: 15px;
+  font-style: normal;
   font-weight: 700;
-  src: url('./assets/fonts/New Title/NewTitle-Bold.ttf') format('truetype');
+  line-height: 15px;
+  cursor: default;
+  height: 40px;
+
+  padding: 0 24px;
+  border-radius: 12px;
 }
