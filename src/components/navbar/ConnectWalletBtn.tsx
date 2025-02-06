@@ -1,5 +1,5 @@
 import { Dispatch } from 'react'
-import { Languages } from '../../context'
+import { useAppContext } from '../../context'
 import { languageHandler } from '../../helpers'
 import { useWallet } from '../../hooks/useEvmHooks'
 import { useAnchorWallet } from '@solana/wallet-adapter-react'
@@ -7,11 +7,10 @@ import { CustomConnectWalletButton } from '../../contracts/solana/CustomSolanaWa
 import { CaretDownIcon, WalletIcon } from '../../assets'
 
 interface ConnectWalletBtnProps {
-  language: Languages
   setIsUserMenuOpen: Dispatch<React.SetStateAction<boolean>>
 }
 
-export const ConnectEvmWalletButton = ({ language, setIsUserMenuOpen }: ConnectWalletBtnProps) => {
+export const ConnectEvmWalletButton = ({ setIsUserMenuOpen }: ConnectWalletBtnProps) => {
   const { wallet, connect } = useWallet()
   const evmUserAddress = wallet?.accounts?.[0]?.address as string
   const walletButtonHandler = () => {
@@ -21,10 +20,10 @@ export const ConnectEvmWalletButton = ({ language, setIsUserMenuOpen }: ConnectW
       connect()
     }
   }
-  return <ConnectWalletBtn isConnected={!!wallet} address={evmUserAddress} language={language} walletButtonHandler={walletButtonHandler} />
+  return <ConnectWalletBtn isConnected={!!wallet} address={evmUserAddress} walletButtonHandler={walletButtonHandler} />
 }
 
-export const ConnectSolanaWalletButton = ({ language, setIsUserMenuOpen }: ConnectWalletBtnProps) => {
+export const ConnectSolanaWalletButton = ({ setIsUserMenuOpen }: ConnectWalletBtnProps) => {
   const solanaWallet = useAnchorWallet()
   const solanaUserAddress = solanaWallet?.publicKey?.toBase58() as string
   const shortedAddress = solanaUserAddress?.slice(0, 4) + '..' + solanaUserAddress?.slice(-4)
@@ -35,17 +34,17 @@ export const ConnectSolanaWalletButton = ({ language, setIsUserMenuOpen }: Conne
     }
   }
   if (!isConnected) return <CustomConnectWalletButton />
-  return <ConnectWalletBtn isConnected={isConnected} address={shortedAddress} language={language} walletButtonHandler={walletButtonHandler} />
+  return <ConnectWalletBtn isConnected={isConnected} address={shortedAddress} walletButtonHandler={walletButtonHandler} />
 }
 
 interface GenericConnectWalletBtnProps {
-  language: Languages
   isConnected: boolean
   address: string
   walletButtonHandler: () => void
 }
 
-export const ConnectWalletBtn = ({ isConnected, address, language, walletButtonHandler }: GenericConnectWalletBtnProps) => {
+export const ConnectWalletBtn = ({ isConnected, address, walletButtonHandler }: GenericConnectWalletBtnProps) => {
+  const { language } = useAppContext()
   return (
     <button
       className={`relative flex h-10 justify-center items-center gap-2 px-3.5 py-3  rounded-xl ml-1  transition-all ease-in-out cursor-meerkat ${isConnected ? 'bg-[#EEE7E7] hover:bg-[#C9B6B5]' : 'bg-[#FFCC29] hover:bg-[#FFEFBD]'}`}
@@ -63,7 +62,7 @@ export const ConnectWalletBtn = ({ isConnected, address, language, walletButtonH
       )}
 
       <span className="font-neueMontreal text-[#521210] text-sm font-bold leading-6 uppercase">
-        {isConnected ? `${address}` : languageHandler('navbar-a', language)}
+        {isConnected ? `${address?.slice(0, 2)}...${address?.slice(-4)}` : languageHandler('navbar-a', language)}
       </span>
 
       {isConnected && <CaretDownIcon color="#521210" />}

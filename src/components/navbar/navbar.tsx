@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import { AnimatePresence, MotionValue, useMotionValueEvent, useTransform } from 'motion/react'
-import CaretCloseIcon from '../../assets/icons/caret-close'
 import { Languages, useAppContext } from '../../context'
 import Menu from '../cover/menu'
 import { flagSelector, formatNetworkById, languageHandler } from '../../helpers'
-import { CaretDownIcon, ListIcon, Logo, LogoLight } from '../../assets'
+
 import NetworksSelector from './networksSelector'
 import { useChangeEvmNetwork, useWallet } from '../../hooks/useEvmHooks'
 import SocialNetworks from './SocialNetworks'
 import { ConnectEvmWalletButton, ConnectSolanaWalletButton } from './ConnectWalletBtn'
 import UserMenu from './userMenu'
 import LanguageSelector from './languageSelector'
+import { CaretCloseIcon, CaretDownIcon, ListIcon, Logo, LogoLight } from '../../assets'
 
 const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: number) => void }) => {
   const { wallet } = useWallet()

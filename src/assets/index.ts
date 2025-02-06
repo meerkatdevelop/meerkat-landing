@@ -4,6 +4,7 @@ import CaretDownIcon from './icons/caret-down'
 import CaretUpIcon from './icons/caret-up'
 import CaretLeftIcon from './icons/caret-left'
 import CaretRightIcon from './icons/caret-right'
+import CaretCloseIcon from './icons/caret-close'
 import CreditCardIcon from './icons/credit-card'
 import InfoIcon from './icons/info'
 import CheckIcon from './icons/check'
@@ -84,6 +85,7 @@ export {
   CaretUpIcon,
   CaretLeftIcon,
   CaretRightIcon,
+  CaretCloseIcon,
   CheckIcon,
   CreditCardIcon,
   InfoIcon,

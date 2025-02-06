@@ -51,7 +51,7 @@ const UserMenu = ({ language, setIsUserMenuOpen, isSolana }: UserMenuProps) => {
             <ExitIcon color="#521210" />
           </button>
         ) : (
-          <CustomSolanaDisconnectWalletBtn setIsUserMenuOpen={setIsUserMenuOpen}/>
+          <CustomSolanaDisconnectWalletBtn setIsUserMenuOpen={setIsUserMenuOpen} />
         )}
       </div>
     </motion.div>

@@ -12,7 +12,7 @@ const FAQMobile = () => {
     box4: false,
   })
   return (
-    <section className="relative flex w-screen flex-col items-center px-4 gap-8 bg-[#310B0A]">
+    <section id="faq" className="relative flex w-screen flex-col items-center px-4 gap-8 bg-[#310B0A]">
       <img src={MarcoDivisorMobile} alt="decoration" className="absolute top-0 left-0 w-full object-contain" />
       <div className="flex flex-col items-center gap-8 self-stretch py-[130px] z-10">
         <h4 className="self-stretch font-newTitle text-[#FFEFD4] text-center text-[104px] font-bold leading-[85px] tracking-[1.04px] uppercase">

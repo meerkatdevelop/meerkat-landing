@@ -5,7 +5,7 @@ import { GeneratorMobile, MarcoDivisorBottomMobile, MarcoDivisorMobile, MiniApp,
 const FeaturesMobile = () => {
   const { language } = useAppContext()
   return (
-    <section className="relative flex w-screen flex-col items-center px-4 gap-8 bg-[#310B0A]">
+    <section id="about" className="relative flex w-screen flex-col items-center px-4 gap-8 bg-[#310B0A]">
       <img src={MarcoDivisorMobile} alt="decoration" className="absolute top-0 left-0 w-full object-contain" />
       <div className="flex flex-col items-center gap-8 self-stretch py-[130px]">
         <div className="flex flex-col justify-center items-center gap-8 self-stretch">

@@ -1,6 +1,6 @@
 const HeroMobile = () => {
   return (
-    <div className="w-screen -translate-y-24 overflow-hidden pt-16">
+    <div className="w-screen -translate-y-[171px] overflow-hidden pt-16">
       <svg viewBox="0 0 390 620" fill="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
         <g id="Frame 871" clipPath="url(#clip0_1_8467)" preserveAspectRatio="xMidYMid slice">
           <g id="MEERKAT_CIELO_ESCENARIO 1" clipPath="url(#clip1_1_8467)">

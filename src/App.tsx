@@ -47,7 +47,7 @@ function App() {
         <div ref={parallaxRef} className="relative w-full">
           {dimensions.width < 1024 ? (
             <>
-              <NavbarMobile moveTo={moveTo} />
+              <NavbarMobile move={transitionProgress} moveTo={moveTo} />
               <HeroMobile />
             </>
           ) : (
@@ -58,32 +58,30 @@ function App() {
             </>
           )}
 
-          <div ref={transitionRef} className="-mt-[98px]">
-            {dimensions.width < 1024 ? (
-              <>
-                <AboutMobile />
-                <FeaturesMobile />
-                <MeerkatWalletMobile />
-                <FAQMobile />
-                <FooterMobile />
-              </>
-            ) : (
-              <>
-                <About />
-                <Features />
-                <Tokenomics />
-                <MeerkatWallet />
-                <FAQ />
-                <Footer />
-              </>
-            )}
+          {dimensions.width < 1024 ? (
+            <div ref={transitionRef} className="relative -mt-[172px]">
+              <AboutMobile />
+              <FeaturesMobile />
+              <MeerkatWalletMobile />
+              <FAQMobile />
+              <FooterMobile />
+            </div>
+          ) : (
+            <div ref={transitionRef} className="-mt-[98px]">
+              <About />
+              <Features />
+              <Tokenomics />
+              <MeerkatWallet />
+              <FAQ />
+              <Footer />
+            </div>
+          )}
 
-            {/* <Roadmap /> */}
+          {/* <Roadmap /> */}
 
-            {/* <MediaMarketing /> */}
+          {/* <MediaMarketing /> */}
 
-            {/* <Presale /> */}
-          </div>
+          {/* <Presale /> */}
         </div>
       </main>
     </ReactLenis>
