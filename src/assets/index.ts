@@ -63,6 +63,13 @@ import CoinsWalletMobile from './images/coins-wallet-mobile.svg'
 import PlayStoreLogo from './images/Badge.svg'
 import AppStoreLogo from './images/Badge-1.svg'
 import DividerFooterMobile from './images/divider-footer-mobile.svg'
+import Roadmap1 from './images/roadmap_1.svg'
+import Roadmap2 from './images/roadmap_2.svg'
+import Roadmap3 from './images/roadmap_3.svg'
+import Roadmap4 from './images/roadmap_4.svg'
+import Roadmap5 from './images/roadmap_5.svg'
+import Roadmap6 from './images/roadmap_6.svg'
+import Roadmap7 from './images/roadmap_7.svg'
 
 //Flags
 import CountryCH from './flags/COUNTRY_CH.svg'
@@ -145,6 +152,13 @@ export {
   PlayStoreLogo,
   AppStoreLogo,
   DividerFooterMobile,
+  Roadmap1,
+  Roadmap2,
+  Roadmap3,
+  Roadmap4,
+  Roadmap5,
+  Roadmap6,
+  Roadmap7,
   //Flags
   CountryCH,
   CountryEN,

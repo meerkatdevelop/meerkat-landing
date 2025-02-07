@@ -23,8 +23,8 @@ const Roadmap = () => {
               {languageHandler('roadmap-a', language)}
             </h2>
           </div>
-          <motion.div style={{ x }} className="flex w-fit gap-[180px]">
-            {Array.from({ length: 5 }).map((_, i) => (
+          <motion.div style={{ x }} className="flex w-fit gap-[120px]">
+            {Array.from({ length: 7 }).map((_, i) => (
               <Card key={i} i={i} />
             ))}
           </motion.div>
