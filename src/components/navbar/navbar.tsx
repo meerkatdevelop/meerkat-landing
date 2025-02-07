@@ -57,18 +57,12 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
       </div>
       <div className={`flex items-center gap-6 px-20 ${activeBg ? 'py-4' : 'pt-10'} transition-all ease-in-out`}>
         <div className="flex items-center gap-10 flex-[1_0_0]">
-          {isMenuOpen ? (
-            <button className="w-10 h-[34px] transition-all ease-in-out cursor-meerkat" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              <CaretCloseIcon color="#FFCC29" />
-            </button>
-          ) : (
-            <button
-              className="flex justify-center items-center p-2 rounded-lg bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <ListIcon color={'#521210'} />
-            </button>
-          )}
+          <button
+            className="flex justify-center items-center shrink-0 p-2 rounded-lg bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <CaretCloseIcon color="#521210" className="flex w-6 h-6 justify-center items-center" /> : <ListIcon color="#521210" className="" />}
+          </button>
           <button
             className="flex flex-col items-start gap-2.5 shrink-0 cursor-meerkat"
             onClick={() => {

@@ -25,7 +25,7 @@ const FAQ = () => {
           <div className="flex w-full od:w-[1278px] flex-col items-start gap-4">
             {/* FAQ_Card */}
             <div className="flex flex-col justify-center items-start self-stretch  px-8 py-3 rounded-3xl bg-[#FFEFD4]">
-              <div className="flex h-14 justify-between items-center self-stretch">
+              <div className="flex h-14 justify-between items-center self-stretch" onClick={() => setIsBoxActive({ ...isBoxActive, box1: !isBoxActive.box1 })}>
                 <span className="flex flex-col justify-center flex-[1_0_0] self-stretch font-neueMontreal text-[#521210] text-[22px] font-bold leading-8 tracking-[0.22px]">
                   {languageHandler('faq-b', language)}
                 </span>
@@ -70,7 +70,7 @@ const FAQ = () => {
               </div>
             </div>
             <div className="flex flex-col justify-center items-start self-stretch  px-8 py-3 rounded-3xl bg-[#FFEFD4]">
-              <div className="flex h-14 justify-between items-center self-stretch">
+              <div className="flex h-14 justify-between items-center self-stretch" onClick={() => setIsBoxActive({ ...isBoxActive, box2: !isBoxActive.box2 })}>
                 <span className="flex flex-col justify-center flex-[1_0_0] self-stretch font-neueMontreal text-[#521210] text-[22px] font-bold leading-8 tracking-[0.22px]">
                   {languageHandler('faq-l', language)}
                 </span>
@@ -96,7 +96,7 @@ const FAQ = () => {
               </div>
             </div>
             <div className="flex flex-col justify-center items-start  self-stretch  px-8 py-3 rounded-3xl bg-[#FFEFD4]">
-              <div className="flex h-14 justify-between items-center self-stretch">
+              <div className="flex h-14 justify-between items-center self-stretch" onClick={() => setIsBoxActive({ ...isBoxActive, box3: !isBoxActive.box3 })}>
                 <span className="flex flex-col justify-center flex-[1_0_0] self-stretch font-neueMontreal text-[#521210] text-[22px] font-bold leading-8 tracking-[0.22px]">
                   {languageHandler('faq-r', language)}
                 </span>
@@ -118,7 +118,7 @@ const FAQ = () => {
               </div>
             </div>
             <div className="flex flex-col justify-center items-start self-stretch  px-8 py-3 rounded-3xl bg-[#FFEFD4]">
-              <div className="flex h-14 justify-between items-center self-stretch">
+              <div className="flex h-14 justify-between items-center self-stretch" onClick={() => setIsBoxActive({ ...isBoxActive, box4: !isBoxActive.box4 })}>
                 <span className="flex flex-col justify-center flex-[1_0_0] self-stretch font-neueMontreal text-[#521210] text-[22px] font-bold leading-8 tracking-[0.22px]">
                   {languageHandler('faq-w', language)}
                 </span>
