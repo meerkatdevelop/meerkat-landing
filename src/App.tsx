@@ -41,6 +41,7 @@ function App() {
   useMotionValueEvent(triggerNavigation, 'change', (latest) => {
     window.scrollTo(0, latest)
   })
+
   return (
     <ReactLenis root>
       <main className="cursor-meerkat w-screen justify-center">

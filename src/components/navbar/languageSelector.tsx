@@ -3,6 +3,7 @@ import { springInLaguageSelector } from '../../constants'
 import { languageHandler } from '../../helpers'
 import { CountryCH, CountryEN, CountryIN, CountryIT, CountryPT, CountrySP, MagnifyingGlassIcon } from '../../assets'
 import { Languages } from '../../context'
+import { useEffect, useRef } from 'react'
 
 const LanguagesList = [Languages.US, Languages.ES, Languages.CH, Languages.IT, Languages.IN, Languages.PO]
 const LanguagesIcons = [CountryEN, CountrySP, CountryCH, CountryIT, CountryIN, CountryPT]
@@ -15,6 +16,7 @@ interface LanguageSelectorProps {
 }
 
 const LanguageSelector = ({ language, handleLanguage, search, setSearch }: LanguageSelectorProps) => {
+  const scrollRef = useRef<HTMLDivElement>(null)
   const handleSearch = () => {
     const languages: { lingo: string; icon: string; selector: Languages }[] = []
     for (let i = 0; i <= 5; i++) {
@@ -25,6 +27,21 @@ const LanguageSelector = ({ language, handleLanguage, search, setSearch }: Langu
 
     return result
   }
+
+  useEffect(() => {
+    const handleWheel = (event: WheelEvent) => {
+      event.preventDefault()
+      if (scrollRef.current) {
+        scrollRef.current.scrollTo({
+          top: scrollRef.current.scrollTop + event.deltaY * 20,
+          behavior: 'smooth',
+        })
+      }
+    }
+    window.addEventListener('wheel', handleWheel, { passive: false })
+
+    return () => window.removeEventListener('wheel', handleWheel)
+  }, [])
   return (
     <motion.div
       variants={springInLaguageSelector}
@@ -49,7 +66,7 @@ const LanguageSelector = ({ language, handleLanguage, search, setSearch }: Langu
         />
       </div>
       {/* Languages List */}
-      <div className="flex flex-col items-start gap-2 self-stretch overflow-x-auto custom-scrollbar">
+      <div className="flex flex-col items-start gap-2 self-stretch overflow-x-auto custom-scrollbar" ref={scrollRef}>
         {handleSearch().map((idiom, i) => (
           <div
             key={i}
