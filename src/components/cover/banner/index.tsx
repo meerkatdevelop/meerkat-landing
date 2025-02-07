@@ -1,6 +1,6 @@
 import { useAppContext } from '../../../context'
 import { languageHandler } from '../../../helpers'
-import { CoverPre1, CoverPre2, CoverPre3, ExitIcon } from '../../../assets'
+import { CoverPre1, CoverPre2, CoverPre3, ExitLinkIcon } from '../../../assets'
 // import { PlayIcon } from '../../assets'
 // import Placeholder from '../../../assets/images/Frame 135.svg'
 
@@ -26,16 +26,13 @@ const Banner = () => {
         </div> */}
         <button className="flex h-10 justify-center items-center gap-3 px-4 py-0 rounded-lg bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat">
           <a className="flex gap-3 cursor-meerkat" href="https://docs.meerkat.wtf" target="blank_" rel="noreferrer">
-            <ExitIcon color="#521210" />
+            <ExitLinkIcon color="#521210" />
             <span className="font-neueMontreal text-[#521210] text-sm font-bold leading-6 uppercase">{languageHandler('banner-d', language)}</span>
           </a>
         </button>
-        <div className="flex flex-col cutcover:flex-row items-start cutcover:items-end gap-4 self-stretch">
-          <div className="flex gap-2.5">
-            <img src={CoverPre1} alt="cover-pre-1" className="rounded-xl" />
-            <img src={CoverPre2} alt="cover-pre-2" className="rounded-xl" />
-          </div>
-
+        <div className="flex w-full flex-col items-start  gap-4 self-stretch">
+          <img src={CoverPre1} alt="cover-pre-1" className="rounded-xl" />
+          <img src={CoverPre2} alt="cover-pre-2" className="rounded-xl" />
           <img src={CoverPre3} alt="cover-pre-3" className="rounded-xl" />
         </div>
       </div>

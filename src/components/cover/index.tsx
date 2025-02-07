@@ -20,12 +20,12 @@ const Cover = () => {
       >
         <Banner />
         {/* <ActionBox /> */}
-        <PreSaleCover />
+        <div className="pt-16 ml-0 mt-0 max-[1313px]:-ml-8 max-[1313px]:-mt-6">
+          <PreSaleCover />
+        </div>
       </div>
     </section>
   )
 }
 
 export default Cover
-// className="flex w-screen justify-between items-start"
-//1313

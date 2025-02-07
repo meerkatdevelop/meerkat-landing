@@ -35,6 +35,10 @@
   src: url('./assets/fonts/New Title/NewTitle-Bold.ttf') format('truetype');
 }
 
+html {
+  cursor: url('/src/assets/cursor/Vector 1.svg'), default !important;
+}
+
 body {
   overflow-x: hidden;
 }
@@ -91,6 +95,9 @@ body {
     transform: translateY(0) rotateX(0);
   }
 }
+.wallet-adapter-modal {
+  cursor: url('/src/assets/cursor/Vector 1.svg'), default !important;
+}
 .wallet-adapter-modal-wrapper {
   background: #1d0606 !important;
   color: #fffdfb !important;
@@ -98,6 +105,7 @@ body {
   cursor: url('/src/assets/cursor/Vector 1.svg'), default !important;
 
   h1 {
+    margin-top: 25px !important;
     font-weight: 700 !important;
     line-height: 24px !important;
   }
