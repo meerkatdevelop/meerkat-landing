@@ -3,7 +3,7 @@ export const CHAINS_ONBOARD_CONFIG = {
     id: 1,
     token: 'ETH',
     label: 'Ethereum',
-    rpcUrl: 'https://mainnet.infura.io/v3/YourInfuraKey',
+    rpcUrl: 'https://eth.llamarpc.com',
   },
 
   bsc: {
