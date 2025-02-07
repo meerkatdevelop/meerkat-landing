@@ -2,7 +2,7 @@ import { motion } from 'motion/react'
 import { ExitIcon, MeerkatCoin } from '../../assets'
 import { languageHandler } from '../../helpers'
 import { springInUserMenu } from '../../constants'
-import { Dispatch } from 'react'
+import { Dispatch, useLayoutEffect } from 'react'
 import { Languages } from '../../context'
 import { useWallet } from '../../hooks/useEvmHooks'
 import { CustomSolanaDisconnectWalletBtn } from '../../contracts/solana/CustomSolanaWalletBtn'
@@ -17,8 +17,22 @@ const UserMenu = ({ language, setIsUserMenuOpen, isSolana }: UserMenuProps) => {
 
   const disconnectHandler = () => {
     disconnect({ label: wallet?.label as string })
+    // setTimeout(() => {
+    //   const element = document.querySelector('.wallet-adapter-button')
+    //   if (!element) return
+    //   element.setAttribute('data-tag', languageHandler('navbar-a', language).toString())
+    //   element.classList.add('custom-solana-btn-navbar')
+    // }, 1)
     setIsUserMenuOpen((prev) => !prev)
   }
+
+  useLayoutEffect(() => {
+    const element = document.querySelector('.wallet-adapter-button')
+    if (!element) return
+    element.setAttribute('data-tag', languageHandler('user-menu-c', language).toString())
+    element.classList.add('custom-solana-btn-disconnect')
+  }, [isSolana, language])
+
   return (
     <motion.div
       variants={springInUserMenu}

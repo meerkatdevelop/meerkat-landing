@@ -50,3 +50,9 @@ export const CONTRACTS_ADDRESSES = {
   },
 }
 
+
+export const RPC_URLS = {
+  '0x1': 'https://eth.llamarpc.com',
+  '0x38': 'https://bsc-dataseed.binance.org/',
+  '0x2105': 'https://base.llamarpc.com',
+}

@@ -17,6 +17,7 @@ import TiktokIcon from './icons/tiktok'
 import MagnifyingGlassIcon from './icons/magnifying-glass'
 import ExitIcon from './icons/exit'
 import WalletIcon from './icons/wallet'
+import ExitLinkIcon from './icons/exit-link'
 
 //Images
 import Logo from './images/MEERKAT_LOGO 1.svg'
@@ -98,6 +99,7 @@ export {
   MagnifyingGlassIcon,
   ExitIcon,
   WalletIcon,
+  ExitLinkIcon,
 
   //Images
   Logo,

@@ -39,11 +39,11 @@ const NetworksSelector = ({ language, setIsSolana, setIsChainMenuOpen }: Network
       <div className="flex justify-center items-center gap-2.5 self-stretch px-3 py-0">
         <span className="flex-[1_0_0] font-neueMontreal text-[#FFFDFB] text-[15px] font-bold leading-[18px]">{languageHandler('chain-menu-a', language)}</span>
       </div>
-      <div className="flex w-[284px] flex-col items-start gap-2 self-stretch">
+      <div className="flex flex-col items-start gap-2 self-stretch">
         {chains.map((chain, i) => (
           <div
             key={i}
-            className="flex w-[408px] items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-[#400D0B] transition-all ease-in-out"
+            className="flex w-full items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-[#400D0B] transition-all ease-in-out"
             onClick={() => handleChangeNetwork(chain.name as 'Solana' | 'Ethereum' | 'Base' | 'Binance')}
           >
             <img src={chain.chain} alt="flag" className="w-6 h-6" />

@@ -8,13 +8,15 @@ import { CaretDownIcon, WalletIcon } from '../../assets'
 
 interface ConnectWalletBtnProps {
   setIsUserMenuOpen: Dispatch<React.SetStateAction<boolean>>
+  setIsChainMenuOpen: Dispatch<React.SetStateAction<boolean>>
 }
 
-export const ConnectEvmWalletButton = ({ setIsUserMenuOpen }: ConnectWalletBtnProps) => {
+export const ConnectEvmWalletButton = ({ setIsUserMenuOpen, setIsChainMenuOpen }: ConnectWalletBtnProps) => {
   const { wallet, connect } = useWallet()
   const evmUserAddress = wallet?.accounts?.[0]?.address as string
   const walletButtonHandler = () => {
     if (wallet) {
+      setIsChainMenuOpen(false)
       setIsUserMenuOpen((prev) => !prev)
     } else {
       connect()
@@ -23,13 +25,14 @@ export const ConnectEvmWalletButton = ({ setIsUserMenuOpen }: ConnectWalletBtnPr
   return <ConnectWalletBtn isConnected={!!wallet} address={evmUserAddress} walletButtonHandler={walletButtonHandler} />
 }
 
-export const ConnectSolanaWalletButton = ({ setIsUserMenuOpen }: ConnectWalletBtnProps) => {
+export const ConnectSolanaWalletButton = ({ setIsUserMenuOpen, setIsChainMenuOpen }: ConnectWalletBtnProps) => {
   const solanaWallet = useAnchorWallet()
   const solanaUserAddress = solanaWallet?.publicKey?.toBase58() as string
   const shortedAddress = solanaUserAddress?.slice(0, 4) + '..' + solanaUserAddress?.slice(-4)
   const isConnected = !!solanaWallet
   const walletButtonHandler = () => {
     if (solanaWallet) {
+      setIsChainMenuOpen(false)
       setIsUserMenuOpen((prev) => !prev)
     }
   }

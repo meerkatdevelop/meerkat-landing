@@ -19,8 +19,11 @@ const FAQMobile = () => {
           {languageHandler('faq-a', language)}
         </h4>
         <div className="flex flex-col items-start gap-6 self-stretch">
-          <div className="flex flex-col items-start gap-2 self-stretch rounded-xl bg-[#FFEFD4]">
-            <div className="flex justify-between items-center self-stretch px-6 py-2 ">
+          <div className="flex flex-col items-start self-stretch rounded-xl bg-[#FFEFD4]">
+            <div
+              className="flex justify-between items-center self-stretch px-6 py-2 "
+              onClick={() => setIsBoxActive({ ...isBoxActive, box1: !isBoxActive.box1 })}
+            >
               <span className="flex flex-col justify-center flex-[1_0_0] self-stretch font-neueMontreal font-bold text-[#521210] leading-[22px] tracking-[0.16px]">
                 {languageHandler('faq-b', language)}
               </span>
@@ -64,8 +67,11 @@ const FAQMobile = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-start gap-2 self-stretch rounded-xl bg-[#FFEFD4]">
-            <div className="flex justify-between items-center self-stretch px-6 py-2 ">
+          <div className="flex flex-col items-start self-stretch rounded-xl bg-[#FFEFD4]">
+            <div
+              className="flex justify-between items-center self-stretch px-6 py-2 "
+              onClick={() => setIsBoxActive({ ...isBoxActive, box2: !isBoxActive.box2 })}
+            >
               <span className="flex flex-col justify-center flex-[1_0_0] self-stretch font-neueMontreal font-bold text-[#521210] leading-[22px] tracking-[0.16px]">
                 {languageHandler('faq-l', language)}
               </span>
@@ -90,8 +96,11 @@ const FAQMobile = () => {
               </p>
             </div>
           </div>
-          <div className="flex flex-col items-start gap-2 self-stretch rounded-xl bg-[#FFEFD4]">
-            <div className="flex justify-between items-center self-stretch px-6 py-2 ">
+          <div className="flex flex-col items-start self-stretch rounded-xl bg-[#FFEFD4]">
+            <div
+              className="flex justify-between items-center self-stretch px-6 py-2 "
+              onClick={() => setIsBoxActive({ ...isBoxActive, box3: !isBoxActive.box3 })}
+            >
               <span className="flex flex-col justify-center flex-[1_0_0] self-stretch font-neueMontreal font-bold text-[#521210] leading-[22px] tracking-[0.16px]">
                 {languageHandler('faq-r', language)}
               </span>
@@ -112,8 +121,11 @@ const FAQMobile = () => {
               <p className="font-neueMontreal text-[#521210] text-lg leading-6">{languageHandler('faq-v', language)}</p>
             </div>
           </div>
-          <div className="flex flex-col items-start gap-2 self-stretch rounded-xl bg-[#FFEFD4]">
-            <div className="flex justify-between items-center self-stretch px-6 py-2 ">
+          <div className="flex flex-col items-start self-stretch rounded-xl bg-[#FFEFD4]">
+            <div
+              className="flex justify-between items-center self-stretch px-6 py-2 "
+              onClick={() => setIsBoxActive({ ...isBoxActive, box4: !isBoxActive.box4 })}
+            >
               <span className="flex flex-col justify-center flex-[1_0_0] self-stretch font-neueMontreal font-bold text-[#521210] leading-[22px] tracking-[0.16px]">
                 {languageHandler('faq-w', language)}
               </span>

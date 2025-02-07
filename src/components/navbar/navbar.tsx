@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 import { AnimatePresence, MotionValue, useMotionValueEvent, useTransform } from 'motion/react'
 import { Languages, useAppContext } from '../../context'
 import Menu from '../cover/menu'
@@ -11,6 +11,7 @@ import { ConnectEvmWalletButton, ConnectSolanaWalletButton } from './ConnectWall
 import UserMenu from './userMenu'
 import LanguageSelector from './languageSelector'
 import { CaretCloseIcon, CaretDownIcon, ListIcon, Logo, LogoLight } from '../../assets'
+import { useAnchorWallet } from '@solana/wallet-adapter-react'
 
 const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: number) => void }) => {
   const { wallet } = useWallet()
@@ -25,6 +26,7 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
   const [activeBg, setActiveBg] = useState(false)
   const [search, setSearch] = useState('')
   const images = [Logo, LogoLight]
+  const solanaWallet = useAnchorWallet()
   const imageIndex = useTransform(move, [0, 1], [0, images.length - 1])
   useMotionValueEvent(imageIndex, 'change', (latest) => {
     setTimeout(() => {
@@ -39,6 +41,13 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
     setSearch('')
   }
 
+  useLayoutEffect(() => {
+    const element = document.querySelector('.wallet-adapter-button')
+    if (!element) return
+    element.setAttribute('data-tag', languageHandler('navbar-a', language).toString())
+    element.classList.add('custom-solana-btn-navbar')
+  }, [isSolana, language, solanaWallet])
+
   return (
     <nav
       className={`sticky top-0 flex-col w-screen pb-2 ${isMenuOpen ? 'z-20' : 'z-10'} ${activeBg ? 'bg-[#250807]' : 'bg-transparent'} transition-all ease-in-out`}
@@ -48,18 +57,12 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
       </div>
       <div className={`flex items-center gap-6 px-20 ${activeBg ? 'py-4' : 'pt-10'} transition-all ease-in-out`}>
         <div className="flex items-center gap-10 flex-[1_0_0]">
-          {isMenuOpen ? (
-            <button className="w-10 h-[34px] transition-all ease-in-out cursor-meerkat" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              <CaretCloseIcon color="#FFCC29" />
-            </button>
-          ) : (
-            <button
-              className="flex justify-center items-center p-2 rounded-lg bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <ListIcon color={'#521210'} />
-            </button>
-          )}
+          <button
+            className="flex justify-center items-center shrink-0 p-2 rounded-lg bg-[#FFCC29] hover:bg-[#FFEFBD] transition-all ease-in-out cursor-meerkat"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <CaretCloseIcon color="#521210" className="flex w-6 h-6 justify-center items-center" /> : <ListIcon color="#521210" className="" />}
+          </button>
           <button
             className="flex flex-col items-start gap-2.5 shrink-0 cursor-meerkat"
             onClick={() => {
@@ -75,7 +78,10 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
           {chainInfo ? (
             <button
               className="relative flex h-10 justify-center items-center gap-2 px-3.5 py-3 rounded-xl bg-[#EEE7E7] hover:bg-[#C9B6B5] transition-all ease-in-out cursor-meerkat ml-1"
-              onClick={() => setIsChainMenuOpen(!isChainMenuOpen)}
+              onClick={() => {
+                setIsUserMenuOpen(false)
+                setIsChainMenuOpen(!isChainMenuOpen)
+              }}
             >
               <img src={chainInfo?.chain} alt={chainInfo?.label} className="absolute top-0 left-0 w-11 h-11 -translate-x-2 -translate-y-px" />
               <div className="w-6 h-6" />
@@ -85,7 +91,10 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
           ) : (
             <button
               className={`flex h-10 justify-center items-center gap-2 px-3.5 py-3 rounded-xl  transition-all ease-in-out cursor-meerkat ${wallet ? 'bg-[#EEE7E7] hover:bg-[#C9B6B5]' : 'bg-[#EEE7E7]'}`}
-              onClick={() => wallet && setIsChainMenuOpen(!isChainMenuOpen)}
+              onClick={() => {
+                setIsUserMenuOpen(false)
+                setIsChainMenuOpen(!isChainMenuOpen)
+              }}
               disabled={!wallet}
             >
               <span className={`font-neueMontreal text-[#521210] text-sm font-bold leading-6 uppercase ${wallet ? 'text-[#521210]' : 'text-[#E5DBDB]'}`}>
@@ -94,7 +103,11 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
               <CaretDownIcon color={wallet ? '#521210' : '#E5DBDB'} />
             </button>
           )}
-          {!isSolana ? <ConnectEvmWalletButton setIsUserMenuOpen={setIsUserMenuOpen} /> : <ConnectSolanaWalletButton setIsUserMenuOpen={setIsUserMenuOpen} />}
+          {!isSolana ? (
+            <ConnectEvmWalletButton setIsUserMenuOpen={setIsUserMenuOpen} setIsChainMenuOpen={setIsChainMenuOpen} />
+          ) : (
+            <ConnectSolanaWalletButton setIsUserMenuOpen={setIsUserMenuOpen} setIsChainMenuOpen={setIsChainMenuOpen} />
+          )}
           <button
             className="flex w-10 h-10 rounded-full justify-center items-center gap-2 p-2 cursor-meerkat transition-all ease-in-out bg-[#EEE7E7] hover:bg-[#C9B6B5]"
             onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
