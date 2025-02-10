@@ -46,7 +46,7 @@ const MeerkatWallet = () => {
                     {/* <span className="self-stretch font-neueMontreal text-[#C9B6B5] leading-[normal] tracking-[0.16px]">
                       {languageHandler('meerkat-wallet-d', language)}
                     </span> */}
-                    <img src={CoinsWallet} alt="chains-wallet" className="w-[240px] mt-2" />
+                    <img src={CoinsWallet} alt="chains-wallet" className="w-[340px] mt-2" />
                   </div>
                 </div>
                 <div className="flex items-start gap-2">

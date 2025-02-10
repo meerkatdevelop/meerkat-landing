@@ -73,6 +73,16 @@ import Roadmap7 from './images/roadmap_7.svg'
 import Roadmap8 from './images/roadmap_8.svg'
 import Roadmap9 from './images/roadmap_9.svg'
 import Roadmap10 from './images/roadmap_10.svg'
+import RoadmapMobile1 from './images/roadmap_mobile_1.svg'
+import RoadmapMobile2 from './images/roadmap_mobile_2.svg'
+import RoadmapMobile3 from './images/roadmap_mobile_3.svg'
+import RoadmapMobile4 from './images/roadmap_mobile_4.svg'
+import RoadmapMobile5 from './images/roadmap_mobile_5.svg'
+import RoadmapMobile6 from './images/roadmap_mobile_6.svg'
+import RoadmapMobile7 from './images/roadmap_mobile_7.svg'
+import RoadmapMobile8 from './images/roadmap_mobile_8.svg'
+import RoadmapMobile9 from './images/roadmap_mobile_9.svg'
+import RoadMapMobile10 from './images/roadmap_mobile_10.svg'
 
 //Flags
 import CountryCH from './flags/COUNTRY_CH.svg'
@@ -165,6 +175,16 @@ export {
   Roadmap8,
   Roadmap9,
   Roadmap10,
+  RoadmapMobile1,
+  RoadmapMobile2,
+  RoadmapMobile3,
+  RoadmapMobile4,
+  RoadmapMobile5,
+  RoadmapMobile6,
+  RoadmapMobile7,
+  RoadmapMobile8,
+  RoadmapMobile9,
+  RoadMapMobile10,
   //Flags
   CountryCH,
   CountryEN,

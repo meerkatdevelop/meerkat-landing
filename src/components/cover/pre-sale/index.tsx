@@ -106,7 +106,7 @@ const PreSaleCover = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-[31px] self-stretch pb-4 border-b-[#C9B6B5] border-b-[0.5px] opacity-15">
+          <div className="flex items-center gap-[31px] self-stretch pb-4 border-b-[#C9B6B5] border-b-[0.5px] opacity-15 opacity-15 hover:opacity-100 transition-all delay-100 ease-in-out">
             <div className="flex flex-col justify-center items-start gap-2">
               <div className="flex h-7 justify-center items-center gap-1.5 px-3 py-1.5  border border-[#521210] rounded-[100px]  bg-[#FFFAEA]">
                 <span className="font-neueMontreal text-[#521210] text-xs font-bold leading-[normal] tracking-[0.12px]">
@@ -128,7 +128,7 @@ const PreSaleCover = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-[31px] self-stretch pb-4 border-b-[#C9B6B5] border-b-[0.5px] opacity-15">
+          <div className="flex items-center gap-[31px] self-stretch pb-4 border-b-[#C9B6B5] border-b-[0.5px] opacity-15 hover:opacity-100 transition-all delay-100 ease-in-out">
             <div className="flex flex-col justify-center items-start gap-2">
               <div className="flex h-7 justify-center items-center gap-1.5 px-3 py-1.5  border border-[#521210] rounded-[100px]  bg-[#FFFAEA]">
                 <span className="font-neueMontreal text-[#521210] text-xs font-bold leading-[normal] tracking-[0.12px]">

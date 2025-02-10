@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
-import { AnimatePresence, motion } from 'motion/react'
+import { motion } from 'motion/react'
 import { languageHandler } from '../../helpers'
 import { useAppContext } from '../../context'
 import { Etherscan, InfoIcon } from '../../assets'
 
 const Tokenomics = () => {
   const { language } = useAppContext()
-  const sectionRef = useRef<HTMLDivElement | null>(null)
+
   const presaleBoxRef = useRef<HTMLDivElement | null>(null)
   const stakingRewardsPostBoxRef = useRef<HTMLDivElement | null>(null)
   const stakingRewardsDuringBoxRef = useRef<HTMLDivElement | null>(null)
@@ -16,8 +16,6 @@ const Tokenomics = () => {
   const cexBoxRef = useRef<HTMLDivElement | null>(null)
   const [active, setActive] = useState<{ id: string } | null>(null)
   const [isCopied, setIsCopied] = useState(false)
-  const [isBlendAreaActive, setIsBlendAreaActive] = useState(false)
-  const [coordinates, setCoordinates] = useState<{ x: number; y: number } | null>(null)
 
   const handleCopy = () => {
     navigator.clipboard.writeText('deploy pending')
@@ -38,7 +36,6 @@ const Tokenomics = () => {
         dexBoxRef.current,
         cexBoxRef.current,
       ]
-
       for (const box of boxes) {
         if (box) {
           const { left, top, right, bottom } = box.getBoundingClientRect()
@@ -46,7 +43,6 @@ const Tokenomics = () => {
 
           if (isInside) {
             setActive({ id: box.id })
-            setCoordinates(null)
             break
           } else {
             setActive(null)
@@ -59,20 +55,6 @@ const Tokenomics = () => {
       window.removeEventListener('mousemove', handleMouseBox)
     }
   }, [])
-
-  const handleMouseMove = (event: React.MouseEvent) => {
-    const sectionElement = sectionRef.current
-    if (sectionElement) {
-      const { left, top, right, bottom } = sectionElement.getBoundingClientRect()
-      const isInside = event.clientX >= left && event.clientX <= right && event.clientY >= top && event.clientY <= bottom
-      setIsBlendAreaActive(isInside)
-      if (isInside) {
-        setCoordinates({ x: event.clientX, y: event.clientY })
-      } else {
-        setCoordinates(null)
-      }
-    }
-  }
 
   return (
     <section id="tokenomics" className="cursor-meerkat flex w-screen flex-col items-center  px-20 py-28 bg-[#250807]">
@@ -122,13 +104,7 @@ const Tokenomics = () => {
             </div>
           </div>
         </div>
-        <div
-          ref={sectionRef}
-          className="relative flex h-[469px] shrink-0 justify-center items-center pb-[5px]"
-          onMouseEnter={() => setIsBlendAreaActive(true)}
-          onMouseMove={(event) => handleMouseMove(event)}
-          onMouseLeave={() => setIsBlendAreaActive(false)}
-        >
+        <div className="relative flex h-[469px] shrink-0 justify-center items-center pb-[5px]">
           {active && (
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
@@ -278,7 +254,17 @@ const Tokenomics = () => {
               5%
             </span>
           </div>
-          <AnimatePresence>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Tokenomics
+
+//CIRCLE_EFFECT
+{
+  /* <AnimatePresence>
             {coordinates && (
               <motion.div
                 className={`fixed top-0 left-0 w-[300px] h-[300px]  bg-[#FFCC29] rounded-full mix-blend-difference transition-opacity ease-in-out ${isBlendAreaActive ? 'opacity-100 custom-cursor z-0' : 'opacity-0 -z-10  cursor-meerkat'}`}
@@ -292,11 +278,5 @@ const Tokenomics = () => {
                 exit={{ scale: 0 }}
               />
             )}
-          </AnimatePresence>
-        </div>
-      </div>
-    </section>
-  )
+          </AnimatePresence> */
 }
-
-export default Tokenomics

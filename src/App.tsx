@@ -19,6 +19,7 @@ import MeerkatWalletMobile from './components/meerkat-wallet-mobile'
 import FAQMobile from './components/faq-mobile'
 import FooterMobile from './components/footer-mobile'
 import Roadmap from './components/roadmap'
+import RoadmapMobile from './components/roadmap-mobile'
 
 function App() {
   const parallaxRef = useRef<HTMLDivElement | null>(null)
@@ -64,6 +65,7 @@ function App() {
             <div ref={transitionRef} className="relative -mt-[172px]">
               <AboutMobile />
               <FeaturesMobile />
+              <RoadmapMobile />
               <MeerkatWalletMobile />
               <FAQMobile />
               <FooterMobile />
