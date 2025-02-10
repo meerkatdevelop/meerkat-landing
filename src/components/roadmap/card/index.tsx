@@ -22,7 +22,7 @@ const Card = ({ i, banner }: { i: number; banner: string }) => {
                 {languageHandler(`roadmap-${i + 1}-a`, language)}
               </span>
             </div>
-            <img src={banner} alt="meerkat-king" className="rounded-lg" />
+            <img src={banner} alt={`roadmap-${i + 1}-a`} className="rounded-lg" />
           </div>
           {/* Content */}
           <div className="flex flex-col items-start gap-2 self-stretch py-4">
