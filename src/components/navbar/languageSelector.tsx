@@ -3,7 +3,6 @@ import { springInLaguageSelector } from '../../constants'
 import { languageHandler } from '../../helpers'
 import { CountryCH, CountryEN, CountryIN, CountryIT, CountryPT, CountrySP, MagnifyingGlassIcon } from '../../assets'
 import { Languages } from '../../context'
-import { useEffect, useRef } from 'react'
 
 const LanguagesList = [Languages.US, Languages.ES, Languages.CH, Languages.IT, Languages.IN, Languages.PO]
 const LanguagesIcons = [CountryEN, CountrySP, CountryCH, CountryIT, CountryIN, CountryPT]
@@ -16,7 +15,6 @@ interface LanguageSelectorProps {
 }
 
 const LanguageSelector = ({ language, handleLanguage, search, setSearch }: LanguageSelectorProps) => {
-  const scrollRef = useRef<HTMLDivElement>(null)
   const handleSearch = () => {
     const languages: { lingo: string; icon: string; selector: Languages }[] = []
     for (let i = 0; i <= 5; i++) {
@@ -28,20 +26,6 @@ const LanguageSelector = ({ language, handleLanguage, search, setSearch }: Langu
     return result
   }
 
-  useEffect(() => {
-    const handleWheel = (event: WheelEvent) => {
-      event.preventDefault()
-      if (scrollRef.current) {
-        scrollRef.current.scrollTo({
-          top: scrollRef.current.scrollTop + event.deltaY * 20,
-          behavior: 'smooth',
-        })
-      }
-    }
-    window.addEventListener('wheel', handleWheel, { passive: false })
-
-    return () => window.removeEventListener('wheel', handleWheel)
-  }, [])
   return (
     <motion.div
       variants={springInLaguageSelector}
@@ -49,6 +33,9 @@ const LanguageSelector = ({ language, handleLanguage, search, setSearch }: Langu
       animate="visible"
       exit="exit"
       className="absolute top-14 -right-10 flex w-[240px] h-[460px] flex-col justify-start items-start gap-4 p-6 shadow-[1px_2px_13px_0px_rgba(0,0,0,0.30)] rounded-3xl bg-[#250807] overflow-hidden"
+      onWheel={(e) => {
+        e.stopPropagation()
+      }}
     >
       <div className="flex justify-center items-center gap-2.5 self-stretch px-3 py-0">
         <span className="flex-[1_0_0] font-neueMontreal text-[#FFFDFB] text-[15px] font-bold leading-[18px]">
@@ -66,7 +53,7 @@ const LanguageSelector = ({ language, handleLanguage, search, setSearch }: Langu
         />
       </div>
       {/* Languages List */}
-      <div className="flex flex-col items-start gap-2 self-stretch overflow-x-auto custom-scrollbar" ref={scrollRef}>
+      <div className="flex flex-col items-start gap-2 self-stretch overflow-x-auto custom-scrollbar">
         {handleSearch().map((idiom, i) => (
           <div
             key={i}
