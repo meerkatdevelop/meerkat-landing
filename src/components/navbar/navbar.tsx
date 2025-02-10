@@ -49,9 +49,7 @@ const Navbar = ({ move, moveTo }: { move: MotionValue<number>; moveTo: (to: numb
   }, [isSolana, language, solanaWallet])
 
   return (
-    <nav
-      className={`sticky top-0 flex-col w-screen pb-2 ${isMenuOpen ? 'z-20' : 'z-10'} ${activeBg ? 'bg-[#250807]' : 'bg-transparent'} transition-all ease-in-out`}
-    >
+    <nav className={`sticky top-0 flex-col w-screen pb-2 z-20 ${activeBg ? 'bg-[#250807]' : 'bg-transparent'} transition-all ease-in-out`}>
       <div className="relative w-screen">
         <Menu moveTo={moveTo} />
       </div>

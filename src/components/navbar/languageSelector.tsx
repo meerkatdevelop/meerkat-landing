@@ -25,6 +25,7 @@ const LanguageSelector = ({ language, handleLanguage, search, setSearch }: Langu
 
     return result
   }
+
   return (
     <motion.div
       variants={springInLaguageSelector}
@@ -32,6 +33,9 @@ const LanguageSelector = ({ language, handleLanguage, search, setSearch }: Langu
       animate="visible"
       exit="exit"
       className="absolute top-14 -right-10 flex w-[240px] h-[460px] flex-col justify-start items-start gap-4 p-6 shadow-[1px_2px_13px_0px_rgba(0,0,0,0.30)] rounded-3xl bg-[#250807] overflow-hidden"
+      onWheel={(e) => {
+        e.stopPropagation()
+      }}
     >
       <div className="flex justify-center items-center gap-2.5 self-stretch px-3 py-0">
         <span className="flex-[1_0_0] font-neueMontreal text-[#FFFDFB] text-[15px] font-bold leading-[18px]">
