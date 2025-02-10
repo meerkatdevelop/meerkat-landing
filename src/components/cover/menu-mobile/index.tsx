@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 import { useAppContext } from '../../../context'
 import { motion } from 'motion/react'
 import { AnimatePresence } from 'motion/react'
@@ -9,6 +9,7 @@ import UserMenuMobile from './userMenuMobile'
 import { useChangeEvmNetwork, useWallet } from '../../../hooks/useEvmHooks'
 import { ConnectEvmWalletButtonMobile, ConnectSolanaWalletButtonMobile } from './ConnectWalletBtnMobile'
 import SocialNetworks from '../../navbar/SocialNetworks'
+import { useAnchorWallet } from '@solana/wallet-adapter-react'
 
 const MenuMobile = ({ moveTo }: { moveTo: (to: number) => void }) => {
   const { isMenuOpen, setIsMenuOpen, language } = useAppContext()
@@ -16,6 +17,7 @@ const MenuMobile = ({ moveTo }: { moveTo: (to: number) => void }) => {
   const [isChainMenuOpen, setIsChainMenuOpen] = useState(false)
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false)
   const [isSolana, setIsSolana] = useState(false)
+  const solanaWallet = useAnchorWallet()
   const { connectedChain } = useChangeEvmNetwork()
   const chainInfo = formatNetworkById(connectedChain?.id, isSolana)
   const handleNavigation = (id: string) => {
@@ -29,7 +31,7 @@ const MenuMobile = ({ moveTo }: { moveTo: (to: number) => void }) => {
       opacity: 0,
     },
     visible: {
-      height: isChainMenuOpen ? 840 : isUserMenuOpen ? 800 : 730,
+      height: isChainMenuOpen ? 740 : isUserMenuOpen ? 720 : 610,
       opacity: 1,
       transition: {
         duration: 0.4,
@@ -50,6 +52,16 @@ const MenuMobile = ({ moveTo }: { moveTo: (to: number) => void }) => {
     },
   }
 
+  useLayoutEffect(() => {
+    const container = document.querySelector('.wallet-adapter-dropdown')
+    if (!container) return
+    container.classList.add('custom-container-mobile')
+    const element = document.querySelector('.wallet-adapter-button')
+    if (!element) return
+    element.setAttribute('data-tag', languageHandler('navbar-a', language).toString())
+    element.classList.add('custom-solana-btn-menu-mobile')
+  }, [isSolana, language, solanaWallet])
+
   return (
     <AnimatePresence>
       {/* Menu */}
@@ -60,9 +72,9 @@ const MenuMobile = ({ moveTo }: { moveTo: (to: number) => void }) => {
           initial="hidden"
           animate="visible"
           exit="exit"
-          className={`absolute -top-20 left-0 flex w-full flex-col items-start shrink-0 px-4 py-10 gap-6 rounded-[0px_0px_32px_32px] bg-[#250807] -z-10 cursor-meerkat`}
+          className={`absolute -top-20 left-0 flex w-full flex-col items-start shrink-0 px-4 py-10 gap-6 rounded-[0px_0px_32px_32px] bg-[#250807] -z-10 cursor-meerkat overflow-hidden`}
         >
-          <div className="flex flex-col items-start justify-between  self-stretch pt-32 gap-6">
+          <div className="flex flex-col items-start justify-between  self-stretch pt-[110px] gap-2">
             <button
               className="font-newTitle text-[#FFCC29] text-[44px] font-bold leading-[44px] tracking-[1.32px] uppercase hover:text-[#FFEFBD] cursor-meerkat"
               onClick={() => handleNavigation('about')}
@@ -88,7 +100,7 @@ const MenuMobile = ({ moveTo }: { moveTo: (to: number) => void }) => {
               {languageHandler('menu-d', language)}
             </button>
           </div>
-          <div className="flex w-full flex-col items-center gap-4 self-stretch px-0 py-8">
+          <div className="flex w-full flex-col items-center gap-4 self-stretch px-0 py-1">
             <div className="flex w-full flex-col items-center">
               {chainInfo ? (
                 <button
@@ -127,6 +139,7 @@ const MenuMobile = ({ moveTo }: { moveTo: (to: number) => void }) => {
               <UserMenuMobile isUserMenuOpen={isUserMenuOpen} setIsUserMenuOpen={setIsUserMenuOpen} isSolana={isSolana} />
             </div>
           </div>
+
           {isChainMenuOpen || isUserMenuOpen ? (
             ''
           ) : (

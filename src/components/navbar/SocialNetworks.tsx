@@ -5,7 +5,7 @@ import XIcon from '../../assets/icons/x'
 
 const SocialNetworks = () => {
   return (
-    <div className="flex justify-end items-center gap-4 flex-[1_0_0]">
+    <div className="flex justify-end items-center gap-4">
       <a className="cursor-meerkat" href="https://x.com/Meerkatwtf" target="blank_" rel="noreferrer">
         <XIcon color="#EEE7E7" />
       </a>

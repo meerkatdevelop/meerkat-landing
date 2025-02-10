@@ -29,6 +29,7 @@ export const ConnectEvmWalletButtonMobile = ({ setIsChainMenuOpen, setIsUserMenu
 
 export const ConnectSolanaWalletButtonMobile = ({ setIsChainMenuOpen, setIsUserMenuOpen }: ConnectEvmWalletButtonMobileProps) => {
   const solanaWallet = useAnchorWallet()
+
   const solanaUserAddress = solanaWallet?.publicKey?.toBase58() as string
   const shortedAddress = solanaUserAddress?.slice(0, 4) + '..' + solanaUserAddress?.slice(-4)
   const isConnected = !!solanaWallet
@@ -36,6 +37,7 @@ export const ConnectSolanaWalletButtonMobile = ({ setIsChainMenuOpen, setIsUserM
     setIsUserMenuOpen((prev) => !prev)
     setIsChainMenuOpen(false)
   }
+
   if (!isConnected) return <CustomConnectWalletButton />
   return <ConnectWalletBtnMobile isConnected={isConnected} address={shortedAddress} walletButtonHandler={walletButtonHandler} />
 }
@@ -48,6 +50,7 @@ interface GenericConnectWalletBtnProps {
 
 export const ConnectWalletBtnMobile = ({ isConnected, address, walletButtonHandler }: GenericConnectWalletBtnProps) => {
   const { language } = useAppContext()
+
   return (
     <button
       className={`flex w-full h-10  items-center gap-2 py-3 pr-2   transition-all ease-in duration-200  cursor-meerkat ${isConnected ? 'justify-between bg-[#EEE7E7] rounded-[100px_50px_50px_100px]' : 'justify-center bg-[#FFCC29] rounded-xl'}`}

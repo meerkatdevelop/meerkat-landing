@@ -1,4 +1,4 @@
-import { Dispatch } from 'react'
+import { Dispatch, useLayoutEffect } from 'react'
 import { useWallet } from '../../../hooks/useEvmHooks'
 
 import { ExitIcon, MeerkatCoin } from '../../../assets'
@@ -19,9 +19,18 @@ const UserMenuMobile = ({ isUserMenuOpen, setIsUserMenuOpen, isSolana }: UserMen
     disconnect({ label: wallet?.label as string })
     setIsUserMenuOpen((prev) => !prev)
   }
+
+  useLayoutEffect(() => {
+    if (!isUserMenuOpen) return
+    const element = document.querySelector('.wallet-adapter-button')
+    if (!element) return
+    element.setAttribute('data-tag', languageHandler('user-menu-c', language).toString())
+    element.classList.add('custom-solana-btn-mobile-disconnect')
+  }, [isSolana, language, isUserMenuOpen])
+
   return (
     <div className={`flex w-full bg-[#1D0606] overflow-hidden transition-all ease-in-out duration-500 ${isUserMenuOpen ? 'h-[220px]' : 'h-0'}`}>
-      <div className="flex w-full flex-col gap-3 p-6">
+      <div className="flex w-full flex-col gap-3 px-6 pt-1">
         <div className="flex flex-col justify-center items-start gap-4 self-stretch p-3 border-b-[#521210] rounded-[24px_24px_0px_0px] border-b ">
           <span className="flex-[1_0_0] font-neueMontreal text-[#FFFDFB] text-[15px] font-bold leading-[18px]">{languageHandler('user-menu-a', language)}</span>
           {/* <span className="flex-[1_0_0] font-neueMontreal text-[#FFFDFB] text-[15px] font-bold leading-[18px]">{languageHandler('user-menu-b', language)}</span> */}
