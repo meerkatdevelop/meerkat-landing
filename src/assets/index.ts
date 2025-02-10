@@ -70,6 +70,9 @@ import Roadmap4 from './images/roadmap_4.svg'
 import Roadmap5 from './images/roadmap_5.svg'
 import Roadmap6 from './images/roadmap_6.svg'
 import Roadmap7 from './images/roadmap_7.svg'
+import Roadmap8 from './images/roadmap_8.svg'
+import Roadmap9 from './images/roadmap_9.svg'
+import Roadmap10 from './images/roadmap_10.svg'
 
 //Flags
 import CountryCH from './flags/COUNTRY_CH.svg'
@@ -159,6 +162,9 @@ export {
   Roadmap5,
   Roadmap6,
   Roadmap7,
+  Roadmap8,
+  Roadmap9,
+  Roadmap10,
   //Flags
   CountryCH,
   CountryEN,

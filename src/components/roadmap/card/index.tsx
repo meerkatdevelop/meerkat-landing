@@ -1,11 +1,8 @@
-import { motion } from 'motion/react'
-import { Roadmap1, Roadmap2, Roadmap3, Roadmap4, Roadmap5, Roadmap6, Roadmap7 } from '../../../assets'
-import { languageHandler } from '../../../helpers'
 import { useAppContext } from '../../../context'
+import { motion } from 'motion/react'
+import { languageHandler } from '../../../helpers'
 
-const roadmapImgs = [Roadmap1, Roadmap2, Roadmap3, Roadmap4, Roadmap5, Roadmap6, Roadmap7]
-
-const Card = ({ i }: { i: number }) => {
+const Card = ({ i, banner }: { i: number; banner: string }) => {
   const { language } = useAppContext()
   return (
     <motion.div
@@ -25,7 +22,7 @@ const Card = ({ i }: { i: number }) => {
                 {languageHandler(`roadmap-${i + 1}-a`, language)}
               </span>
             </div>
-            <img src={roadmapImgs[i]} alt="meerkat-king" className="rounded-lg" />
+            <img src={banner} alt="meerkat-king" className="rounded-lg" />
           </div>
           {/* Content */}
           <div className="flex flex-col items-start gap-2 self-stretch py-4">
